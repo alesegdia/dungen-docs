@@ -49,23 +49,52 @@
 				</section>
 
 				<section id="fragments">
+					<h2>Videojuegos</h2>
+					<p class="fragment">Los videojuegos son, a día de hoy, un tipo de mercado líder indiscutible a nivel internacional</p>
+					<p class="fragment">Por ello, es bastante conveniente dedicar investigación a este campo, que además en muchos casos
+					da lugar a desarrollo en otras áreas ajenas a la de los videojuegos</p>
+				</section>
+
+				<section id="fragments">
 					<h2>Problema</h2>
-					<p class="fragment">Elaborar mapas para juegos consume recursos.</p>
-					<p class="fragment">Normalmente, una o varias personas dedicadas a la tarea</p>
-					<p class="fragment">Un equipo grande puede permitírselo, pero en un equipo indie, es más complicado.</p>
+					<p class="fragment">Muchos géneros de juegos requieren mapas en los que poder dar rienda suelta al jugador para recorrer,
+					investigar y disfrutar</p>
+					<p class="fragment">La elaboración de mapas consume recursos de horas/persona</p>
+					<p class="fragment">Normalmente en las empresas grandes, suelen dedicar un equipo completo a esta tarea</p>
+					<p class="fragment">La aparición de equipos denominados <i>indies</i>, que se caracterizan por tener bajo presupuesto y personal,
+					hace emerger necesidades relacionadas con cubrir la falta de recursos</p>
 				</section>
 
 				<section id="fragments">
 					<h2>Solución</h2>
-					<p class="fragment">Elaborar un algoritmo que genere mapas automáticamente</p>
+					<p class="fragment">Siendo capaces de elaborar un sistema que, empleando un algoritmo, genere los mapas necesarios para el desarrollo
+					de un videojuego, se consigue un ahorro en horas/persona</p>
+					<p class="fragment">Cada juego tiene sus propias reglas del mundo, y por ende, el sistema a construir debe adaptarse a dichas reglas</p>
+					<p class="fragment">Este trabajo se ha elaborado en función de requisitos impuestos por la empresa indie de videojuegos</p>
+					<p class="fragment"><a href="http://thegamekitchen.com/"><img class="fragment" src="./tgk-header-logo.gif" /></a></p>
 				</section>
 
 				<section id="fragments">
-					<h2>Requisitos</h2>
-					<p class="fragment">Cada juego tiene sus propias reglas del mundo</p>
-					<p class="fragment">El algoritmo debe adaptarse a dichas reglas</p>
+					<h2>Reglas del mundo</h2>
+					<ul>
+						<li>El entorno debe ser en dos dimensiones</li>
+						<li>El jugador empezará en una habitación y tiene como objetivo llegar al final del nivel</li>
+					</ul>
+					<p class="fragment">Estas reglas son muy genéricas, con lo que el sistema resultante será muy flexible, y podrá ser empleado en distintos juegos</p>
 				</section>
 
+				<section id="fragments">
+					<h2>Especificaciones para la generación</h2>
+					<ul>
+						<li>Partir de una lista de habitaciones previamente creadas</li>
+						<li>Maximizar el camino desde la habitación de inicio hasta la final</li>
+						<li>Fomentar caminos alternativos para promover que el jugador tenga que investigar</li>
+						<li>Fomentar la variabilidad en la generación de los niveles, de forma que cada jugador tendrá una experiencia ligeramente distinta</li>
+						<li>Cada nivel se generará en el momento que el jugador inicia el mismo</li>
+						<li>Debe funcionar en sistemas móviles, contando con un tiempo de ejecución asequible</li>
+					</ul>
+					<p class="fragment">Además, se ha tomado la libertad de añadir algunas especificaciones opcionales más como veremos más adelante</p>
+				</section>
 			</div>
 
 		</div>
