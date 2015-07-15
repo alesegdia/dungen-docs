@@ -94,27 +94,108 @@
 						<ul>
 							<li class="fragment">El entorno debe ser en dos dimensiones</li>
 							<li class="fragment">El jugador empezará en una habitación y tiene como objetivo llegar una habitación considerada final</li>
+							<li class="fragment">Mapa de tiles</li>
 							<li class="fragment">Vista cenital</li>
 							<center class="fragment">
 								<p><img src="./cenital.png" /></p>
 								<p><small>Captura de Action Hollywood, publicado por TCH en 1995 para recreativas</small></p>
 							</center>
 						</ul>
-						<p>NOTA: Estas reglas son muy genéricas, con lo que el sistema resultante será muy flexible, y podrá ser empleado en distintos juegos</p>
+						<p>NOTA: ventajas de mapas de tiles, estas reglas son muy genéricas, con lo que el sistema resultante será muy flexible, y podrá ser empleado en distintos juegos</p>
 					</section>
 
 					<section id="fragments">
-						<h2>Especificaciones para la generación</h2>
+						<h2>Especificaciones para la generación (I)</h2>
 						<ul>
 							<li class="fragment">Partir de una lista de habitaciones previamente creadas</li>
 							<li class="fragment">Maximizar el camino desde la habitación de inicio hasta la final</li>
 							<li class="fragment">Fomentar caminos alternativos para promover que el jugador tenga que investigar</li>
 							<li class="fragment">Fomentar la variabilidad en la generación de los niveles, de forma que cada jugador tendrá una experiencia ligeramente distinta</li>
+						</ul>
+					</section>
+
+					<section id="fragments">
+						<h2>Especificaciones para la generación (II)</h2>
+						<ul>
 							<li class="fragment">Cada nivel se generará en el momento que el jugador inicia el mismo</li>
 							<li class="fragment">Debe funcionar en sistemas móviles, contando con un tiempo de ejecución asequible</li>
 						</ul>
+						<p class="fragment">
+						En la versión final, nos hemos tomado la libertad de añadir nuevas especificaciones, dejando un
+						sistema flexible para adición de especificaciones extra.
+						</p>
 					</section>
 				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>State of the art</h2>
+					</section>
+
+					<section id="fragments">
+						<h3>Procedural content generation</h3>
+						<p class="fragment">Campo en desarrollo</p>
+						<p class="fragment">Destinado a varias áreas:</p>
+						<ul>
+							<li class="fragment">Generación de texturas</li>
+							<li class="fragment">Generación de escenarios (heightmaps, voronoi)</li>
+							<li class="fragment">Generación de conversaciones</li>
+						</ul>
+					</section>
+
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Intento con CSP</h2>
+					</section>
+
+					<section id="fragments">
+						<h3>PCG con AnsProlog</h3>
+					</section>
+
+					<section id="fragments">
+						<h3>Problemas de este acercamiento</h3>
+					</section>
+
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Intento con genéticos</h2>
+					</section>
+
+					<section id="fragments">
+						<h3>Representación del problema</h3>
+					</section>
+
+					<section id="fragments">
+						<h3>Problemas de este acercamiento</h3>
+						<ul>
+							<li>Tiempo de ejecución</li>
+							<li>Poca variabilidad</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Acercamiento con búsqueda</h2>
+					</section>
+
+					<section id="fragments">
+						<h3>Planteamiento</h3>
+					</section>
+
+					<section id="fragments">
+						<h3>Componentes extra</h3>
+					</section>
+
+					<section id="fragments">
+						<h3>Experimentación</h3>
+					</section>
+				</section>
+
 			</div>
 
 		</div>
