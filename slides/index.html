@@ -40,60 +40,80 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>
-					<h1>Generación de mazmorras</h1>
+				<section data-state="no-toc-progress">
+					<h1 class="no-toc-progress">Generación de mazmorras</h1>
 					<h3>Análisis e investigación del problema. Acercamiento con búsqueda.</h3>
 					<p>
 						<small>Creado por <a href="http://github.com/alesegdia/">Alejandro Seguí Díaz</a></small>
 					</p>
 				</section>
 
-				<section id="fragments">
-					<h2>Videojuegos</h2>
-					<p class="fragment">Los videojuegos son, a día de hoy, un tipo de mercado líder indiscutible a nivel internacional</p>
-					<p class="fragment">Por ello, es bastante conveniente dedicar investigación a este campo, que además en muchos casos
-					da lugar a desarrollo en otras áreas ajenas a la de los videojuegos</p>
+				<section>
+					<section id="fragments">
+						<h2>Contexto de la investigación</h2>
+					</section>
+
+					<section id="fragments">
+						<h3>Videojuegos</h3>
+						<p class="fragment">Los videojuegos son, a día de hoy, un tipo de mercado líder indiscutible a nivel internacional</p>
+						<p class="fragment">Por ello, es bastante conveniente dedicar investigación a este campo</p>
+						<p class="fragment">En muchos casos da lugar a desarrollo en otras áreas ajenas a la de los videojuegos</p>
+					</section>
+
+					<section id="fragments">
+						<h3>Problema</h3>
+						<p class="fragment">Muchos géneros de juegos requieren mapas en los que poder dar rienda suelta al jugador para recorrer,
+						investigar y disfrutar</p>
+						<p class="fragment">La elaboración de mapas consume recursos de horas/persona</p>
+						<p class="fragment">Empresas grandes dedican un equipo completo a esta tarea</p>
+						<p class="fragment">La aparición de equipos denominados <b><i>indies</i></b>, que se caracterizan por tener <b><i>bajo presupuesto y personal</i></b>,
+						hace emerger necesidades relacionadas con cubrir la falta de recursos</p>
+					</section>
+
+					<section id="fragments">
+						<h3>Solución</h3>
+						<p class="fragment">Elaborar un sistema que genere los mapas necesarios para el desarrollo de un videojuego</p>
+						<p class="fragment">Conseguimos un ahorro de recursos</p>
+					</section>
 				</section>
 
-				<section id="fragments">
-					<h2>Problema</h2>
-					<p class="fragment">Muchos géneros de juegos requieren mapas en los que poder dar rienda suelta al jugador para recorrer,
-					investigar y disfrutar</p>
-					<p class="fragment">La elaboración de mapas consume recursos de horas/persona</p>
-					<p class="fragment">Normalmente en las empresas grandes, suelen dedicar un equipo completo a esta tarea</p>
-					<p class="fragment">La aparición de equipos denominados <i>indies</i>, que se caracterizan por tener bajo presupuesto y personal,
-					hace emerger necesidades relacionadas con cubrir la falta de recursos</p>
-				</section>
+				<section>
+					<section id="fragments">
+						<h2>Restricciones</h2>
+					</section>
 
-				<section id="fragments">
-					<h2>Solución</h2>
-					<p class="fragment">Siendo capaces de elaborar un sistema que, empleando un algoritmo, genere los mapas necesarios para el desarrollo
-					de un videojuego, se consigue un ahorro en horas/persona</p>
-					<p class="fragment">Cada juego tiene sus propias reglas del mundo, y por ende, el sistema a construir debe adaptarse a dichas reglas</p>
-					<p class="fragment">Este trabajo se ha elaborado en función de requisitos impuestos por la empresa indie de videojuegos</p>
-					<p class="fragment"><a href="http://thegamekitchen.com/"><img class="fragment" src="./tgk-header-logo.gif" /></a></p>
-				</section>
+					<section id="fragments">
+						<h3>Reglas del mundo</h3>
+						<p class="fragment">Cada juego tiene sus propias reglas del mundo, y por ende, el sistema a construir debe adaptarse a dichas reglas</p>
+						<p class="fragment">Este trabajo se ha elaborado en función de requisitos impuestos por la empresa indie de videojuegos</p>
+						<a href="http://thegamekitchen.com/"><img class="fragment" src="./tgk-header-logo.gif" /></a>
+					</section>
 
-				<section id="fragments">
-					<h2>Reglas del mundo</h2>
-					<ul>
-						<li>El entorno debe ser en dos dimensiones</li>
-						<li>El jugador empezará en una habitación y tiene como objetivo llegar al final del nivel</li>
-					</ul>
-					<p class="fragment">Estas reglas son muy genéricas, con lo que el sistema resultante será muy flexible, y podrá ser empleado en distintos juegos</p>
-				</section>
+					<section id="fragments">
+						<h3>Definición del tipo de juego</h3>
+						<ul>
+							<li class="fragment">El entorno debe ser en dos dimensiones</li>
+							<li class="fragment">El jugador empezará en una habitación y tiene como objetivo llegar una habitación considerada final</li>
+							<li class="fragment">Vista cenital</li>
+							<center class="fragment">
+								<p><img src="./cenital.png" /></p>
+								<p><small>Captura de Action Hollywood, publicado por TCH en 1995 para recreativas</small></p>
+							</center>
+						</ul>
+						<p>NOTA: Estas reglas son muy genéricas, con lo que el sistema resultante será muy flexible, y podrá ser empleado en distintos juegos</p>
+					</section>
 
-				<section id="fragments">
-					<h2>Especificaciones para la generación</h2>
-					<ul>
-						<li>Partir de una lista de habitaciones previamente creadas</li>
-						<li>Maximizar el camino desde la habitación de inicio hasta la final</li>
-						<li>Fomentar caminos alternativos para promover que el jugador tenga que investigar</li>
-						<li>Fomentar la variabilidad en la generación de los niveles, de forma que cada jugador tendrá una experiencia ligeramente distinta</li>
-						<li>Cada nivel se generará en el momento que el jugador inicia el mismo</li>
-						<li>Debe funcionar en sistemas móviles, contando con un tiempo de ejecución asequible</li>
-					</ul>
-					<p class="fragment">Además, se ha tomado la libertad de añadir algunas especificaciones opcionales más como veremos más adelante</p>
+					<section id="fragments">
+						<h2>Especificaciones para la generación</h2>
+						<ul>
+							<li class="fragment">Partir de una lista de habitaciones previamente creadas</li>
+							<li class="fragment">Maximizar el camino desde la habitación de inicio hasta la final</li>
+							<li class="fragment">Fomentar caminos alternativos para promover que el jugador tenga que investigar</li>
+							<li class="fragment">Fomentar la variabilidad en la generación de los niveles, de forma que cada jugador tendrá una experiencia ligeramente distinta</li>
+							<li class="fragment">Cada nivel se generará en el momento que el jugador inicia el mismo</li>
+							<li class="fragment">Debe funcionar en sistemas móviles, contando con un tiempo de ejecución asequible</li>
+						</ul>
+					</section>
 				</section>
 			</div>
 
@@ -121,7 +141,8 @@
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize(); toc_progress.create(); } }
 				]
 			});
 
