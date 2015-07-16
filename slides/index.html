@@ -180,13 +180,39 @@
 
 				<section>
 					<section id="fragments">
-						<h2>Representación del problema</h2>
+						<h2>Estrategia de resolución</h2>
 					</section>
 
 					<section id="fragments">
-						<h3>Definición del problema</h3>
-						<p class="fragment">Por recordar, los mapas debían generarse a partir de un set de habitaciones suministrado</p>
+						<h3>Recordatorio del problema</h3>
+						<p class="fragment">Los mapas debían generarse a partir de un set de habitaciones suministrado</p>
 						<p class="fragment">Esto tiene su lógica en que, según el nivel, podemos querer que haya unas habitaciones u otras</p>
+						<p class="fragment">No hay restricción en el tamaño del mapa, por lo que partiremos partiremos de un solar de tamaño suficiente
+						para dar cabida a todas las habitaciones</p>
+					</section>
+
+					<section id="fragments">
+						<h3>Topología de los elementos</h3>
+						<p class="fragment">La representación física tanto del mapa como de las habitaciones, será una <i><b>matriz de dos dimensiones</b></i></p>
+						<table class="fragment">
+							<tr>
+								<td valign="center">$\begin{matrix}  0 & 1 & 1 & 1 & 0 \\  0 & 1 & 0 & 1 & 1 \\ 1 & 1 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 & 1 \\ 1 & 1 & 1 & 1 & 1 \end{matrix}$</td>
+								<td valign="center">$\leftrightarrow$</td>
+								<td valign="center"><img  style="vertical-align:middle"  src="./topologia.png" /></td>
+							</tr>
+						</table>
+						</p>
+					</section>
+
+					<section id="fragments">
+						<h3>Definición de la estrategia (I)</h3>
+						<p class="fragment">Se ha empleado un método constructivo, es decir, iremos construyendo el mapa por pasos, guiándonos con
+						una <i><b>búsqueda</b></i></p>
+
+					</section>
+
+					<section id="fragments">
+						<h3>Definición de la estrategia (I)</h3>
 						<p class="fragment">Se ha procurado elaborar un sistema flexible que podamos modificar fácilmente en funcion de otros requerimentos,
 						haciendo así posible la reutilización del software</p>
 					</section>
@@ -204,9 +230,10 @@
 
 					<section id="fragments">
 						<h3>Prefab de habitación</h3>
+						<p class="fragment">También nos referiremos como <i><b>clase</b></i> o <i><b>modelo</b></i>.</p>
 						<p class="fragment">Contiene la representación física de un modelo de habitación</p>
 						<p class="fragment">Se precomputan y guardan las puertas potenciales de una habitación, ya que el cómputo de las mismas
-						es costoso, y de esta forma solo se realiza en la carga</p>
+						es costoso e innecesario, y de esta forma solo se realiza en la carga</p>
 						<center class="fragment">
 							<p><img src="./ejemplopuertas.png" /></p>
 							<p><small>Puertas potenciales mostradas como tiles azules</small></p>
@@ -214,6 +241,22 @@
 						<aside class="notes">
 							<p>Puerta potencial: delante tiene un tile libre, detrás un tile de interior</p>
 						</aside>
+					</section>
+
+					<section id="fragments">
+						<h3>Instancia de habitación</h3>
+						<p class="fragment">Permite elegir un subconjunto de todas las posibles puertas de un modelo de habitación a partir
+						del conjunto de tiles precomputado en el modelo</p>
+						<p class="fragment">Contiene información sobre una instancia de un modelo de habitación:</p>
+						<ul>
+							<li class="fragment">Lista de puertas que aún no se han colocadoa</li>
+							<li class="fragment">Lista de puertas que se han colocado</li>
+							<li class="fragment">Posición donde está colocada la habitación en un mapa</li>
+						</ul>
+					</section>
+
+					<section id="fragments">V
+						<h3>Representación de la solución</h3>
 					</section>
 
 				</section>
@@ -273,6 +316,11 @@
 
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
+				math: {
+					mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+				},
+
 				// Optional reveal.js plugins
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
@@ -283,6 +331,7 @@
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'socket.io/socket.io.js', async: true },
 					{ src: 'plugin/notes-server/client.js', async: true },
+					{ src: 'plugin/math/math.js', async: true },
 					{ src: 'plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize(); toc_progress.create(); } }
 				]
 			});
