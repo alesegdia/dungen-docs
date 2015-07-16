@@ -205,10 +205,22 @@
 					</section>
 
 					<section id="fragments">
-						<h3>Definición de la estrategia (I)</h3>
-						<p class="fragment">Se ha empleado un método constructivo, es decir, iremos construyendo el mapa por pasos, guiándonos con
+						<h3>Visión general del método</h3>
+						<p class="fragment">Se ha empleado un método constructivo, es decir, iremos construyendo el mapa por pasos, basándonos en
 						una <i><b>búsqueda</b></i></p>
-
+						<p class="fragment">En cada paso, se colocará una habitación</p>
+						<p class="fragment">La habitación elegida se hará en función de una <b><i>función de guía</i></b></p>
+						<p class="fragment">A grandes rasgos...</p>
+						<pre class="fragment"><code data-trim>
+Mapa bleh( List&lt;Habitacion&gt; habitaciones ) {
+	Mapa mapa = MapaVacio();
+	while( !habitaciones.isEmpty() ) {
+		ComputarFuncionGuia( habitaciones );
+		Habitacion prometedora = ExtraerPrometedora( habitaciones );
+		mapa.InsertarHabitacion( prometedora );
+	}
+}
+						</code></pre>
 					</section>
 
 					<section id="fragments">
