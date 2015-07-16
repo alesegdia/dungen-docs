@@ -79,13 +79,13 @@
 
 				<section>
 					<section id="fragments">
-						<h2>Restricciones</h2>
+						<h2>Especificaciones</h2>
 					</section>
 
 					<section id="fragments">
-						<h3>Reglas del mundo</h3>
+						<h3>Coordinación</h3>
 						<p class="fragment">Cada juego tiene sus propias reglas del mundo, y por ende, el sistema a construir debe adaptarse a dichas reglas</p>
-						<p class="fragment">Este trabajo se ha elaborado en función de requisitos impuestos por la empresa indie de videojuegos</p>
+						<p class="fragment">Este trabajo se ha elaborado en función de especificaciones impuestas por la empresa indie de videojuegos</p>
 						<a href="http://thegamekitchen.com/"><img class="fragment" src="./tgk-header-logo.gif" /></a>
 					</section>
 
@@ -126,8 +126,12 @@
 							<li class="fragment">Debe funcionar en sistemas móviles, contando con un tiempo de ejecución asequible</li>
 						</ul>
 						<p class="fragment">
-						En la versión final, nos hemos tomado la libertad de añadir nuevas especificaciones, dejando un
-						sistema flexible para adición de especificaciones extra.
+						<aside class="notes">
+							<p>
+								En la versión final, nos hemos tomado la libertad de añadir nuevas especificaciones, dejando un
+								sistema flexible para adición de especificaciones extra.
+							</p>
+						</aside>
 						</p>
 					</section>
 				</section>
@@ -139,12 +143,11 @@
 
 					<section id="fragments">
 						<h3>Procedural content generation</h3>
-						<p class="fragment">Campo en desarrollo</p>
-						<p class="fragment">Destinado a varias áreas:</p>
+						<p class="fragment">Campo en constante desarrollo con varias subáreas:</p>
 						<ul>
-							<li class="fragment">Generación de texturas</li>
-							<li class="fragment">Generación de escenarios (heightmaps, voronoi)</li>
-							<li class="fragment">Generación de conversaciones</li>
+							<li class="fragment">Generación de mapas</li>
+							<li class="fragment">Storytelling procedimental</li>
+							<li class="fragment">Generación de puzles</li>
 						</ul>
 					</section>
 
@@ -156,11 +159,54 @@
 					</section>
 
 					<section id="fragments">
-						<h3>PCG con AnsProlog</h3>
+						<h3>Answer Set Programming</h3>
+						<p class="fragment">Forma de programación declarativa que pretende resolver problemas de búsqueda (principalmente NP-hard)</p>
+						<p class="fragment">Guarda similitud con programación lógica</p>
+						<p class="fragment">Intentamos modelar nuestro problema a partir de restricciones</p>
+						<aside class="notes">
+							<p>NP = no-determinista, tiempo polinomial</p>
+							<p>NP-hard = at least as hard as the hardest problems in NP</p>
+						</aside>
 					</section>
 
 					<section id="fragments">
 						<h3>Problemas de este acercamiento</h3>
+						<ul>
+							<li class="fragment">Complejo traslado al ámbito móvil</li>
+							<li class="fragment">Tiempo de ejecución demasiado largo</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Representación del problema</h2>
+					</section>
+
+					<section id="fragments">
+						<h3>Definición del problema</h3>
+						<p class="fragment">Por recordar, los mapas debían generarse a partir de un set de habitaciones suministrado</p>
+						<p class="fragment">Esto tiene su lógica en que, según el nivel, podemos querer que haya unas habitaciones u otras</p>
+						<p class="fragment">Se ha procurado elaborar un sistema flexible que podamos modificar fácilmente en funcion de otros requerimentos,
+						haciendo así posible la reutilización del software</p>
+					</section>
+
+					<section id="fragments">
+						<h3>Representación de habitaciones</h3>
+						<p class="fragment">Cada habitación se representará como una matriz de dos dimensiones</p>
+						<p class="fragment">Las habitaciones contendrán puertas que nos servirán para conectar pares de habitaciones</p>
+						<p class="fragment">Debido a que las habitaciones pueden repetirse, se ha optado por una representación dividida en dos componentes:</p>
+						<ul>
+							<li class="fragment"><b>Prefab:</b> clase de una habitación</li>
+							<li class="fragment"><b>Instancia:</b> instancia concreta de una habitación</li>
+						</ul>
+					</section>
+
+					<section id="fragments">
+						<h3>Prefab de habitación</h3>
+						<p class="fragment">Contiene la representación física de un modelo de habitación</p>
+						<p class="fragment">Se precomputan y guardan las puertas potenciales de una habitación, ya que el cómputo de las mismas
+						es costoso, y de esta forma solo se realiza en la carga</p>
 					</section>
 
 				</section>
