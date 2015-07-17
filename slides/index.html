@@ -15,6 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/theme/night.css" id="theme">
 
 		<!-- Code syntax highlighting -->
@@ -62,18 +63,18 @@
 
 					<section id="fragments">
 						<h3>Problema</h3>
-						<p class="fragment">Muchos géneros de juegos requieren mapas en los que poder dar rienda suelta al jugador para recorrer,
+						<p class="fragment"><span class="concepto">Muchos géneros de juegos requieren mapas</span> en los que poder dar rienda suelta al jugador para recorrer,
 						investigar y disfrutar</p>
-						<p class="fragment">La elaboración de mapas consume recursos de horas/persona</p>
+						<p class="fragment">La <span class="concepto">elaboración de mapas consume recursos de horas/persona</span></p>
 						<p class="fragment">Empresas grandes dedican un equipo completo a esta tarea</p>
-						<p class="fragment">La aparición de equipos denominados <b><i>indies</i></b>, que se caracterizan por tener <b><i>bajo presupuesto y personal</i></b>,
+						<p class="fragment">La aparición de equipos denominados <span class="concepto"><b>indies</b></span>, que se caracterizan por tener <span class="concepto"><i>bajo presupuesto y personal</i></span>,
 						hace emerger necesidades relacionadas con cubrir la falta de recursos</p>
 					</section>
 
 					<section id="fragments">
 						<h3>Solución</h3>
 						<p class="fragment">Elaborar un sistema que genere los mapas necesarios para el desarrollo de un videojuego</p>
-						<p class="fragment">Conseguimos un ahorro de recursos</p>
+						<p class="fragment">Conseguimos un <span class="concepto"><b>ahorro de recursos</b></span></p>
 					</section>
 				</section>
 
@@ -84,7 +85,7 @@
 
 					<section id="fragments">
 						<h3>Coordinación</h3>
-						<p class="fragment">Cada juego tiene sus propias reglas del mundo, y por ende, el sistema a construir debe adaptarse a dichas reglas</p>
+						<p class="fragment">Cada juego tiene sus propias <span class="concepto">reglas del mundo</span>, y por ende, el sistema a construir debe adaptarse a dichas reglas</p>
 						<p class="fragment">Este trabajo se ha elaborado en función de especificaciones impuestas por la empresa indie de videojuegos</p>
 						<a href="http://thegamekitchen.com/"><img class="fragment" src="./tgk-header-logo.gif" /></a>
 					</section>
@@ -92,9 +93,9 @@
 					<section id="fragments">
 						<h3>Definición del tipo de juego</h3>
 						<ul>
-							<li class="fragment">El entorno debe ser en dos dimensiones</li>
-							<li class="fragment">El jugador empezará en una habitación y tiene como objetivo llegar una habitación considerada final</li>
-							<li class="fragment">Mapa de tiles</li>
+							{%=(lif)El entorno debe ser en {%=(c)dos dimensiones%}%}
+							{%=(lif)El jugador {%=(c)comienza en una habitación%} y tiene como {%=(c,b)objetivo%}{%=(c) llegar a una habitación considerada final%} para pasar el nivel%}
+							{%=(lif){%=(c)Mapa de {%=(b)tiles%}%}%}
 							<li class="fragment">Vista cenital</li>
 							<center class="fragment">
 								<p><img src="./cenital.png" /></p>
@@ -104,7 +105,8 @@
 						<aside class="notes">
 							<ul>
 								<li>ventajas de mapas de tiles</li>
-								<li>estas reglas son muy genéricas, con lo que el sistema resultante será muy flexible, y podrá ser empleado en distintos juegos</li>
+								<li>estas reglas son muy genéricas, con lo que el sistema resultante será muy flexible, y podrá ser empleado en
+								distintos juegos</li>
 							</ul>
 						</aside>
 					</section>
@@ -112,10 +114,10 @@
 					<section id="fragments">
 						<h2>Especificaciones para la generación (I)</h2>
 						<ul>
-							<li class="fragment">Partir de una lista de habitaciones previamente creadas</li>
-							<li class="fragment">Maximizar el camino desde la habitación de inicio hasta la final</li>
-							<li class="fragment">Fomentar caminos alternativos para promover que el jugador tenga que investigar</li>
-							<li class="fragment">Fomentar la variabilidad en la generación de los niveles, de forma que cada jugador tendrá una experiencia ligeramente distinta</li>
+							<li class="fragment">Partir de una <span class="concepto">lista de <b>habitaciones previamente creadas</b></span></li>
+							<li class="fragment"><span class="concepto"><b>Maximizar</b> el <b>camino</b> desde la habitación <b>de inicio hasta final</b></span></li>
+							<li class="fragment">Fomentar <span class="concepto"><b>caminos alternativos</b></span> para promover que el jugador tenga que investigar</li>
+							<li class="fragment">Fomentar la <span class="concepto"><b>variabilidad</b> en la generación de los niveles</span>, de forma que cada jugador tendrá una experiencia ligeramente distinta</li>
 						</ul>
 					</section>
 
@@ -123,6 +125,7 @@
 						<h2>Especificaciones para la generación (II)</h2>
 						<ul>
 							<li class="fragment">Cada nivel se generará en el momento que el jugador inicia el mismo</li>
+							<li class="fragment">No importa qué par de habitaciones son la inicial y la final</li>
 							<li class="fragment">Debe funcionar en sistemas móviles, contando con un tiempo de ejecución asequible</li>
 						</ul>
 						<p class="fragment">
