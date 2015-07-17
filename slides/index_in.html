@@ -93,9 +93,9 @@
 					<section id="fragments">
 						<h3>Definición del tipo de juego</h3>
 						<ul>
-							<li class='fragment'>El entorno debe ser en <span class='concepto'>dos dimensiones</span></li>
-							<li class='fragment'>El jugador <span class='concepto'>comienza en una habitación</span> y tiene como <b><span class='concepto'>objetivo</span></b><span class='concepto'> llegar a una habitación considerada final</span> para pasar el nivel</li>
-							<li class='fragment'><span class='concepto'>Mapa de <b>tiles</b></span></li>
+							{%=(lif)El entorno debe ser en {%=(c)dos dimensiones%}%}
+							{%=(lif)El jugador {%=(c)comienza en una habitación%} y tiene como {%=(c,b)objetivo%}{%=(c) llegar a una habitación considerada final%} para pasar el nivel%}
+							{%=(lif){%=(c)Mapa de {%=(b)tiles%}%}%}
 							<li class="fragment">Vista cenital</li>
 							<center class="fragment">
 								<p><img src="./cenital.png" /></p>
