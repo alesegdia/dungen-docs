@@ -1,0 +1,21 @@
+{
+	"pres":{
+		"c":"<span class='concepto'>",
+		"i":"<i>",
+		"b":"<b>",
+		"tt":"<pre>",
+		"h1":"<h1>",
+		"pf":"<p class='fragment'>",
+		"lif":"<li class='fragment'>"
+	},
+	"posts":{
+		"c":"</span>",
+		"i":"</i>",
+		"b":"</b>",
+		"tt":"</pre>",
+		"h1":"</h1>",
+		"pf":"</p>",
+		"lif":"</li>"
+	}
+}
+
