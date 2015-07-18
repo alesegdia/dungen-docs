@@ -114,10 +114,10 @@
 					<section id="fragments">
 						<h2>Especificaciones para la generación (I)</h2>
 						<ul>
-							<li class="fragment">Partir de una <span class="concepto">lista de <b>habitaciones previamente creadas</b></span></li>
-							<li class="fragment"><span class="concepto"><b>Maximizar</b> el <b>camino</b> desde la habitación <b>de inicio hasta final</b></span></li>
-							<li class="fragment">Fomentar <span class="concepto"><b>caminos alternativos</b></span> para promover que el jugador tenga que investigar</li>
-							<li class="fragment">Fomentar la <span class="concepto"><b>variabilidad</b> en la generación de los niveles</span>, de forma que cada jugador tendrá una experiencia ligeramente distinta</li>
+							<li class='fragment'>Partir de una <span class='concepto'>lista de <b>habitaciones previamente creadas</b></span></li>
+							<li class='fragment'><span class='concepto'><b>Maximizar</b> el <b>camino</b> desde la habitación <b>de inicio hasta final</b></span></li>
+							<li class='fragment'>Fomentar <b><span class='concepto'>caminos alternativos</span></b> para promover que el jugador tenga que investigar</li>
+							<li class='fragment'>Fomentar la <span class='concepto'><b>variabilidad</b> en la generación de los niveles</span> de forma que cada jugador tendrá una experiencia distinta</li>
 						</ul>
 					</section>
 
@@ -227,7 +227,7 @@ Mapa bleh( List&lt;Habitacion&gt; habitaciones ) {
 					</section>
 
 					<section id="fragments">
-						<h3>Definición de la estrategia (I)</h3>
+						<h3>Definición de la estrategia</h3>
 						<p class="fragment">Se ha procurado elaborar un sistema flexible que podamos modificar fácilmente en funcion de otros requerimentos,
 						haciendo así posible la reutilización del software</p>
 					</section>
@@ -270,8 +270,29 @@ Mapa bleh( List&lt;Habitacion&gt; habitaciones ) {
 						</ul>
 					</section>
 
-					<section id="fragments">V
-						<h3>Representación de la solución</h3>
+					<section id="fragments">
+						<h3>Representación de la solución (I)</h3>
+						<p class='fragment'>La solución está definida por:</p>
+						<ul>
+							<li class='fragment'><b><span class='concepto'>Representación física</span></b> empleando una <b><span class='concepto'>matriz de dos dimensiones</span></b> que contiene las habitaciones que han sido colocadas</li>
+							<li class='fragment'><b><span class='concepto'>Conexiones entre habitaciones</span></b>, empleando una <b><span class='concepto'>matriz superior</span></b> de dos dimensiones</li>
+						</ul>
+						<p class='fragment'>Como se ha mencionado previamente, <span class='concepto'>supondremos que el <b>tamaño de la matriz</b> es <b>suficiente para contener
+						todas las habitaciones</b></span></p>
+					</section>
+
+					<section id="fragments">
+						<h3>Representación de la solución (II)</h3>
+						<p class='fragment'>Además, incluimos una <span class='concepto'>lista de <b>movimientos</b> para <b>construir la solución</b></span></p>
+						<p class='fragment'>Un <span class='concepto'><b>movimiento</b> está compuesto por:</span></p>
+						<ul>
+							<li class='fragment'><b><span class='concepto'>Modelo de habitación</span></b> a colocar</li>
+							<li class='fragment'><b><span class='concepto'>Posición del mapa</span></b> donde se coloca</li>
+						</ul>
+						<p class='fragment'>Ésto está relacionado con el <span class='concepto'><b>método constructivo</b> que se ha empleado para <b>obtener una solución</b></span></p>
+						<p class='fragment'>En cada paso de <span class='concepto'><b>colocar una habitación</b>, realizaremos una serie de <b>cómputos que requieren un tiempo
+						de ejecución considerable</b></span></p>
+						<p class='fragment'>Así, el <span class='concepto'><b>estado de un mapa</b> está íntegramente <b>conservado</b> mediante una <b>lista de movimientos</b> para construirlo</span></p>
 					</section>
 
 				</section>
