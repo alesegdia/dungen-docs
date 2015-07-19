@@ -269,16 +269,21 @@ Mapa bleh( List&lt;Habitacion&gt; habitaciones ) {
 
 					<section id="fragments">
 						<h3>Mapa (II)</h3>
-						<p class='fragment'>Además, incluimos una <span class='concepto'>lista de <b>movimientos</b> para <b>construir la solución</b></span></p>
+						<p class='fragment'>Recordemos que usaremos un <b><span class='concepto'>método constructivo</span></b> para <b><span class='concepto'>obtener una solución</span></b></p>
+						<p class='fragment'>Antes de <span class='concepto'><b>colocar una habitación</b>, habremos realizado una serie de <b>cómputos que requieren un tiempo
+						de ejecución considerable</b></span></p>
+						<p class='fragment'>Así, podemos <span class='concepto'><b>conservar el estado de un mapa</b> mediante una <b>lista de movimientos</b> para construirlo</span>, sin
+						necesidad de realizar cómputos previos</p>
+					</section>
+
+					<section id="fragments">
+						<h3>Mapa (III)</h3>
+						<p class='fragment'>De esta forma, incluimos una <span class='concepto'>lista de <b>movimientos</b> para <b>construir la solución</b></span></p>
 						<p class='fragment'>Un <span class='concepto'><b>movimiento</b> está compuesto por:</span></p>
 						<ul>
 							<li class='fragment'><b><span class='concepto'>Modelo de habitación</span></b> a colocar</li>
 							<li class='fragment'><b><span class='concepto'>Posición del mapa</span></b> donde se coloca</li>
 						</ul>
-						<p class='fragment'>Ésto está relacionado con el <span class='concepto'><b>método constructivo</b> que se ha empleado para <b>obtener una solución</b></span></p>
-						<p class='fragment'>En cada paso de <span class='concepto'><b>colocar una habitación</b>, realizaremos una serie de <b>cómputos que requieren un tiempo
-						de ejecución considerable</b></span></p>
-						<p class='fragment'>Así, el <span class='concepto'><b>estado de un mapa</b> está íntegramente <b>conservado</b> mediante una <b>lista de movimientos</b> para construirlo</span></p>
 					</section>
 
 				</section>
@@ -301,9 +306,11 @@ Mapa bleh( List&lt;Habitacion&gt; habitaciones ) {
 						<p class="fragment">Se ha procurado elaborar un sistema flexible que podamos modificar fácilmente en funcion de otros requerimentos,
 						haciendo así posible la reutilización del software</p>
 					</section>
+				</section>
 
+				<section>
 					<section id="fragments">
-						<h3>Componentes extra de flexibilidad</h3>
+						<h2>Componentes extra de flexibilidad</h2>
 					</section>
 
 					<section id="fragments">

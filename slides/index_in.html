@@ -269,16 +269,21 @@ Mapa bleh( List&lt;Habitacion&gt; habitaciones ) {
 
 					<section id="fragments">
 						<h3>Mapa (II)</h3>
-						{(pf)Además, incluimos una {(c)lista de {(b)movimientos} para {(b)construir la solución}}}
+						{(pf)Recordemos que usaremos un {(c,b)método constructivo} para {(c,b)obtener una solución}}
+						{(pf)Antes de {(c){(b)colocar una habitación}, habremos realizado una serie de {(b)cómputos que requieren un tiempo
+						de ejecución considerable}}}
+						{(pf)Así, podemos {(c){(b)conservar el estado de un mapa} mediante una {(b)lista de movimientos} para construirlo}, sin
+						necesidad de realizar cómputos previos}
+					</section>
+
+					<section id="fragments">
+						<h3>Mapa (III)</h3>
+						{(pf)De esta forma, incluimos una {(c)lista de {(b)movimientos} para {(b)construir la solución}}}
 						{(pf)Un {(c){(b)movimiento} está compuesto por:}}
 						<ul>
 							{(lif){(c,b)Modelo de habitación} a colocar}
 							{(lif){(c,b)Posición del mapa} donde se coloca}
 						</ul>
-						{(pf)Ésto está relacionado con el {(c){(b)método constructivo} que se ha empleado para {(b)obtener una solución}}}
-						{(pf)En cada paso de {(c){(b)colocar una habitación}, realizaremos una serie de {(b)cómputos que requieren un tiempo
-						de ejecución considerable}}}
-						{(pf)Así, el {(c){(b)estado de un mapa} está íntegramente {(b)conservado} mediante una {(b)lista de movimientos} para construirlo}}
 					</section>
 
 				</section>
