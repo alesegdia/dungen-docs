@@ -183,6 +183,62 @@
 
 				<section>
 					<section id="fragments">
+						<h2>Método basado en búsqueda</h2>
+					</section>
+
+					<section id="fragments">
+						<h3>Movimientos</h3>
+						<p class="fragment">Se ha empleado un método constructivo, es decir, iremos construyendo el mapa por pasos, basándonos en
+						una <i><b>búsqueda</b></i></p>
+						<p class="fragment">En cada paso, se realizará lo que llamaremos un {(c,b)movimiento}</p>
+						{(pf)Un {(c){(b)movimiento} está compuesto por:}}
+						<ul>
+							{(lif){(c,b)Modelo de habitación} a colocar}
+							{(lif){(c,b)Posición del mapa} donde se coloca}
+						</ul>
+
+					</section>
+
+					<section id="fragments">
+						<h3>Función de guía</h3>
+						<p class="fragment">La elección del movimiento entre todos los posibles, se realizará basándonos en una {(b,i,c)función de guía}</p>
+						{(pf)Dicha {(c){(b)función de guía}, computará un valor asociado al {(b)movimiento} basándonos en varios {(b)objetivos}} que definiremos
+						más adelante}
+						{(pf)Algunos ejemplos de objetivos son:}
+						<ul>
+							{(lif)Tamaño del camino principal}
+							{(lif)Habitaciones {(i)empleadas} en caminos no-principales}
+							{(lif)Número de bifurcaciones}
+						</ul>
+					</section>
+
+					<section id="fragments">
+						<h3>Visión general del algoritmo</h3>
+						<pre class="fragment"><code data-trim>
+Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones ) {
+  Mapa mapa = MapaVacio();
+  while( !habitaciones.isEmpty() ) {
+    // generamos los posibles movimientos según el estado actual del mapa
+    // y las habitaciones restantes
+    Movimiento[] movimientos = GenerarMovimientos( mapa, habitaciones );
+    // computamos el valor de la función guía para cada movimiento
+    float[] guiaMovimientos = ComputarFuncionGuia( movimientos );
+    // elegimos el movimiento con valor de función guía máximo
+    Movimiento prometedor = ExtraerPrometedor( movimientos, guiaMovimientos );
+    // insertamos la habitación en la coordenada indicada por el movimiento elegido
+    mapa.InsertarHabitacion( prometedor.habitacion, prometedor.posicion );
+    // eliminamos la habitación que se ha insertado de la lista
+    habitaciones.remove( movimiento.habitacion );
+  }
+  return mapa;
+}
+						</code></pre>
+					</section>
+				</section>
+
+
+				<section>
+					<section id="fragments">
 						<h2>Representación</h2>
 					</section>
 
@@ -199,24 +255,6 @@
 						</p>
 					</section>
 
-					<section id="fragments">
-						<h3>Visión general del método</h3>
-						<p class="fragment">Se ha empleado un método constructivo, es decir, iremos construyendo el mapa por pasos, basándonos en
-						una <i><b>búsqueda</b></i></p>
-						<p class="fragment">En cada paso, se colocará una habitación</p>
-						<p class="fragment">La habitación elegida se hará en función de una <b><i>función de guía</i></b></p>
-						<p class="fragment">A grandes rasgos...</p>
-						<pre class="fragment"><code data-trim>
-Mapa bleh( List&lt;Habitacion&gt; habitaciones ) {
-	Mapa mapa = MapaVacio();
-	while( !habitaciones.isEmpty() ) {
-		ComputarFuncionGuia( habitaciones );
-		Habitacion prometedora = ExtraerPrometedora( habitaciones );
-		mapa.InsertarHabitacion( prometedora );
-	}
-}
-						</code></pre>
-					</section>
 
 					<section id="fragments">
 						<h3>Habitaciones</h3>
@@ -279,18 +317,13 @@ Mapa bleh( List&lt;Habitacion&gt; habitaciones ) {
 					<section id="fragments">
 						<h3>Mapa (III)</h3>
 						{(pf)De esta forma, incluimos una {(c)lista de {(b)movimientos} para {(b)construir la solución}}}
-						{(pf)Un {(c){(b)movimiento} está compuesto por:}}
-						<ul>
-							{(lif){(c,b)Modelo de habitación} a colocar}
-							{(lif){(c,b)Posición del mapa} donde se coloca}
-						</ul>
 					</section>
 
 				</section>
 
 				<section>
 					<section id="fragments">
-						<h2>Estrategia basada en búsqueda</h2>
+						<h2>Detalles de estrategia basada en búsqueda</h2>
 					</section>
 
 					<section id="fragments">
