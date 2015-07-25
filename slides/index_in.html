@@ -344,6 +344,63 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones ) {
 					<section id="fragments">
 						<h2>Método basado en búsqueda. Experimentación.</h2>
 					</section>
+
+					<section id="fragments">
+						<h3>Parametrización</h3>
+						{(pf)Una vez construido el sistema, es necesario configurar el generador con distintos parámetros}
+						{(pf)De esta forma, el desarrollador podrá adaptar los mapas generados a sus preferencias según el juego
+						que vaya a construir}
+						{(pf)Como comprobaremos a continuación, hay variaciones de la parametrización que da como resultado generaciones
+						muy parecidas}
+					</section>
+
+					<section id="fragments">
+						<h3>Herramienta de experimentación</h3>
+						{(pf)Se ha creado una interfaz gráfica que nos ayudará a configurar fácilmente los distintos parámetros}
+						<center>
+							<p><img src="./guibuilder.png" /></p>
+						</center>
+					</section>
+				</section>
+
+				<section>
+
+					<section id="fragments">
+						<h2>Método basado en búsqueda. Trabajo futuro.</h2>
+					</section>
+
+					<section id="fragments">
+						<h3>Selección de puertas</h3>
+					</section>
+
+					<section id="fragments">
+						<h3>Fitness caché</h3>
+						{(pf)Configurable con parámetro fijo}
+						{(pf)Configurable con parámetro variable}
+						{(pf)Configurable con intervalo}
+					</section>
+
+					<section id="fragments">
+						<h3>Selección de puertas</h3>
+						{(pf)Permitir al desarrollador elegir qué puertas se pueden elegir}
+					</section>
+
+					<section id="fragments">
+						<h3>Backtracking (I)</h3>
+						{(pf)El diseño actual del sistema no contempla backtracking, pero guarda la información necesaria para reconstruir un mapa}
+						{(pf)Guardando el estado del mapa generado en cualquier momento de la ejecución del sistema, podemos
+						reanudarlo posteriormente a conveniencia}
+						{(pf)Para fomentar que la generación es distinta y que efectivamente se realice un camino distinto, se podría forzar
+						a elegir una posición con una distancia mínima a la elegida en la versión anterior}
+					</section>
+
+					<section id="fragments">
+						<h3>Backtracking (II)</h3>
+						<center class="fragment">
+							<p><img src="./savestate/ss5.png" /></p>
+						</center>
+					</section>
+
 				</section>
 
 				<section>
