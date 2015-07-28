@@ -317,7 +317,8 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver )
 					</section>
 
 					<section id="fragments">
-						<h3>Cómputo de posibles movimientos</h3>
+						<h3>Cómputo de posibles movimientos (I)</h3>
+						<p class="fragment">$potentialDoors(room) = \left\{ t(x,y) : t \in room, potentialDoor(t) \right\}$</p>
 						{(pf)La lista de posibles movimientos se computará a partir de las {(c,b)posibles conexiones} entre}
 						<ul>
 							<li class="fragment">Puertas potenciales del mapa:<br />
@@ -333,6 +334,23 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver )
 						</ul>
 					</section>
 
+					<section id="fragments">
+						<h3>Cómputo de posibles movimientos (II)</h3>
+						{(pf)Las posibles {(c)conexiones entre el {(b)mapa} y una {(b)habitación}} queda definida como}
+						<p class="fragment">
+							$possibleConnections(map, room) =$<br />
+							$ \left\{ (u,v) : \neg collision(map, room, n, m), n \in map, m \in room \right\}$<br />
+						</p>
+						{(pf)Donde los posibles valores para el par de tiles $(u,v)$ es}
+						<p class="fragment">
+								$\begin{cases}
+									n = u + (\pm1,0), & \quad m = v \\
+									n = u + (0,\pm1), & \quad m = v \\
+									n = u, & \quad m = v + (\pm1,0) \\
+									n = u, & \quad m = v + (0,\pm1) \\
+								\end{cases}$<br />
+						</p>
+					</section>
 					<section id="fragments">
 						<h3>Interfaz aleatoria</h3>
 						{(pf)En cada paso del algoritmo, colocaremos una habitación ({(c,b)$R_i$}) en una posición concreta ({(c,b)$P_i$})}
