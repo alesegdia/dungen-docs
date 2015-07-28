@@ -227,6 +227,26 @@
 					</section>
 
 					<section id="fragments">
+						<h3>Puertas potenciales</h3>
+						{(pf)¿Cuándo un tile {(c,b)$t(x,y)$} es una {(c,b)puerta potencial}?}
+						<p>
+							<center class="fragment">
+								$\begin{cases}
+									o(x+1,y), i(x-1,y), s(x, y\pm1) & \quad \text{vertical} \\
+									o(x-1,y), i(x+1,y), s(x, y\pm1) & \quad \text{vertical} \\
+									o(x,y+1), i(x,y-1), s(x\pm1, y) & \quad \text{horizontal} \\
+									o(x,y-1), i(x,y+1), s(x\pm1, y) & \quad \text{horizontal} \\
+								\end{cases}$<br />
+							</center>
+						</p>
+						<p class="fragment">
+							$o(x,y) = outer(x,y)$: tile vacío exterior<br />
+							$i(x,y) = inner(x,y)$: tile vacío interior<br />
+							$s(x,y) = solid(x,y)$: tile sólido (pared)<br />
+						</p>
+					</section>
+
+					<section id="fragments">
 						<h3>Instancia de habitación</h3>
 						<p class="fragment">Permite elegir un subconjunto de todas las posibles puertas de un modelo de habitación a partir
 						del conjunto de tiles precomputado en el modelo</p>
@@ -249,16 +269,6 @@
 						todas las habitaciones}}}
 					</section>
 
-					<section id="fragments">
-						<h3>Mapa (II)</h3>
-						{(pf)Recordemos que usaremos un {(c,b)método constructivo} para {(c,b)obtener una solución}}
-						{(pf)Antes de {(c){(b)colocar una habitación}, habremos realizado una serie de {(b)cómputos que requieren un tiempo
-						de ejecución considerable}}}
-						{(pf)Así, podemos {(c){(b)conservar el estado de un mapa} mediante una {(b)lista de movimientos} para construirlo}, sin
-						necesidad de realizar cómputos previos}
-						{(pf)De esta forma, incluimos una {(c)lista de {(b)movimientos} para {(b)construir la solución}}}
-					</section>
-
 				</section>
 
 				<section>
@@ -272,12 +282,75 @@
 						<p class="fragment">Esto tiene su lógica en que, según el nivel, podemos querer que haya unas habitaciones u otras</p>
 						<p class="fragment">No hay restricción en el tamaño del mapa, por lo que partiremos partiremos de un solar de tamaño suficiente
 						para dar cabida a todas las habitaciones</p>
+						{(pf)Las habitaciones pueden repetirse, pero en una cantidad concreta}
 					</section>
 
 					<section id="fragments">
-						<h3>Planteamiento</h3>
-						<p class="fragment">Se ha procurado elaborar un sistema flexible que podamos modificar fácilmente en funcion de otros requerimentos,
-						haciendo así posible la reutilización del software</p>
+						<h3>Movimientos</h3>
+						{(pf)Usaremos un {(c,b)método constructivo} para {(c)obtener {(b)una solución}}}
+						{(pf)Construiremos el mapa a partir de {(c,b)movimientos} {(c,b)$M_i(R_i,P_i)$} compuestos por:}
+						<ul>
+							{(lif){(c,b)$R_i$}: modelo de habitación a colocar}
+							{(lif){(c,b)$P_i$}: posición del mapa donde se coloca}
+						</ul>
+					</section>
+
+					<section id="fragments">
+						<h3>Interfaz de construcción</h3>
+						{(pf)Emplearemos una interfaz {(c,b)IMapGenSolver} que {(c)elegirá un {(b)movimiento} de entre todos los posibles}
+						por cada paso del algoritmo}
+						<pre class="fragment"><code data-trim>
+Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver ) {
+  Mapa mapa = MapaVacio();
+  while( !habitaciones.isEmpty() ) {
+    // generamos el movimiento según el IMapGenSolver
+    Movimiento movimiento = mapSolver.GenerarMovimiento( mapa, habitaciones );
+    // insertamos la habitación en la coordenada indicada por el movimiento generado
+    mapa.InsertarHabitacion( prometedor.habitacion, prometedor.posicion );
+    // eliminamos la habitación que se ha insertado de la lista
+    habitaciones.remove( movimiento.habitacion );
+  }
+  return mapa;
+}
+						</code></pre>
+						{(pf)La interfaz influirá en la forma de elegir el movimiento aplicado}
+					</section>
+
+					<section id="fragments">
+						<h3>Cómputo de posibles movimientos</h3>
+						{(pf)La lista de posibles movimientos se computará a partir de las {(c,b)posibles conexiones} entre}
+						<ul>
+							<li class="fragment">Puertas potenciales del mapa:<br />
+								<center>
+									$potentialDoors(rooms(map))$
+								</center>
+							</li>
+							<li class="fragment">Puertas potenciales de las habitaciones restantes:<br />
+								<center>
+									$potentialDoors(remainingRooms)$
+								</center>
+							</li>
+						</ul>
+					</section>
+
+					<section id="fragments">
+						<h3>Interfaz aleatoria</h3>
+						{(pf)En cada paso del algoritmo, colocaremos una habitación ({(c,b)$R_i$}) en una posición concreta ({(c,b)$P_i$})}
+						{(pf)Para elegir dicha habitación y posición, calcularemos todas las posibilidades existentes según las habitaciones
+						restantes y las ya colocadas.}
+					</section>
+
+					<section id="fragments">
+						<h3>Planteamiento - Cómputo de movimientos</h3>
+						{(pf)Hablar del manager para no repetir habitaciones a la hora de procesar costosos que requieren un tiempo de
+						ejecución considerable.}
+						{(pf)Antes de {(c){(b)colocar una habitación}, habremos realizado una serie de {(b)cómputos que requieren un tiempo
+						de ejecución considerable}}}
+						{(pf)Así, podemos {(c){(b)conservar el estado de un mapa} mediante una {(b)lista de movimientos} para construirlo}, sin
+						necesidad de realizar cómputos previos}
+						{(pf)De esta forma, incluimos una {(c)lista de {(b)movimientos} para {(b)construir la solución}}}
+						{(pf)Se ha procurado elaborar un sistema flexible que podamos modificar fácilmente en funcion de otros requerimentos,
+						haciendo así posible la reutilización del software}
 					</section>
 
 					<section id="fragments">
@@ -286,10 +359,6 @@
 						una <i><b>búsqueda</b></i></p>
 						<p class="fragment">En cada paso, se realizará lo que llamaremos un {(c,b)movimiento}</p>
 						{(pf)Un {(c){(b)movimiento} está compuesto por:}}
-						<ul>
-							{(lif){(c,b)Modelo de habitación} a colocar}
-							{(lif){(c,b)Posición del mapa} donde se coloca}
-						</ul>
 
 					</section>
 
@@ -334,6 +403,19 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones ) {
 					<section id="fragments">
 						<h2>Método basado en búsqueda. Componentes.</h2>
 					</section>
+
+					<section id="fragments">
+						<h3>Fitness Caché</h3>
+					</section>
+
+					<section id="fragments">
+						<h3>Fitness Combinator</h3>
+					</section>
+
+					<section id="fragments">
+						<h3>Prefab Selector</h3>
+					</section>
+
 				</section>
 
 				<section>
