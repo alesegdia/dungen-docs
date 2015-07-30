@@ -393,13 +393,6 @@ Movimiento GenerarMovimiento( Mapa mapa, List&lt;Habitacion&gt; habitaciones ) {
 						</ul>
 					</section>
 
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Componentes</h2>
-					</section>
-
 					<section id="fragments">
 						<h3>Fitness Caché</h3>
 					</section>
@@ -408,8 +401,37 @@ Movimiento GenerarMovimiento( Mapa mapa, List&lt;Habitacion&gt; habitaciones ) {
 						<h3>Fitness Combinator</h3>
 					</section>
 
+				</section>
+
+				<section>
 					<section id="fragments">
-						<h3>Prefab Selector</h3>
+						<h2>Selector de prefabs</h2>
+					</section>
+
+					<section id="fragments">
+						<h3>Motivación</h3>
+						<p class='fragment'>Tener un <span class='concepto'><b>control</b> sobre el <b>tipo de habitaciones que se elige en cada paso</b> de ejecución del sistema</span></p>
+						<p class='fragment'>Se ha creado una interfaz que interviene en este procedimiento</p>
+						<p class='fragment'>De esta forma, podemos inventar formas de elegir los prefabs</p>
+					</section>
+
+					<section id="fragments">
+						<h3>Selector por defecto</h3>
+						<center><p class='fragment'>DummyPrefabSelector</p></center>
+						<p class='fragment'>Selector por defecto</p>
+						<p class='fragment'>No interviene de ninguna forma</p>
+					</section>
+
+					<section id="fragments">
+						<h3>Selector por probabilidad</h3>
+						<center><p class='fragment'>ProbabilityPrefabSelector</p></center>
+						<p class='fragment'>Proveemos una probabilidad de que se elija una instancia de cada prefab</p>
+					</section>
+
+					<section id="fragments">
+						<h3>Selector alternador</h3>
+						<center><p class='fragment'>CyclePrefabSelector</p></center>
+						<p class='fragment'>Alterna entre instancias de todos los prefabs existentes</p>
 					</section>
 
 				</section>
