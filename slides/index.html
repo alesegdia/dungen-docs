@@ -248,25 +248,25 @@
 
 				<section>
 					<section id="fragments">
-						<h2>Estrategia del sistema</h2>
-						<aside>
-							<h3>Recordatorio del problema</h3>
-							<p class="fragment">Los mapas debían generarse a partir de un set de habitaciones suministrado</p>
-							<p class="fragment">Esto tiene su lógica en que, según el nivel, podemos querer que haya unas habitaciones u otras</p>
-							<p class="fragment">No hay restricción en el tamaño del mapa, por lo que partiremos partiremos de un solar de tamaño suficiente
-							para dar cabida a todas las habitaciones</p>
-							<p class='fragment'>Las habitaciones pueden repetirse, pero en una cantidad concreta</p>
-						</aside>
+						<h2>Movimientos</h2>
 					</section>
 
 					<section id="fragments">
-						<h3>Movimientos</h3>
+						<h3>Definición</h3>
 						<p class='fragment'>Usaremos un <b><span class='concepto'>método constructivo</span></b> para <span class='concepto'>obtener <b>una solución</b></span></p>
 						<p class='fragment'>Construiremos el mapa a partir de <b><span class='concepto'>movimientos</span></b> <b><span class='concepto'>$M_i(R_i,P_i)$</span></b> compuestos por:</p>
 						<ul>
 							<li class='fragment'><b><span class='concepto'>$R_i$</span></b>: modelo de habitación a colocar</li>
 							<li class='fragment'><b><span class='concepto'>$P_i$</span></b>: posición del mapa donde se coloca</li>
 						</ul>
+						<aside class="notes">
+							<h3>Recordatorio del problema</h3>
+							<p>Los mapas debían generarse a partir de un set de habitaciones suministrado</p>
+							<p>Esto tiene su lógica en que, según el nivel, podemos querer que haya unas habitaciones u otras</p>
+							<p>No hay restricción en el tamaño del mapa, por lo que partiremos partiremos de un solar de tamaño suficiente
+							para dar cabida a todas las habitaciones</p>
+							<p class='fragment'>Las habitaciones pueden repetirse, pero en una cantidad concreta</p>
+						</aside>
 					</section>
 
 					<section id="fragments">
@@ -300,6 +300,13 @@
 						</p>
 					</section>
 
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Construcción del mapa</h2>
+					</section>
+
 					<section id="fragments">
 						<h3>Interfaz de construcción</h3>
 						<p class='fragment'>Emplearemos una interfaz <b><span class='concepto'>IMapGenSolver</span></b> que <span class='concepto'>elegirá un <b>movimiento</b> de entre todos los posibles</span>
@@ -331,19 +338,39 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver )
 						<p class='fragment'>Para una futura mejora añadiendo <b><span class='concepto'>backtracking</span></b>, puede servirnos para <span class='concepto'><b>guardar el estado del mapa</b>
 						y <b>reconstruirlo de forma muy rápida</b></span></p>
 					</section>
+				</section>
 
+				<section>
 					<section id="fragments">
-						<h3>Interfaz aleatoria</h3>
-						<p class='fragment'>Esta interfaz elige un movimiento aleatorio en cada paso y proporciona resultados relativamente buenos</p>
-						<center class="fragment">
-							<p><img width="400" src="./randomsolver.png" /></p>
-						</center>
+						<h2>Interfaz aleatoria</h2>
 					</section>
 
 					<section id="fragments">
-						<h3>Interfaz basada en búsqueda</h3>
+						<h3>Propiedades</h3>
+						<p class='fragment'><span class='concepto'><b>No</b> tiene <b>interés computacional</b></span></p>
+						<p class='fragment'>Esta interfaz <span class='concepto'>elige un <b>movimiento aleatorio</b> de entre <b>todos los posibles</b></span> en cada paso</p>
+						<p class='fragment'>Da unos <span class='concepto'><b>resultados</b> visiblemente <b>buenos</b></span> pero no proporciona <b><span class='concepto'>ningún tipo de control</span></b></p>
+						<p class='fragment'>Tiene una <span class='concepto'>tiempo de ejecución <b>corto</b></span></p>
+					</section>
+
+					<section id="fragments">
+						<h3>Ejemplo</h3>
+						<center class="fragment">
+							<p><img width="450" src="./randomsolver.png" /></p>
+							<p><small>Ejemplo de mapa generado por RandomSolver</small></p>
+						</center>
+					</section>
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Interfaz basada en búsqueda</h2>
+					</section>
+
+					<section id="fragments">
+						<h3>Estrategia</h3>
 						<p class='fragment'>Se basa en dar una puntuación a cada movimiento</p>
-						<p class='fragment'>Se elegirá el movimiento al que tenga una mejor puntuación</p>
+						<p class='fragment'>Se elegirá el movimiento que tenga una mejor puntuación</p>
 						<pre class="fragment"><code data-trim>
 Movimiento GenerarMovimiento( Mapa mapa, List&lt;Habitacion&gt; habitaciones ) {
   Movimiento[] movimientos = GenerarTodosMovimientos( mapa, habitaciones );
