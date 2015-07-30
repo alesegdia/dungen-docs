@@ -317,29 +317,19 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver )
 					</section>
 
 					<section id="fragments">
-						<h3>Cómputo de posibles movimientos (I)</h3>
-						<p class="fragment">$potentialDoors(room) = \left\{ t(x,y) : t \in room, potentialDoor(t) \right\}$</p>
-						<p class='fragment'>La lista de posibles movimientos se computará a partir de las <b><span class='concepto'>posibles conexiones</span></b> entre</p>
-						<ul>
-							<li class="fragment">Puertas potenciales del mapa:<br />
-								<center>
-									$potentialDoors(rooms(map))$
-								</center>
-							</li>
-							<li class="fragment">Puertas potenciales de las habitaciones restantes:<br />
-								<center>
-									$potentialDoors(remainingRooms)$
-								</center>
-							</li>
-						</ul>
+						<h3>Cómputo de posibles movimientos</h3>
+						<p class='fragment'>La lista de posibles movimientos se computará a partir de las <b><span class='concepto'>posibles conexiones</span></b> entre
+						las <span class='concepto'>puertas potenciales del <b>mapa</b> y de las <b>habitaciones restantes</b></span></p>
+						<p class="fragment">$$\bigcup_{r \in RR}possibleConnections(map, r)$$</p>
+						<p class="fragment">$$RR = remainingRooms$$</p>
 					</section>
 
 					<section id="fragments">
-						<h3>Cómputo de posibles movimientos (II)</h3>
+						<h3>Conexiones entre el mapa y una habitación</h3>
 						<p class='fragment'>Las posibles <span class='concepto'>conexiones entre el <b>mapa</b> y una <b>habitación</b></span> queda definida como</p>
 						<p class="fragment">
 							$possibleConnections(map, room) =$<br />
-							$ \left\{ (u,v) : \neg collision(map, room, n, m), n \in map, m \in room \right\}$<br />
+							$ \left\{ (r,u,v) : \neg collision(map, r, n, m), n \in map, m \in r \right\}$<br />
 						</p>
 						<p class='fragment'>Donde los posibles valores para el par de tiles $(u,v)$ es</p>
 						<p class="fragment">
@@ -351,6 +341,7 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver )
 								\end{cases}$<br />
 						</p>
 					</section>
+
 					<section id="fragments">
 						<h3>Interfaz aleatoria</h3>
 						<p class='fragment'>En cada paso del algoritmo, colocaremos una habitación (<b><span class='concepto'>$R_i$</span></b>) en una posición concreta (<b><span class='concepto'>$P_i$</span></b>)</p>
