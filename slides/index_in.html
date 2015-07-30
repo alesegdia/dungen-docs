@@ -371,7 +371,7 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver )
 						{(pf)Se basa en dar una puntuación a cada movimiento}
 						{(pf)Se elegirá el movimiento al que tenga una mejor puntuación}
 						<pre class="fragment"><code data-trim>
-Movimiento BestSearchSolver::GenerarMovimiento( Mapa mapa, List&lt;Habitacion&gt; habitaciones ) {
+Movimiento GenerarMovimiento( Mapa mapa, List&lt;Habitacion&gt; habitaciones ) {
   Movimiento[] movimientos = GenerarTodosMovimientos( mapa, habitaciones );
   float[] puntuaciones = ComputarPuntuaciones( movimientos );
   return MejorMovimiento( movimientos, puntuaciones );
@@ -392,28 +392,6 @@ Movimiento BestSearchSolver::GenerarMovimiento( Mapa mapa, List&lt;Habitacion&gt
 						</ul>
 					</section>
 
-					<section id="fragments">
-						<h3>Visión general del algoritmo</h3>
-						<pre class="fragment"><code data-trim>
-Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones ) {
-  Mapa mapa = MapaVacio();
-  while( !habitaciones.isEmpty() ) {
-    // generamos los posibles movimientos según el estado actual del mapa
-    // y las habitaciones restantes
-    Movimiento[] movimientos = GenerarMovimientos( mapa, habitaciones );
-    // computamos el valor de la función guía para cada movimiento
-    float[] guiaMovimientos = ComputarFuncionGuia( movimientos );
-    // elegimos el movimiento con valor de función guía máximo
-    Movimiento prometedor = ExtraerPrometedor( movimientos, guiaMovimientos );
-    // insertamos la habitación en la coordenada indicada por el movimiento elegido
-    mapa.InsertarHabitacion( prometedor.habitacion, prometedor.posicion );
-    // eliminamos la habitación que se ha insertado de la lista
-    habitaciones.remove( movimiento.habitacion );
-  }
-  return mapa;
-}
-						</code></pre>
-					</section>
 				</section>
 
 				<section>
