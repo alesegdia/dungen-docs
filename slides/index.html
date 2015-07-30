@@ -296,28 +296,12 @@
 					</section>
 
 					<section id="fragments">
-						<h3>Interfaz de construcción</h3>
-						<p class='fragment'>Emplearemos una interfaz <b><span class='concepto'>IMapGenSolver</span></b> que <span class='concepto'>elegirá un <b>movimiento</b> de entre todos los posibles</span>
-						por cada paso del algoritmo</p>
-						<pre class="fragment"><code data-trim>
-Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver ) {
-  Mapa mapa = MapaVacio();
-  while( !habitaciones.isEmpty() ) {
-    // generamos el movimiento según el IMapGenSolver
-    Movimiento movimiento = mapSolver.GenerarMovimiento( mapa, habitaciones );
-    // insertamos la habitación en la coordenada indicada por el movimiento generado
-    mapa.InsertarHabitacion( prometedor.habitacion, prometedor.posicion );
-    // eliminamos la habitación que se ha insertado de la lista
-    habitaciones.remove( movimiento.habitacion );
-  }
-  return mapa;
-}
-						</code></pre>
-						<p class='fragment'>La interfaz influirá en la forma de elegir el movimiento aplicado</p>
-					</section>
-
-					<section id="fragments">
 						<h3>Cómputo de posibles movimientos</h3>
+						<p class='fragment'>Dado un estado concreto del proceso</p>
+						<ul>
+							<li class='fragment'>Mapa con una serie de habitaciones colocadas</li>
+							<li class='fragment'>Lista con habitaciones restantes por colocar</li>
+						</ul>
 						<p class='fragment'>La lista de posibles movimientos se computará a partir de las <b><span class='concepto'>posibles conexiones</span></b> entre
 						las <span class='concepto'>puertas potenciales del <b>mapa</b> y de las <b>habitaciones restantes</b></span></p>
 						<p class="fragment">$$\bigcup_{r \in RR}possibleConnections(map, r)$$</p>
@@ -340,6 +324,27 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver )
 									n = u, & \quad m = v + (0,\pm1) \\
 								\end{cases}$<br />
 						</p>
+					</section>
+
+					<section id="fragments">
+						<h3>Interfaz de construcción</h3>
+						<p class='fragment'>Emplearemos una interfaz <b><span class='concepto'>IMapGenSolver</span></b> que <span class='concepto'>elegirá un <b>movimiento</b> de entre todos los posibles</span>
+						por cada paso del algoritmo</p>
+						<pre class="fragment"><code data-trim>
+Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver ) {
+  Mapa mapa = MapaVacio();
+  while( !habitaciones.isEmpty() ) {
+    // generamos el movimiento según el IMapGenSolver
+    Movimiento movimiento = mapSolver.GenerarMovimiento( mapa, habitaciones );
+    // insertamos la habitación en la coordenada indicada por el movimiento generado
+    mapa.InsertarHabitacion( prometedor.habitacion, prometedor.posicion );
+    // eliminamos la habitación que se ha insertado de la lista
+    habitaciones.remove( movimiento.habitacion );
+  }
+  return mapa;
+}
+						</code></pre>
+						<p class='fragment'>La interfaz influirá en la forma de elegir el movimiento aplicado</p>
 					</section>
 
 					<section id="fragments">
