@@ -417,21 +417,30 @@ Movimiento GenerarMovimiento( Mapa mapa, List&lt;Habitacion&gt; habitaciones ) {
 
 					<section id="fragments">
 						<h3>Selector por defecto</h3>
-						<center>{(pf)DummyPrefabSelector}</center>
-						{(pf)Selector por defecto}
-						{(pf)No interviene de ninguna forma}
-					</section>
-
-					<section id="fragments">
-						<h3>Selector por probabilidad</h3>
-						<center>{(pf)ProbabilityPrefabSelector}</center>
-						{(pf)Proveemos una probabilidad de que se elija una instancia de cada prefab}
-					</section>
-
-					<section id="fragments">
-						<h3>Selector alternador</h3>
-						<center>{(pf)CyclePrefabSelector}</center>
-						{(pf)Alterna entre instancias de todos los prefabs existentes}
+						<table class="fragment">
+							<thead>
+								<tr>
+									<td align="center" valign="center"><h4>{(c,b)Nombre}</h4></td>
+									<td align="center" valign="center"><h4>{(c,b)Descripción}</h4></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center" valign="center">Dummy</td>
+									<td align="center" valign="center">No interviene en la selección de prefab</td>
+								</tr>
+								<tr>
+									<td align="center" valign="center">Probability</td>
+									<td align="center" valign="center">Proveemos una probabilidad a cada prefab de que se elija una instancia del mismo,
+										dándonos la habilidad de favorecer a algunos con respecto a otros</td>
+								</tr>
+								<tr>
+									<td align="center" valign="center">Cycle</td>
+									<td align="center" valign="center">Alterna entre instancias de todos los prefabs existentes, eligiendo
+										una en cada paso del sistema</td>
+								</tr>
+							</tbody>
+						</table>
 					</section>
 
 				</section>
