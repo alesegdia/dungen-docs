@@ -317,29 +317,19 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver )
 					</section>
 
 					<section id="fragments">
-						<h3>Cómputo de posibles movimientos (I)</h3>
-						<p class="fragment">$potentialDoors(room) = \left\{ t(x,y) : t \in room, potentialDoor(t) \right\}$</p>
-						{(pf)La lista de posibles movimientos se computará a partir de las {(c,b)posibles conexiones} entre}
-						<ul>
-							<li class="fragment">Puertas potenciales del mapa:<br />
-								<center>
-									$potentialDoors(rooms(map))$
-								</center>
-							</li>
-							<li class="fragment">Puertas potenciales de las habitaciones restantes:<br />
-								<center>
-									$potentialDoors(remainingRooms)$
-								</center>
-							</li>
-						</ul>
+						<h3>Cómputo de posibles movimientos</h3>
+						{(pf)La lista de posibles movimientos se computará a partir de las {(c,b)posibles conexiones} entre
+						las {(c)puertas potenciales del {(b)mapa} y de las {(b)habitaciones restantes}}}
+						<p class="fragment">$$\bigcup_{r \in RR}possibleConnections(map, r)$$</p>
+						<p class="fragment">$$RR = remainingRooms$$</p>
 					</section>
 
 					<section id="fragments">
-						<h3>Cómputo de posibles movimientos (II)</h3>
+						<h3>Conexiones entre el mapa y una habitación</h3>
 						{(pf)Las posibles {(c)conexiones entre el {(b)mapa} y una {(b)habitación}} queda definida como}
 						<p class="fragment">
 							$possibleConnections(map, room) =$<br />
-							$ \left\{ (u,v) : \neg collision(map, room, n, m), n \in map, m \in room \right\}$<br />
+							$ \left\{ (r,u,v) : \neg collision(map, r, n, m), n \in map, m \in r \right\}$<br />
 						</p>
 						{(pf)Donde los posibles valores para el par de tiles $(u,v)$ es}
 						<p class="fragment">
@@ -351,6 +341,7 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver )
 								\end{cases}$<br />
 						</p>
 					</section>
+
 					<section id="fragments">
 						<h3>Interfaz aleatoria</h3>
 						{(pf)En cada paso del algoritmo, colocaremos una habitación ({(c,b)$R_i$}) en una posición concreta ({(c,b)$P_i$})}
