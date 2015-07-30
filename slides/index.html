@@ -405,33 +405,64 @@ Movimiento GenerarMovimiento( Mapa mapa, List&lt;Habitacion&gt; habitaciones ) {
 
 				<section>
 					<section id="fragments">
-						<h2>Selector de prefabs</h2>
+						<h2>Otros componentes</h2>
 					</section>
 
 					<section id="fragments">
 						<h3>Motivación</h3>
+						<p class='fragment'>A continuación, se presentarán una serie de interfaces extra que nos permitirán:</p>
+						<ul>
+							<li class='fragment'>Agilizar el tiempo de ejecución</li>
+							<li class='fragment'>Fomentar la variabilidad</li>
+							<li class='fragment'>Controlar la selección de habitaciones</li>
+						</ul>
+						<p class='fragment'>Al ser interfaces, se pueden añadir variaciones en un futuro</p>
+					</section>
+
+					<section id="fragments">
+						<h3>Gestor de instancias por prefab</h3>
+						<p class='fragment'>Sabemos que de cada prefab puede haber varias instancias</p>
+						<p class='fragment'>Podemos tener en cuenta los prefabs en lugar de las instancias a la hora
+						de computar los movimientos</p>
+						<p class='fragment'>El número de habitaciones a tener en cuenta a la hora de computar los movimientos pasará
+						a ser el del numero de prefabs, en lugar del número de instancias, que será menor</p>
+						<p class='fragment'>Con esto, conseguimos agilizar el cómputo de movimientos</p>
+					</section>
+
+					<section id="fragments">
+						<h3>Selector de prefabs</h3>
 						<p class='fragment'>Tener un <span class='concepto'><b>control</b> sobre el <b>tipo de habitaciones que se elige en cada paso</b> de ejecución del sistema</span></p>
 						<p class='fragment'>Se ha creado una interfaz que interviene en este procedimiento</p>
 						<p class='fragment'>De esta forma, podemos inventar formas de elegir los prefabs</p>
 					</section>
-
 					<section id="fragments">
-						<h3>Selector por defecto</h3>
-						<center><p class='fragment'>DummyPrefabSelector</p></center>
-						<p class='fragment'>Selector por defecto</p>
-						<p class='fragment'>No interviene de ninguna forma</p>
-					</section>
-
-					<section id="fragments">
-						<h3>Selector por probabilidad</h3>
-						<center><p class='fragment'>ProbabilityPrefabSelector</p></center>
-						<p class='fragment'>Proveemos una probabilidad de que se elija una instancia de cada prefab</p>
-					</section>
-
-					<section id="fragments">
-						<h3>Selector alternador</h3>
-						<center><p class='fragment'>CyclePrefabSelector</p></center>
-						<p class='fragment'>Alterna entre instancias de todos los prefabs existentes</p>
+						<h3>Tipos de selectores de prefab</h3>
+						<p class='fragment'>Se han implementado los siguientes tipos:</p>
+						<table class="fragment">
+							<thead>
+								<tr>
+									<td align="center" valign="center"><h4><b><span class='concepto'>Nombre</span></b></h4></td>
+									<td align="center" valign="center"><h4><b><span class='concepto'>Descripción</span></b></h4></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center" valign="center">Dummy</td>
+									<td align="center" valign="center">No interviene en la selección de prefab, por lo que será el que se usará
+										por defecto</td>
+								</tr>
+								<tr>
+									<td align="center" valign="center">Probability</td>
+									<td align="center" valign="center">Proveemos una probabilidad a cada prefab de que se elija una instancia del mismo,
+										dándonos la habilidad de favorecer a algunos con respecto a otros</td>
+								</tr>
+								<tr>
+									<td align="center" valign="center">Cycle</td>
+									<td align="center" valign="center">Alterna entre instancias de todos los prefabs existentes, eligiendo
+										una en cada paso del sistema</td>
+								</tr>
+							</tbody>
+						</table>
 					</section>
 
 				</section>
