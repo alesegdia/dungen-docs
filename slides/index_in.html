@@ -340,11 +340,22 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver )
     mapa.InsertarHabitacion( prometedor.habitacion, prometedor.posicion );
     // eliminamos la habitación que se ha insertado de la lista
     habitaciones.remove( movimiento.habitacion );
+    // guardamos el movimiento elegido para reconstrucción rápida
+    GuardarMovimiento( movimiento );
   }
   return mapa;
 }
 						</code></pre>
 						{(pf)La interfaz influirá en la forma de elegir el movimiento aplicado}
+					</section>
+
+					<section id="fragments">
+						<h3>Guardado de movimientos</h3>
+						{(pf)Como se puede ver en el pseudocódigo, {(c)se {(b)guarda} la {(b)lista de movimientos} necesaria para
+						{(b)construir el mapa}}}
+						{(pf)La función {(c){(b)IMapSolver::GenerarMovimiento} será el {(b)bottleneck}} de nuestro sistema}
+						{(pf)Para una futura mejora añadiendo {(c,b)backtracking}, puede servirnos para {(c){(b)guardar el estado del mapa}
+						y {(b)reconstruirlo de forma muy rápida}}}
 					</section>
 
 					<section id="fragments">
@@ -356,16 +367,22 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver )
 					</section>
 
 					<section id="fragments">
+						<h3>Interfaz basada en búsqueda</h3>
+						{(pf)Se basa en dar una puntuación a cada movimiento}
+						{(pf)Se elegirá el movimiento al que tenga una mejor puntuación}
+						<pre class="fragment"><code data-trim>
+Movimiento BestSearchSolver::GenerarMovimiento( Mapa mapa, List&lt;Habitacion&gt; habitaciones ) {
+  Movimiento[] movimientos = GenerarTodosMovimientos( mapa, habitaciones );
+  float[] puntuaciones = ComputarPuntuaciones( movimientos );
+  return MejorMovimiento( movimientos, puntuaciones );
+}
+						</code></pre>
+					</section>
+
+					<section id="fragments">
 						<h3>Planteamiento - Cómputo de movimientos</h3>
 						{(pf)Hablar del manager para no repetir habitaciones a la hora de procesar costosos que requieren un tiempo de
 						ejecución considerable.}
-						{(pf)Antes de {(c){(b)colocar una habitación}, habremos realizado una serie de {(b)cómputos que requieren un tiempo
-						de ejecución considerable}}}
-						{(pf)Así, podemos {(c){(b)conservar el estado de un mapa} mediante una {(b)lista de movimientos} para construirlo}, sin
-						necesidad de realizar cómputos previos}
-						{(pf)De esta forma, incluimos una {(c)lista de {(b)movimientos} para {(b)construir la solución}}}
-						{(pf)Se ha procurado elaborar un sistema flexible que podamos modificar fácilmente en funcion de otros requerimentos,
-						haciendo así posible la reutilización del software}
 					</section>
 
 					<section id="fragments">
