@@ -340,11 +340,22 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver )
     mapa.InsertarHabitacion( prometedor.habitacion, prometedor.posicion );
     // eliminamos la habitación que se ha insertado de la lista
     habitaciones.remove( movimiento.habitacion );
+    // guardamos el movimiento elegido para reconstrucción rápida
+    GuardarMovimiento( movimiento );
   }
   return mapa;
 }
 						</code></pre>
 						<p class='fragment'>La interfaz influirá en la forma de elegir el movimiento aplicado</p>
+					</section>
+
+					<section id="fragments">
+						<h3>Guardado de movimientos</h3>
+						<p class='fragment'>Como se puede ver en el pseudocódigo, <span class='concepto'>se <b>guarda</b> la <b>lista de movimientos</b> necesaria para
+						<b>construir el mapa</b></span></p>
+						<p class='fragment'>La función <span class='concepto'><b>IMapSolver::GenerarMovimiento</b> será el <b>bottleneck</b></span> de nuestro sistema</p>
+						<p class='fragment'>Para una futura mejora añadiendo <b><span class='concepto'>backtracking</span></b>, puede servirnos para <span class='concepto'><b>guardar el estado del mapa</b>
+						y <b>reconstruirlo de forma muy rápida</b></span></p>
 					</section>
 
 					<section id="fragments">
@@ -356,25 +367,16 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver )
 					</section>
 
 					<section id="fragments">
-						<h3>Planteamiento - Cómputo de movimientos</h3>
-						<p class='fragment'>Hablar del manager para no repetir habitaciones a la hora de procesar costosos que requieren un tiempo de
-						ejecución considerable.</p>
-						<p class='fragment'>Antes de <span class='concepto'><b>colocar una habitación</b>, habremos realizado una serie de <b>cómputos que requieren un tiempo
-						de ejecución considerable</b></span></p>
-						<p class='fragment'>Así, podemos <span class='concepto'><b>conservar el estado de un mapa</b> mediante una <b>lista de movimientos</b> para construirlo</span>, sin
-						necesidad de realizar cómputos previos</p>
-						<p class='fragment'>De esta forma, incluimos una <span class='concepto'>lista de <b>movimientos</b> para <b>construir la solución</b></span></p>
-						<p class='fragment'>Se ha procurado elaborar un sistema flexible que podamos modificar fácilmente en funcion de otros requerimentos,
-						haciendo así posible la reutilización del software</p>
-					</section>
-
-					<section id="fragments">
-						<h3>Movimientos</h3>
-						<p class="fragment">Se ha empleado un método constructivo, es decir, iremos construyendo el mapa por pasos, basándonos en
-						una <i><b>búsqueda</b></i></p>
-						<p class="fragment">En cada paso, se realizará lo que llamaremos un <b><span class='concepto'>movimiento</span></b></p>
-						<p class='fragment'>Un <span class='concepto'><b>movimiento</b> está compuesto por:</span></p>
-
+						<h3>Interfaz basada en búsqueda</h3>
+						<p class='fragment'>Se basa en dar una puntuación a cada movimiento</p>
+						<p class='fragment'>Se elegirá el movimiento al que tenga una mejor puntuación</p>
+						<pre class="fragment"><code data-trim>
+Movimiento BestSearchSolver::GenerarMovimiento( Mapa mapa, List&lt;Habitacion&gt; habitaciones ) {
+  Movimiento[] movimientos = GenerarTodosMovimientos( mapa, habitaciones );
+  float[] puntuaciones = ComputarPuntuaciones( movimientos );
+  return MejorMovimiento( movimientos, puntuaciones );
+}
+						</code></pre>
 					</section>
 
 					<section id="fragments">
