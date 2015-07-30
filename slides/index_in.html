@@ -405,18 +405,39 @@ Movimiento GenerarMovimiento( Mapa mapa, List&lt;Habitacion&gt; habitaciones ) {
 
 				<section>
 					<section id="fragments">
-						<h2>Selector de prefabs</h2>
+						<h2>Otros componentes</h2>
 					</section>
 
 					<section id="fragments">
 						<h3>Motivación</h3>
+						{(pf)A continuación, se presentarán una serie de interfaces extra que nos permitirán:}
+						<ul>
+							{(lif)Agilizar el tiempo de ejecución}
+							{(lif)Fomentar la variabilidad}
+							{(lif)Controlar la selección de habitaciones}
+						</ul>
+						{(pf)Al ser interfaces, se pueden añadir variaciones en un futuro}
+					</section>
+
+					<section id="fragments">
+						<h3>Gestor de instancias por prefab</h3>
+						{(pf)Sabemos que de cada prefab puede haber varias instancias}
+						{(pf)Podemos tener en cuenta los prefabs en lugar de las instancias a la hora
+						de computar los movimientos}
+						{(pf)El número de habitaciones a tener en cuenta a la hora de computar los movimientos pasará
+						a ser el del numero de prefabs, en lugar del número de instancias, que será menor}
+						{(pf)Con esto, conseguimos agilizar el cómputo de movimientos}
+					</section>
+
+					<section id="fragments">
+						<h3>Selector de prefabs</h3>
 						{(pf)Tener un {(c){(b)control} sobre el {(b)tipo de habitaciones que se elige en cada paso} de ejecución del sistema}}
 						{(pf)Se ha creado una interfaz que interviene en este procedimiento}
 						{(pf)De esta forma, podemos inventar formas de elegir los prefabs}
 					</section>
-
 					<section id="fragments">
-						<h3>Selector por defecto</h3>
+						<h3>Tipos de selectores de prefab</h3>
+						{(pf)Se han implementado los siguientes tipos:}
 						<table class="fragment">
 							<thead>
 								<tr>
@@ -427,7 +448,8 @@ Movimiento GenerarMovimiento( Mapa mapa, List&lt;Habitacion&gt; habitaciones ) {
 							<tbody>
 								<tr>
 									<td align="center" valign="center">Dummy</td>
-									<td align="center" valign="center">No interviene en la selección de prefab</td>
+									<td align="center" valign="center">No interviene en la selección de prefab, por lo que será el que se usará
+										por defecto</td>
 								</tr>
 								<tr>
 									<td align="center" valign="center">Probability</td>
