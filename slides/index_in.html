@@ -248,25 +248,25 @@
 
 				<section>
 					<section id="fragments">
-						<h2>Estrategia del sistema</h2>
-						<aside>
-							<h3>Recordatorio del problema</h3>
-							<p class="fragment">Los mapas debían generarse a partir de un set de habitaciones suministrado</p>
-							<p class="fragment">Esto tiene su lógica en que, según el nivel, podemos querer que haya unas habitaciones u otras</p>
-							<p class="fragment">No hay restricción en el tamaño del mapa, por lo que partiremos partiremos de un solar de tamaño suficiente
-							para dar cabida a todas las habitaciones</p>
-							{(pf)Las habitaciones pueden repetirse, pero en una cantidad concreta}
-						</aside>
+						<h2>Movimientos</h2>
 					</section>
 
 					<section id="fragments">
-						<h3>Movimientos</h3>
+						<h3>Definición</h3>
 						{(pf)Usaremos un {(c,b)método constructivo} para {(c)obtener {(b)una solución}}}
 						{(pf)Construiremos el mapa a partir de {(c,b)movimientos} {(c,b)$M_i(R_i,P_i)$} compuestos por:}
 						<ul>
 							{(lif){(c,b)$R_i$}: modelo de habitación a colocar}
 							{(lif){(c,b)$P_i$}: posición del mapa donde se coloca}
 						</ul>
+						<aside class="notes">
+							<h3>Recordatorio del problema</h3>
+							<p>Los mapas debían generarse a partir de un set de habitaciones suministrado</p>
+							<p>Esto tiene su lógica en que, según el nivel, podemos querer que haya unas habitaciones u otras</p>
+							<p>No hay restricción en el tamaño del mapa, por lo que partiremos partiremos de un solar de tamaño suficiente
+							para dar cabida a todas las habitaciones</p>
+							{(pf)Las habitaciones pueden repetirse, pero en una cantidad concreta}
+						</aside>
 					</section>
 
 					<section id="fragments">
@@ -300,6 +300,13 @@
 						</p>
 					</section>
 
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Construcción del mapa</h2>
+					</section>
+
 					<section id="fragments">
 						<h3>Interfaz de construcción</h3>
 						{(pf)Emplearemos una interfaz {(c,b)IMapGenSolver} que {(c)elegirá un {(b)movimiento} de entre todos los posibles}
@@ -331,19 +338,39 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver )
 						{(pf)Para una futura mejora añadiendo {(c,b)backtracking}, puede servirnos para {(c){(b)guardar el estado del mapa}
 						y {(b)reconstruirlo de forma muy rápida}}}
 					</section>
+				</section>
 
+				<section>
 					<section id="fragments">
-						<h3>Interfaz aleatoria</h3>
-						{(pf)Esta interfaz elige un movimiento aleatorio en cada paso y proporciona resultados relativamente buenos}
-						<center class="fragment">
-							<p><img width="400" src="./randomsolver.png" /></p>
-						</center>
+						<h2>Interfaz aleatoria</h2>
 					</section>
 
 					<section id="fragments">
-						<h3>Interfaz basada en búsqueda</h3>
+						<h3>Propiedades</h3>
+						{(pf){(c){(b)No} tiene {(b)interés computacional}}}
+						{(pf)Esta interfaz {(c)elige un {(b)movimiento aleatorio} de entre {(b)todos los posibles}} en cada paso}
+						{(pf)Da unos {(c){(b)resultados} visiblemente {(b)buenos}} pero no proporciona {(c,b)ningún tipo de control}}
+						{(pf)Tiene una {(c)tiempo de ejecución {(b)corto}}}
+					</section>
+
+					<section id="fragments">
+						<h3>Ejemplo</h3>
+						<center class="fragment">
+							<p><img width="450" src="./randomsolver.png" /></p>
+							<p><small>Ejemplo de mapa generado por RandomSolver</small></p>
+						</center>
+					</section>
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Interfaz basada en búsqueda</h2>
+					</section>
+
+					<section id="fragments">
+						<h3>Estrategia</h3>
 						{(pf)Se basa en dar una puntuación a cada movimiento}
-						{(pf)Se elegirá el movimiento al que tenga una mejor puntuación}
+						{(pf)Se elegirá el movimiento que tenga una mejor puntuación}
 						<pre class="fragment"><code data-trim>
 Movimiento GenerarMovimiento( Mapa mapa, List&lt;Habitacion&gt; habitaciones ) {
   Movimiento[] movimientos = GenerarTodosMovimientos( mapa, habitaciones );
