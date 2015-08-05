@@ -1,10 +1,35 @@
 \chapter{Estado del arte.}\label{cap:capitulo1}
 
+En este capítulo, analizaremos el ámbito de la generación procedimental de contenido para videojuegos. Veremos las distintas subdisciplinas presentes, así como los problemas que resuelven. Se hará hincapié en la generación de escenarios, ya que es el campo que compete al proyecto.
+
 \section{Generación de contenido procedimental.}
 
+Más conocida por su nombre en inglés (Procedural Content Generation), se refiere a la disciplina de generar contenido partiendo de algoritmos, en lugar de hacerlo manualmente.
 
+Tuvo sus inicios en la subcultura informática llamada \emph{Demoscene} \cite{dmscn}. Este movimiento tuvo sus inicios a finales de los años 70 y principios de los 80, y continúa a día de hoy. Consiste en crear contenido visual y sonoro de forma programada, ya sea en parte o en su totalidad, y tenía como uno de sus objetivos escudriñar al máximo las limitadas capacidades de los ordenadores de la época.
+
+Los \emph{sceners} de este campo, conseguían generar contenidos que eran impensables para la época, como por ejemplo escenas en 3D cuando a OpenGL aún le quedaban un par de décadas para aparecer. Por su habilidad, la mayoria de los demosceners terminaban trabajando para empresas de videojuegos de la época, cuando aún no había tantas facilidades a la hora de crearlos.
+
+Existen diversas subdisciplinas en las que se aplica el concepto de generación procedimental de contenido:
+
+\begin{itemize}
+	\item \emph{Escenarios}.
+	\item Texturas \cite{texmodproc}. Un ejemplo de ello es la generación de texturas que imitan el mármol o la madera. En algunos casos se emplean autómatas celulares.
+	\item Geometría. Generación de follaje, o árboles empleando L-Systems. \cite{texmodproc}
+	\item Mecánicas. El juego Left4Dead y su secuela, emplean un sistema procedimental para gestionar los momentos de tensión y la dificultad de las situaciones según las acciones que han ido tomando los jugadores.
+\end{itemize}
+
+Otra clasificación de los métodos procedimentales es según el momento de ejecución del procedimiento. Si el procedimiento es ejecutado antes del lanzamiento del juego, o después con la particularidad de que se realiza en servidores ajenos al jugador, lo denominaremos \emph{offline}. Sin embargo, si el procesamiento se realiza en el sistema en que se está ejecutando el juego, lo llamaremos \emph{online}.
 
 \section{Generación de mapas.}
+
+La generación de escenarios se considera un concepto muy amplio, ya que según el contexto del juego, puede variar bastante. Por ejemplo, en un juego ambientado en el espacio exterior, el escenario puede entenderse como una galaxia completa, como es el caso de \emph{Elite: Dangerous}.
+
+Otro tipo de modelo a usar en la generación de escenarios es el ruido Perlin. Éste puede ser muy útil en conjunto con el concepto de mapas de alturas para generar terrenos al aire libre montañosos \cite{libnoise}. También se ha empleado el \emph{algoritmo de Voronoi} para la generación de terrenos \cite{amitvoronoi}.
+
+Algún ejemplo más histórico de generación de escenarios pueden ser los múltiples algoritmos de generación de laberintos que se conocen \cite{labygen}.
+
+Debido a que los métodos anteriores son demasiado genéricos, una opción muy popular es idear y construir un generador específico para el juego en cuestión que se esté desarrollando. Un ejemplo de ello es \emph{TinyKeep}, cuyo autor describe a grandes rasgos en \cite{tinykeep} las fases y el desarrollo del algoritmo que ha creado. Esta opción es la que se desarrollará en este proyecto, procurando mantener un nivel de genericidad y capacidad de personalización del sistema.
 
 
 
