@@ -1,49 +1,92 @@
 \chapter*{Introducción}
 \label{intro:intro}
-\addcontentsline{toc}{section}{Introducción.}
+\addcontentsline{toc}{chapter}{Introducción.}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt vitae leo eget vestibulum. Donec non mauris ultrices, accumsan purus vel, tincidunt nisl. Vivamus vehicula risus maximus lacus bibendum, at vestibulum urna tempus. Ut ac orci est. Sed tempor varius nibh nec laoreet. Duis convallis diam vitae aliquet semper. Sed ultricies ante nec erat cursus, sed sollicitudin velit scelerisque. Vestibulum eu faucibus risus. Donec interdum vehicula ullamcorper. Donec quis orci dapibus, blandit ipsum et, interdum erat. Aliquam sit amet urna semper, condimentum lacus vel, viverra velit. In hac habitasse platea dictumst. Aenean hendrerit maximus dignissim. Proin at nulla urna.
+En la actualidad, los videojuegos han conseguido posicionarse en un mercado líder indiscutible a nivel internacional. En el ámbito del entretenimiento, la industria cinematográfica está dando paso a los videojuegos, que avanzan a pasos de gigante. Muchas grandes personalidades del cine se dirigen a los creadores de videojuegos para continuar su carrera. Un ejemplo claro de una persona adelantada para su época en este sentido, es George Lucas (\cite{lucasarts}), autor de la famosa saga Star Wars. George Lucas se introdujo en el mercado de los videojuegos en el 1986 con el título Labyrinth, dando paso posteriormente a otros títulos muy sonados y de culto como Monkey Island o Grimm Fandango.
 
-Nunc viverra volutpat bibendum. Nunc augue orci, tempus nec interdum sit amet, ornare id elit. Integer congue risus vitae ipsum pharetra rutrum. Curabitur mollis sagittis pretium. Etiam a lacus sed mauris rhoncus ullamcorper non sit amet felis. Ut arcu ante, sodales eu sapien ullamcorper, tempus facilisis enim. Quisque sit amet mauris pharetra erat porta rhoncus nec interdum odio. Nulla lectus metus, placerat id blandit at, volutpat non velit. Nam non viverra dolor, sed vulputate orci. Fusce non enim fermentum, varius libero vel, viverra nulla. Mauris mollis lectus non dolor blandit, non consectetur dolor blandit.
+Un videojuego, al igual que una película, puede contar una historia. Aún así, existen diferentes géneros de videojuegos, que van desde simulación de juegos de mesa, donde evidentemente no existe historia, o está intrínseca en el origen del mismo juego, hasta las denominadas aventuras gráficas, donde el enfoque está en la parte argumental. Es por ello que la industria del cine deja paso a los videojuegos de manera tan rápida.
 
-Proin porttitor interdum risus pharetra condimentum. Aenean et mauris ligula. Aenean facilisis odio ut metus consequat varius. Aliquam erat volutpat. In hac habitasse platea dictumst. Vestibulum sit amet velit urna. Donec ac volutpat sem, sit amet fermentum risus. Ut eu augue sit amet est vulputate maximus. Aliquam vitae pellentesque quam. Maecenas vel velit ut dui finibus dapibus. Vivamus consectetur hendrerit consequat. Proin id justo vitae nulla aliquet eleifend et quis enim. Quisque bibendum sit amet neque eu sollicitudin.
+\section*{Mapas y escenarios.}
+\addcontentsline{toc}{section}{Mapas y escenarios}
 
+Muchos géneros de videojuegos plantean su argumento en un escenario donde se da rienda suelta a la capacidad perceptiva del jugador, dando lugar en mayor o menor medida a que complete la historia con su imaginación. En este escenario, el jugador desarrollará las acciones que se le ofrezcan según el tipo de juego. Así, podrá completar la historia, permitiendo además en muchos casos que las acciones influyan en el desarrollo argumental del videojuego. Tipos de juegos que requieren mapas son juegos de acción, estrategia o rol entre otros.
 
+El tipo de escenario que podemos encontrarnos en un juego es de lo más variopinto. A la hora de plantear la elaboración de un juego, se tiene en cuenta la elección del tipo de escenario. Muchas cuestiones sobre las que se basan estas elecciones radican sobre la complejidad de optimización del mismo:
 
-\section*{Videojuegos}
-\addcontentsline{toc}{section}{Videojuegos}
+\begin{itemize}
+	\item Si el escenario es demasiado grande, no nos interesa renderizar el escenario completo, sino solamente la parte visible.
+	\item Lo mismo pasa con las físicas. No nos interesa comprobar colisiones con elementos que es obvio que no van a colisionar.
+	\item El \emph{nivel de detalle} (Level of detail por el inglés \cite{lod}) es otro aspecto a tener en cuenta. Si una geometría está demasiado lejana del jugador, no necesitamos renderizarla exactamente como es. Este aspecto es relevante a los juegos 3D principalmente.
+	\item La división o no del escenario por zonas. Esto puede evitarnos la obligatoria presencia en memoria de un mapa completo, pudiéndolo dividir en partes para ahorrar en el preciado recurso que es la memoria. Es un aspecto a tener en cuenta sobre todo cuando se elaboran juegos para videoconsolas, las cuales suelen contar con una memoria muy limitada.
+\end{itemize}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt vitae leo eget vestibulum. Donec non mauris ultrices, accumsan purus vel, tincidunt nisl. Vivamus vehicula risus maximus lacus bibendum, at vestibulum urna tempus. Ut ac orci est. Sed tempor varius nibh nec laoreet. Duis convallis diam vitae aliquet semper. Sed ultricies ante nec erat cursus, sed sollicitudin velit scelerisque. Vestibulum eu faucibus risus. Donec interdum vehicula ullamcorper. Donec quis orci dapibus, blandit ipsum et, interdum erat. Aliquam sit amet urna semper, condimentum lacus vel, viverra velit. In hac habitasse platea dictumst. Aenean hendrerit maximus dignissim. Proin at nulla urna.
+Así, se han elegido dos criterios principales como forma de clasificar los tipos de escenario:
 
-Nunc viverra volutpat bibendum. Nunc augue orci, tempus nec interdum sit amet, ornare id elit. Integer congue risus vitae ipsum pharetra rutrum. Curabitur mollis sagittis pretium. Etiam a lacus sed mauris rhoncus ullamcorper non sit amet felis. Ut arcu ante, sodales eu sapien ullamcorper, tempus facilisis enim. Quisque sit amet mauris pharetra erat porta rhoncus nec interdum odio. Nulla lectus metus, placerat id blandit at, volutpat non velit. Nam non viverra dolor, sed vulputate orci. Fusce non enim fermentum, varius libero vel, viverra nulla. Mauris mollis lectus non dolor blandit, non consectetur dolor blandit.
+\begin{itemize}
+	\item Organización del escenario. Este criterio se refiere a la existencia de cortes en el desarrollo del juego para la carga de las distintas partes del mundo en el que se desarrolla el juego. Algunos tipos son:
+	\begin{itemize}
+		\item Escenarios totalmente continuos continuos representando un mundo totalmente abierto. Ejemplos son GTAV o Minecraft.
+		\item Dividido por zonas donde no existen cortes en la misma zona. Un ejemplo es Borderlands.
+		\item Dividido por zonas donde pueden existir cortes en la misma para interiores. Un ejemplo es Skyrim.
+	\end{itemize}
+	\item Composición del escenario. Nos referimos a si la geometría empleada ayuda de forma implícita al manejo a nivel computacional del escenario. Algunos tipos son:
+	\begin{itemize}
+		\item Escenarios en 2D discretizados en \emph{tiles}. Básicamente, la geometría está representada por una matriz de dos dimensiones, donde cada casilla de la matriz está relacionada con una textura, siendo todas las texturas del mismo tamaño para la misma matriz. Este tipo de escenarios son muy fácilmente optimizables. Ejemplos de este tipo es, por ejemplo, Final Fantasy VI.
+		\item Una extensión a 3D de los escenarios de tiles son los escenarios compuestos por \emph{voxels} \cite{voxel}. Estos han sido recientemente popularizados por el famoso título Minecraft, donde el escenario está gestionado por un \emph{motor de voxels}.
+		\item Escenarios con geometría deliberada. Es decir, la geometría (ya sea 2D o 3D), no presenta ninguna propensión a ser optimizada. Este tipo de escenarios, suelen optimizarse con el uso de \emph{quadtrees} \cite{quadtree} (para 2D) u \emph{octrees} \cite{octree} (para 3D)
+		\item Escenarios hechos con los denominados \emph{brushes} \cite{brush}. Esta técnica se utiliza para 3D, y consiste en el uso de geometrías convexas para componer un escenario. Ejemplos famosos de este tipo de escenarios es \emph{Quake} \cite{quake}.
+	\end{itemize}
+\end{itemize}
+
+Una vez expuesta los criterios para clasificar los tipos de mapas, remarcar que hay casos en los que los desarrolladores convienen formas nuevas de organizar el mapa debido a necesidades particulares, por lo que los ejemplos expuestos en cada criterio no completan de ninguna manera las múltiples categorías para cada uno.
+
+Para el desarrollo de este proyecto y atendiendo a las especificaciones presentadas en el capítulo~\ref{cap:capitulo2}, abarcaremos \emph{mapas de tiles} para el género de juego \emph{roguelike} \cite{rlike}. Este género se caracteriza precisamente por mapas generados de forma procedimental. Cada nivel es entendido como una planta, donde el jugador tiene que llegar desde donde aparece hasta un tile considerado como final para poder continuar hasta la siguiente planta. Así, el jugador va avanzando niveles hasta que llega al último y completa el juego al finalizar el mismo.
 
 
 
 \section*{Motivación y Objetivos.}
 \addcontentsline{toc}{section}{Motivación y Objetivos}
 
-lorem ipsum dolor sit amet, consectetur adipiscing elit. curabitur tincidunt vitae leo eget vestibulum. donec non mauris ultrices, accumsan purus vel, tincidunt nisl. vivamus vehicula risus maximus lacus bibendum, at vestibulum urna tempus. ut ac orci est. sed tempor varius nibh nec laoreet. duis convallis diam vitae aliquet semper. sed ultricies ante nec erat cursus, sed sollicitudin velit scelerisque. vestibulum eu faucibus risus. donec interdum vehicula ullamcorper. donec quis orci dapibus, blandit ipsum et, interdum erat. aliquam sit amet urna semper, condimentum lacus vel, viverra velit. in hac habitasse platea dictumst. aenean hendrerit maximus dignissim. proin at nulla urna.
+Como se ha mencionado previamente, la industria de los videojuegos avanza a pasos de gigante. Es por ello que las compañías invierten cada vez más en videojuegos, siendo a veces el coste en marketing superior al de desarrollo \cite{costgames}. Existe un amplio espectro de puestos encontrados en este campo \cite{gdroles1} \cite{gdroles2}, entre los cuales existen
 
-Nunc viverra volutpat bibendum. Nunc augue orci, tempus nec interdum sit amet, ornare id elit. Integer congue risus vitae ipsum pharetra rutrum. Curabitur mollis sagittis pretium. Etiam a lacus sed mauris rhoncus ullamcorper non sit amet felis. Ut arcu ante, sodales eu sapien ullamcorper, tempus facilisis enim. Quisque sit amet mauris pharetra erat porta rhoncus nec interdum odio. Nulla lectus metus, placerat id blandit at, volutpat non velit. Nam non viverra dolor, sed vulputate orci. Fusce non enim fermentum, varius libero vel, viverra nulla. Mauris mollis lectus non dolor blandit, non consectetur dolor blandit.
+\begin{itemize}
+	\item \emph{Game programmer}. Personal dedicado a la programación de las mecánicas del juego, eventos y otros relacionados con el propio juego
+	\item \emph{Core programmer}. Personal dedicado a la elaboración del motor que será la base sobre la que funcionará el juego. Normalmente se subdivide en subroles como \emph{graphics programmer} o \emph{physics programmer}. En muchos casos, se parte de un motor ya elaborado sobre el que se realizan las modificaciones necesarias para el juego en cuestión.
+	\item \emph{Game designer}. Dedicados a la elaboración de las mecánicas del juego, así como el plot del mismo.
+	\item \emph{Level designer}. Personal dedicado exclusivamente a la elaboración de escenarios empleando programas externos o el mismo motor que se esté utilizando, si éste posee dichas capacidades.
+	\item \emph{AI programmer}. Dedicado a la programación de los distintos sistemas de inteligencia artificial existentes en el juego.
+	\item \emph{Muchos más...}
+\end{itemize}
 
-Proin porttitor interdum risus pharetra condimentum. Aenean et mauris ligula. Aenean facilisis odio ut metus consequat varius. Aliquam erat volutpat. In hac habitasse platea dictumst. Vestibulum sit amet velit urna. Donec ac volutpat sem, sit amet fermentum risus. Ut eu augue sit amet est vulputate maximus. Aliquam vitae pellentesque quam. Maecenas vel velit ut dui finibus dapibus. Vivamus consectetur hendrerit consequat. Proin id justo vitae nulla aliquet eleifend et quis enim. Quisque bibendum sit amet neque eu sollicitudin.
+En este listado, solo hemos tenido en cuenta algunos de los puestos del aspecto de desarrollo, pero quedaría añadir muchos más como diseñadores gráficos y apartado de marketing.
 
+Destacar que el \emph{level designer}, pese a que no se encarga de la construcción de las herramientas para crear el escenario, debe conocer las bases del tipo de escenario que se empleará en el juego, de forma que adapte sus técnicas de diseño al tipo de escenario.
 
+Recientemente, y debido a las cada vez más crecientes facilidades para crear un videojuego, han surgido los llamados \emph{equipos indies} \cite{gdindie}, caracterizados principalmente por tener un bajo presupuesto y personal. Normalmente suelen empezar con un presupuesto nulo, pero en algunos casos llegan a triunfar de manera inesperada incluso por los mismos desarrolladores. Ejemplos son \emph{Hotline Miami}, \emph{Minecraft} o \emph{Risk of Rain}.
+
+Los equipos con un presupuesto considerable (coloquialmente denominados AAA), no tienen problemas a la hora de contratar \emph{diseñadores de niveles}, ya que disponen de una gran cantidad de dinero para depositar en los distintos roles necesarios para un juego. Aún así, en combinación con un generador de mapas, un \emph{diseñador de niveles} puede desarrollar ideas que den un resultado muy bueno. Ejemplos de esto son \emph{Diablo} o \emph{Torchlight}, donde los mapas son generados automáticamente partiendo de patrones elaborados a mano por \emph{diseñadores de niveles}.
+
+Así, el la motivación de este proyecto reside en dos ideas principales.
+
+\begin{itemize}
+	\item Ahorro de coste y tiempo para equipos indies, que no pueden permitirse el lujo de gastar en personal exclusivo para el diseño de niveles.
+	\item Adición de variedad a los escenarios de juegos, permitiendo incluso a un equipo de desarrolladores AAA
+\end{itemize}
 
 
 \section*{Solución Propuesta.}
 \addcontentsline{toc}{section}{Solución Propuesta}
 
+La solución que se propone es un sistema capaz de generar escenarios de manera automática con una mínima interacción (o incluso nula si se desea) de los diseñadores. Esto además, conlleva dinamismo en los escenarios que se podrán jugar, de forma que de partida a partida, la distribución del escenario será completamente distinta.
 
-En el capítulo~\ref{cap:capitulo1} lorem ipsum dolor sit amet, consectetur adipiscing elit. curabitur tincidunt vitae leo eget vestibulum. donec non mauris ultrices, accumsan purus vel, tincidunt nisl. vivamus vehicula risus maximus lacus bibendum, at vestibulum urna tempus. ut ac orci est. sed tempor varius nibh nec laoreet. duis convallis diam vitae aliquet semper. sed ultricies ante nec erat cursus, sed sollicitudin velit scelerisque. vestibulum eu faucibus risus. donec interdum vehicula ullamcorper. donec quis orci dapibus, blandit ipsum et, interdum erat. aliquam sit amet urna semper, condimentum lacus vel, viverra velit. in hac habitasse platea dictumst. aenean hendrerit maximus dignissim. proin at nulla urna.
+La elaboración de un generador de escenarios, une las competencias de dos roles en el desarrollo de videojuegos:
 
+\begin{itemize}
+	\item \emph{Diseñador de niveles.} Se necesitan conocimientos sobre la composición de los escenarios del juego, además de las propiedades concretas en cuanto a los criterios mencionados anteriormente.
+	\item \emph{Programador de IA}. La creación del sistema que genere los escenarios es un trabajo que compete a este rol, ya que estamos tratando de resolver un problema donde las posibilidades de resolución son casi infinitas.
+\end{itemize}
 
-Nunc viverra volutpat bibendum. Nunc augue orci, tempus nec interdum sit amet, ornare id elit. Integer congue risus vitae ipsum pharetra rutrum. Curabitur mollis sagittis pretium. Etiam a lacus sed mauris rhoncus ullamcorper non sit amet felis. Ut arcu ante, sodales eu sapien ullamcorper, tempus facilisis enim. Quisque sit amet mauris pharetra erat porta rhoncus nec interdum odio. Nulla lectus metus, placerat id blandit at, volutpat non velit. Nam non viverra dolor, sed vulputate orci. Fusce non enim fermentum, varius libero vel, viverra nulla. Mauris mollis lectus non dolor blandit, non consectetur dolor blandit.
-
-Proin porttitor interdum risus pharetra condimentum. Aenean et mauris ligula. Aenean facilisis odio ut metus consequat varius. Aliquam erat volutpat. In hac habitasse platea dictumst. Vestibulum sit amet velit urna. Donec ac volutpat sem, sit amet fermentum risus. Ut eu augue sit amet est vulputate maximus. Aliquam vitae pellentesque quam. Maecenas vel velit ut dui finibus dapibus. Vivamus consectetur hendrerit consequat. Proin id justo vitae nulla aliquet eleifend et quis enim. Quisque bibendum sit amet neque eu sollicitudin.
-
-
-
+Finalmente, se elaborará el sistema de forma que se emplea los conceptos de una búsqueda para el mismo.
 
 \section*{Estructura de la memoria.}
 \addcontentsline{toc}{section}{Estructura de la memoria}
