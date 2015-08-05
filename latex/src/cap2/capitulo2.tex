@@ -1,7 +1,22 @@
 \chapter{Especificaciones.}\label{cap:capitulo2}
 
+En este capítulo definiremos las especificaciones y directrices tanto del tipo de juego como del sistema de generación. Dichas directrices que delimitarán el sistema a crear, han sido establecidas por la empresa indie de videojuegos \emph{TheGameKitchen}, y el sistema será empleado en un futuro título de la misma.
 
 \section{Tipo de juego.}
+
+El género de juego al que nos enfocaremos, será del tipo \emph{roguelike} \cite{rlike}, cuyas características principales son:
+
+\begin{itemize}
+	\item \emph{Generación de mazmorras}. Cada vez que el jugador inicia una partida, la experiencia será ligeramente distinta.
+	\item \emph{Importancia considerable a la exploración}. El hecho de que las mazmorras no sean siempre iguales, incita al jugador a tener que invertir tiempo en explorar para poder encontrar la salida.
+	\item \emph{Desarrollo del juego por plantas}. El objetivo del jugador suele ser llegar a una habitación considerada como final, donde puede elegir pasar a una siguiente planta, o investigar un poco más en la presente.
+	\item \emph{Dificultad progresiva}. Cada planta, tendrá una dificultad ligeramente mayor a la de la anterior hasta llegar a la última.
+	\item \emph{Muerte permanente}. Una vez que el jugador muere, no hay manera de cargar la partida. La unica opción es comenzar de nuevo.
+\end{itemize}
+
+Históricamente, el género \emph{roguelike} se identificaba además por otro tipo de características, como la mecánica por turnos o el énfasis en jugabilidad y desinterés en los gráficos, pero con el tiempo, el género se ha ido abriendo paso a una definición más genérica. Debido a ésto, hoy en día existen desde \emph{shooters} considerados \emph{roguelike}, como por ejemplo \emph{Tower of Guns} o \emph{Paranautical Activity}, hasta \emph{plataformas}, como \emph{Risk of Rain} o \emph{Spelunky}.
+
+En concreto, el juego estará representado en un mapa de tiles.
 
 
 \section{Directrices para la generación.}
