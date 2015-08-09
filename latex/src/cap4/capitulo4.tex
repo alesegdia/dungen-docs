@@ -1,6 +1,21 @@
-\chapter{Movimientos.}\label{cap:capitulo4}
+\chapter{Estrategia constructiva.}\label{cap:capitulo4}
 
+Hasta ahora hemos visto la representación de las distintas entidades que entran en juego. En este capítulo introduciremos parte de la lógica que seguirá el sistema. Destacar que, aunque el enfoque final ha sido reducir el problema a una modificación de búsqueda, el sistema está pensado de forma que sea flexible a la hora de utilizar otro tipo de estrategias.
 
+A la metodología que hemos utilizado la hemos denominado \emph{estrategia constructiva}, cuyo origen radica en la forma de generar el mapa. El sistema construirá el mapa por pasos, de forma que en cada paso, se hará una elección de una habitación y se colocará en el mapa. Así, el sistema dará por concluida la generación cuando no queden habitaciones en la lista inicial. En la figura X se puede ver el pseudocódigo.
+
+$$ pseudocodigo $$
+
+Se puede observar la entrada en juego de una interfaz que realizará la elección de dicha habitación. En esta interfaz radica uno de los puntos de flexibilidad del sistema.
+
+\section{Movimientos.}
+
+Como se aprecia en el pseudocódigo, la interfaz de generación se encarga de elegir un movimiento. Dicho movimiento está constituido por:
+
+\begin{itemize}
+	\item\emph{Instancia de habitación} a colocar en el mapa
+	\item\emph{Posición} del mapa donde colocaremos dicha habitación
+\end{itemize}
 
 \section{Cómputo de posibles movimientos.}
 
