@@ -2,20 +2,39 @@
 
 Hasta ahora hemos visto la representación de las distintas entidades que entran en juego. En este capítulo introduciremos parte de la lógica que seguirá el sistema. Destacar que, aunque el enfoque final ha sido reducir el problema a una modificación de búsqueda, el sistema está pensado de forma que sea flexible a la hora de utilizar otro tipo de estrategias.
 
-A la metodología que hemos utilizado la hemos denominado \emph{estrategia constructiva}, cuyo origen radica en la forma de generar el mapa. El sistema construirá el mapa por pasos, de forma que en cada paso, se hará una elección de una habitación y se colocará en el mapa. Así, el sistema dará por concluida la generación cuando no queden habitaciones en la lista inicial. En la figura X se puede ver el pseudocódigo.
 
-$$ pseudocodigo $$
+\section{Algoritmo de generación}
+A la metodología que hemos utilizado la hemos denominado \emph{estrategia constructiva}, cuyo origen radica en la forma de generar el mapa. Como se puede ver en el listado \ref{lst:mlisting}, el sistema construirá el mapa por pasos. de forma que en cada paso se hará una elección de una habitación y se colocará en el mapa. Así, el sistema dará por concluida la generación cuando no queden habitaciones en la lista inicial.
 
-Se puede observar la entrada en juego de una interfaz que realizará la elección de dicha habitación. En esta interfaz radica uno de los puntos de flexibilidad del sistema.
+\begin{lstlisting}[caption={Algoritmo constructivo para generar mapas},label={lst:mlisting},language=Java]
+Mapa GenerarMapa( List<Habitacion> habitaciones, InterfazGeneracion mapSolver ) {
+	Mapa mapa = MapaVacio();
+	while( !habitaciones.isEmpty() ) {
+		List<Movimiento> movimientos = GenerarMovimientos( mapa, habitaciones );
+		Movimiento elegido = mapSolver.ElegirMovimiento( );
+		mapa.InsertarHabitacion( elegido.habitacion, elegido.posicion );
+		habitaciones.remove( elegido.habitacion );
+		GuardarMovimiento( elegido );
+	}
+	return mapa;
+}
+\end{lstlisting}
 
-\section{Movimientos.}
+En el listado \ref{lst:mlisting} se introducen dos conceptos nuevos: \emph{movimientos} e \emph{interfaz de generación}, y ambos son clave para el entendimiento del algoritmo.
 
-Como se aprecia en el pseudocódigo, la interfaz de generación se encarga de elegir un movimiento. Dicho movimiento está constituido por:
+Un movimiento $M_i(R_i,P_i)$ está constituido por:
 
 \begin{itemize}
-	\item\emph{Instancia de habitación} a colocar en el mapa
-	\item\emph{Posición} del mapa donde colocaremos dicha habitación
+	\item $R_i$: \emph{instancia de habitación} a colocar en el mapa
+	\item $P_i$: \emph{posición} del mapa donde colocaremos dicha habitación
 \end{itemize}
+
+Así, en cada paso de colocación de una habitación, se generarán todos los movimientos posibles a realizar, que dependerá de las instancias de habitacion restantes, y el estado actual del mapa, lo cual incluye las instancias de habitación colocadas en el mapa.
+
+Una vez generados todos los movimientos posibles, entra en juego la interfaz que realizará la decisión de elegir un movimiento. En esta interfaz radica uno de los puntos de flexibilidad del sistema, pudiendo idear otras interfaces que cumplan con el requisito de elegir un movimiento de cualquier forma a partir de los posibles.
+
+Indagaremos en la \emph{interfaz de generacion} más adelante.
+
 
 \section{Cómputo de posibles movimientos.}
 
