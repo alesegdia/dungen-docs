@@ -288,15 +288,16 @@
 						<p class="fragment">
 							$possibleConnections(map, room) =$<br />
 							$ \left\{ (r,u,v) : \neg collision(map, r, n, m), n \in map, m \in r \right\}$<br />
+							$\bigcup_{p \in rooms(map)}  \left\{ cx(map,r,p,u) : \neg col(map, r, u), u \in map \right\}$<br />
 						</p>
-						<p class='fragment'>Donde los posibles valores para el par de tiles $(u,v)$ es</p>
+						<p class='fragment'>Donde los posibles valores para $u$ según $v$ son</p>
 						<p class="fragment">
-								$\begin{cases}
-									n = u + (\pm1,0), & \quad m = v \\
-									n = u + (0,\pm1), & \quad m = v \\
-									n = u, & \quad m = v + (\pm1,0) \\
-									n = u, & \quad m = v + (0,\pm1) \\
-								\end{cases}$<br />
+							$\begin{cases}
+							u = v + (1,0) \\
+							u = v - (1,0) \\
+							u = v + (0,1) \\
+							u = v - (0,1) \\
+							\end{cases}$<br />
 						</p>
 					</section>
 
