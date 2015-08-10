@@ -16,6 +16,7 @@ Mapa GenerarMapa( List<Habitacion> habitaciones, InterfazGeneracion mapSolver ) 
 		habitaciones.remove( elegido.habitacion ); |\label{line:rmroom}|
 		GuardarMovimiento( elegido ); |\label{line:savemov}|
 	}
+	EstablecerRecorridoPrincipal( mapa ); |\label{line:inifin}|
 	return mapa;
 }
 \end{lstlisting}
@@ -23,6 +24,8 @@ Mapa GenerarMapa( List<Habitacion> habitaciones, InterfazGeneracion mapSolver ) 
 En el listado \ref{lst:mlisting} se introducen dos conceptos nuevos: \emph{movimientos} e \emph{interfaz de generación}, y ambos son clave para el entendimiento del funcionamiento del sistema.
 
 A grandes rasgos, se elige un par $(habitacion, posicion)$ y se inserta en el mapa (línea~\ref{line:addroom}). Posteriormente, se elimina la habitación de la lista de habitaciones, ya que se acaba de colocar (línea~\ref{line:rmroom}). Por último, guardamos el movimiento (línea~\ref{line:savemov}). Más adelante veremos la utilidad de ésto.
+
+Antes de devolver el mapa, establecemos el recorrido principal (línea~\ref{line:inifin}), es decir, elegimos la habitacion inicial y final. Para ello, se ha empleado el algoritmo de \emph{Floyd-Warshall}, ayudándonos de la \emph{matriz superior de conexiones entre habitaciones} comentada en el capítuloX (INSERTARENLACE). El objetivo algoritmo \emph{Floyd-Warshall} (APENDICEINSERTARENLACE) es, dado un grafo, establecer los caminos mínimos entre todos los pares de nodos posibles. Así, para establecer el recorrido principal, elegiremos el par de nodos cuya distancia mínima sea mayor.
 
 \section{Movimientos}
 
@@ -71,7 +74,7 @@ El cómputo de las posibles conexiones entre el mapa y una de las habitaciones r
 	\end{cases}$$
 	$$col(map, room, t) : \text{colisión al colocar $room$ en $map$ en el tile $t$}$$
 	$$cx(map,r,p,u) : \text{acción de conectar $r$ con $p$ colocando $r$ en tile $u$ de $map$}$$
-\caption{Cómputo de lista de movimientos dado un estado del sistema
+\caption{Cómputo de las posibles conexiones entre una habitación de las restantes y el mapa
 \label{fig:poscons}
 }
 \end{figure}
