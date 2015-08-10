@@ -106,10 +106,12 @@ En este proyecto se han creado dos interfaces de selección de movimiento:
 La interfaz aleatoria es simple y no tiene interés computacional. En el listado \ref{lst:irandom} se muestra la implementación de dicha interfaz por completitud, pero se ha realizado solo para testeo.
 
 \begin{lstlisting}[caption={Implementación aleatoria de la interfaz de selección de movimiento},label={lst:irandom},language=Java,escapechar=|]
-Movimiento ElegirMovimiento( List<Movimiento> movimientos ) {
-	int indiceMovimiento = random( 0, movimientos.size() - 1);
-	Movimiento elegido = movimientos.get( indiceMovimiento );
-	return elegido;
+class RandomMovementSelector implements IMovementSelector {
+	Movimiento ElegirMovimiento( List<Movimiento> movimientos ) {
+		int indiceMovimiento = random( 0, movimientos.size() - 1);
+		Movimiento elegido = movimientos.get( indiceMovimiento );
+		return elegido;
+	}
 }
 \end{lstlisting}
 
