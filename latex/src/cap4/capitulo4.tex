@@ -7,7 +7,7 @@ Hasta ahora hemos visto la representación de las distintas entidades que entran
 A la metodología que hemos utilizado la hemos denominado \emph{estrategia constructiva}, cuyo origen radica en la forma de generar el mapa. Como se puede ver en el listado \ref{lst:mlisting}, el sistema construirá el mapa por pasos. de forma que en cada paso se hará una elección de una habitación y se colocará en el mapa. Así, el sistema dará por concluida la generación cuando no queden habitaciones en la lista inicial.
 
 \begin{lstlisting}[caption={Algoritmo constructivo para generar mapas},label={lst:mlisting},language=Java,escapechar=|]
-Mapa GenerarMapa( List<Habitacion> habitaciones, InterfazGeneracion mapSolver ) {
+Mapa GenerarMapa( List<Habitacion> habitaciones, InterfazSeleccion mapSolver ) {
 	Mapa mapa = MapaVacio();
 	while( !habitaciones.isEmpty() ) {
 		List<Movimiento> movimientos = GenerarMovimientos( mapa, habitaciones ); |\label{line:movgen}|
@@ -21,7 +21,7 @@ Mapa GenerarMapa( List<Habitacion> habitaciones, InterfazGeneracion mapSolver ) 
 }
 \end{lstlisting}
 
-En el listado \ref{lst:mlisting} se introducen dos conceptos nuevos: \emph{movimientos} e \emph{interfaz de generación}, y ambos son clave para el entendimiento del funcionamiento del sistema.
+En el listado \ref{lst:mlisting} se introducen dos conceptos nuevos: \emph{movimientos} e \emph{interfaz de selección de movimiento}, y ambos son clave para el entendimiento del funcionamiento del sistema.
 
 A grandes rasgos, se elige un par $(habitacion, posicion)$ y se inserta en el mapa (línea~\ref{line:addroom}). Posteriormente, se elimina la habitación de la lista de habitaciones, ya que se acaba de colocar (línea~\ref{line:rmroom}). Por último, guardamos el movimiento (línea~\ref{line:savemov}). Más adelante veremos la utilidad de ésto.
 
@@ -84,9 +84,32 @@ El cómputo de todos los posibles movimientos queda como la unión de los conjun
 Así, el cómputo de todas las posibles conexiones entre una habitación en la lista de habitaciones restantes y una habitación del mapa consiste en calcular el conjunto de todas las posibles colocaciones de la habitación de la lista de restantes contigua a la habitación del mapa.
 
 
-\section{Interfaz de generación}
-Una vez generados todos los movimientos posibles, entra en juego la interfaz que realizará la decisión de elegir un movimiento. En esta interfaz radica uno de los puntos de flexibilidad del sistema, pudiendo idear otras interfaces que cumplan con el requisito de elegir un movimiento de cualquier forma a partir de los posibles.
+\section{Interfaz de selección de movimiento}
 
+Como se ha comentado anteriormente, la \emph{interfaz de selección de movimiento} es otro elemento importante del sistema, y en ella radica parte de la flexibilidad del sistema. En el listado \ref{lst:igen} se muestra el esqueleto de dicha interfaz, cuyo único método de interés es el relacionado con la elección del movimiento.
 
-\subsection{Interfaz aleatoria de ejemplo}
+\begin{lstlisting}[caption={Interfaz de generación},label={lst:igen},language=Java,escapechar=|]
+interface InterfazSeleccion {
+	Movimiento ElegirMovimiento( List<Movimiento> movimientos );
+}
+\end{lstlisting}
+
+Una vez generados todos los movimientos posibles, se delega la decisión de elegir un movimiento a la \emph{interfaz de generación}. En esta interfaz radica uno de los puntos de flexibilidad del sistema. Mediante componentes que implementen esta interfaz, podemos idear otras formas de elegir un movimiento a partir de la lista de movimientos posibles.
+
+En este proyecto se han creado dos interfaces de selección de movimiento:
+
+\begin{itemize}
+	\item \emph{Interfaz aleatoria}. Elige un movimiento de forma aleatoria de entre todos los posibles.
+	\item \emph{Interfaz basada en búsqueda}. Asigna una puntuación a cada movimiento y elige la mejor.
+\end{itemize}
+
+La interfaz aleatoria es simple y no tiene interés computacional. En el listado \ref{lst:irandom} se muestra la implementación de dicha interfaz por completitud, pero se ha realizado solo para testeo.
+
+\begin{lstlisting}[caption={Implementación aleatoria de la interfaz de selección de movimiento},label={lst:irandom},language=Java,escapechar=|]
+Movimiento ElegirMovimiento( List<Movimiento> movimientos ) {
+	int indiceMovimiento = random( 0, movimientos.size() - 1);
+	Movimiento elegido = movimientos.get( indiceMovimiento );
+	return elegido;
+}
+\end{lstlisting}
 
