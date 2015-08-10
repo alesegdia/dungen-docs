@@ -1,23 +1,141 @@
 \chapter{Interfaz basada en búsqueda.}\label{cap:capitulo5}
 
-Pseudocódigo
+En este capítulo se abarcará en cierta profundidad la \emph{interfaz de selección basada en búsqueda}. Se han omitido algunos detalles como la forma de crear y manejar las puertas, ya que se considera trivial y fuera del objetivo de la práctica. Además, algunos concepto como el concepto de \emph{movimiento} no se traduce literalmente en el código, pero la idea esencial se conserva.
 
-\section{Función de fitness}
+\section{Estrategia basada en búsqueda}
 
+Como se observa en el listado~\ref{lst:igensearch}, la forma de seleccionar el movimiento incluye el cálculo de una puntuación numérica que llamaremos \emph{fitness}. Para obtener el \emph{fitness}, aplicaremos una función que denominaremos como \emph{función guía}, y devolverá un valor numérico indicando la calidad del movimiento.
+
+\begin{lstlisting}[caption={Interfaz de selección de movimiento basada en búsqueda},label={lst:igensearch},language=Java,escapechar=|]
+class BestSearchMovementSelector implements IMovementSelector {
+	Movimiento ElegirMovimiento( List<Movimiento> movimientos ) {
+		List<Float> fitnesses;
+		for( Movimiento m : movimientos ) {
+			fitnesses[m.index] = FuncionGuia( m );
+		}
+		Movimiento elegido = ObtenerMejor( movimientos, fitnesses );
+		return elegido;
+	}
+}
+\end{lstlisting}
+
+Aplicando la \emph{función guía} a todos los movimientos, se computará el \emph{fitness} para cada uno. Por último, elegiremos el movimiento cuyo \emph{fitness} sea mejor. Convendremos que la calidad del \emph{fitness} será directamente proporcional al mismo, es decir, cuanto mayor \emph{fitness}, mejor movimiento.
+
+\section{Interfaz de cómputo de fitness}
+
+Para el cómputo del fitness, se ha empleado una interfaz que definimos en el listado~\ref{lst:ifit}, añadiendo flexibilidad a este componente. De esta forma, podemos también idear formas nuevas de computar el fitness y llevarlas a la práctica fácilmente.
+
+\begin{lstlisting}[caption={Interfaz de cómputo de fitness},label={lst:ifit},language=Java]
+interface IFitnessSolver {
+	float FuncionGuia( Movimiento m );
+}
+\end{lstlisting}
+
+En el listado~\ref{lst:igsf} se ha sustituido la llamada a la función guía por la interfaz de cálculo de fitness. De esta forma, añadimos un componente de flexibilidad en esta parte, permitiendo la implementación de diferentes formas de calcular el fitness.
+
+\begin{lstlisting}[caption={Interfaz de selección de movimiento basada en búsqueda},label={lst:igsf},language=Java,escapechar=|]
+class BestSearchMovementSelector implements IMovementSelector {
+	|\colorbox{yellow}{IFitnessSolver fitnessSolver;}||\label{line:l1}|
+	Movimiento ElegirMovimiento( List<Movimiento> movimientos ) {
+		List<Float> fitnesses;
+		for( Movimiento m : movimientos ) {
+			fitnesses[m.index] = |\colorbox{yellow}{fitnessSolver.FuncionGuia( m );}||\label{line:l2}|
+		}
+		Movimiento elegido = ObtenerMejor( movimientos, fitnesses );
+		return elegido;
+	}
+}
+\end{lstlisting}
+
+En las líneas \ref{line:l1} y \ref{line:l2} se observa el cambio sustancial que representa la interfaz de cálculo de fitness.
+
+Se han elaborado dos implementaciones de la interfaz de cómputo de fitness. Una de ellas es sencilla, y define el fitness una puntuación numérica de \emph{una sola propiedad del mapa}, en concreto, la distancia del camino principal (lo analizaremos más adelante (ENLACE A TAMAÑO CAMINO PPAL). Lo importante a destacar de esta implementación es que el fitness se define como un solo valor, mientras que en la segunda implementación veremos como computamos el fitness a partir de múltiples propiedades del mapa.
+
+\subsection{Cómputo de fitness múltiple}
+
+El propósito de esta implementación de la interfaz de cómputo de fitness es poder utilizar diferentes propiedades del mapa que influyan en la selección del movimiento a través del fitness. En el listado \ref{lst:mofit}, se ha empleado un número constante de 3 propiedades del mapa por utilidad, pero podría elaborarse para generalizar para aceptar un número cualquiera de propiedades.
+
+\begin{lstlisting}[caption={Interfaz de selección de movimiento basada en búsqueda},label={lst:igsf},language=Java,escapechar=|]
+class MultiFitnessSolver implements IFitnessSolver {
+	IFitnessCombinator fitnessCombinator;
+	float FuncionGuia( Movimiento m ) {
+		float fitnesses = new float[3];
+		fitnesses[0] = ComputarPropiedad0( m );
+		fitnesses[1] = ComputarPropiedad1( m );
+		fitnesses[2] = ComputarPropiedad2( m );
+		fitnessCombinator.Combinar( fitnesses );
+	}
+}
+\end{lstlisting}
+
+Se observa en el listado \ref{lst:mofit} que se emplea otra interfaz para dar flexibilidad a la hora de combinar las múltiples propiedades. Se han elaborado dos tipos de combinadores de fitness:
+
+\begin{itemize}
+	\item \emph{Combinador parametrizado}, que computa el fitness final como una suma ponderada de todas las propiedades.
+		$$ \sum_{f \in F} f * k(f)$$
+		$$F = \text{conjunto de propiedades}, k(f) = \text{ponderación de la propiedad f} $$
+	\item \emph{Combinador adaptativo parametrizado}. Al igual que el anterior, se computa como una suma ponderada de todas las propiedades. La diferencia es que el parámetro de ponderación es variable, de forma que la mejor propiedad del último movimiento elegido baja y el resto aumenta en dos factores que denominamos \emph{attack} y \emph{decay} respectivamente.
+\end{itemize}
+
+Con el combinador adaptativo parametrizado conseguimos una personalización más ajustada de la influencia de cada propiedad en el mapa. En el capítulo de experimentación (ENLACE A CAPI EXP) veremos como afecta a la generación.
+
+\section{Propiedades del mapa}
+
+En esta sección analizaremos las propiedades del mapa empleadas en el cómputo del fitness. Son totalmente independientes de la implementación de la interfaz de cómputo de fitness, ya que éstas solo establecen si se tiene en cuenta una o más propiedades.
 
 \subsection{Tamaño del camino principal}
 
-\subsection{Caminos no principales}
+Para calcular el tamaño del camino principal dado un estado intermedio del sistema, emplearemos el estado del mapa sin tener en cuenta las habitaciones restantes. Como se comentó en (ENLACE A REPRESENTACION/uppermatrix), se mantiene una matriz de conexiones entre habitaciones con una estimación de la distancia entre las habitaciones conectadas. Actualizaremos la matriz cada vez que se coloque una habitación en el mapa.
 
-\subsection{Número de bifurcaciones}
+Como se comentó en (ENLACE A FW ANTES), mediante esta matriz, podemos aplicar el algoritmo de \emph{Floyd-Warshall} (apendice FW) para calcular la distancia mínima entre todos los pares de nodos. Elegiremos el par de nodos cuya distancia mínima sea máxima como habitaciones inicial y final, pudiendo computar así, una estimación del tamaño del camino principal.
 
-\subsection{Otras posibilidades}
+\subsection{Caminos no principales y bifurcaciones}
 
-Enlazar a trabajo futuro
+En esta sección se analizan dos propiedades distintas en conjunto por estar relacionadas en la forma del cómputo de las mismas.
+
+
+Si una habitación es un callejón sin salida, tendrá un solo enlace a la habitación que lleva hasta ella. Si se corresponde a un camino sin bifurcación, tendrá dos enlaces: uno hacia la habitación de la que viene el jugador, y otro a la que se tiene que dirigir por necesidad, al no haber otro enlace. Diremos en este caso que constituye un camino \emph{sin} bifurcación. Atendiendo a todo esto, se puede considerar que si una habitación tiene más de dos enlaces, existen $n-1$ caminos a los que se puede dirigir un jugador, sin contar la habitación de la que proviene, y por ello, estimamos que esta habitación contribuye a que existan bifurcaciones en el mapa.
+
+Para establecer una estimación de \emph{cuanto} tiene de caminos no-principales, se ha hecho un conteo de las habitaciones que no constituyen el camino principal. Debido a que en principio todas las bifurcaciones del mapa que no sean camino principal influirían a la estimación de caminos no-principales, se omite el conteo para la propiedad de \emph{caminos no principales} cuando dicha habitación influye en la propiedad de \emph{bifurcaciones}
+
+Para la estimación de ambas propiedades, se ha empleado el algoritmo de \emph{FloodFill} que se puede ver en el apéndice (ENLACE A APENDICE FLOODFILL). De esta forma, recorremos todas las habitaciones sin repetir ninguna y realizaremos el conteo de habitaciones que influyen en cada propiedad.
 
 \section{Fitness caché}
 
-\section{Fitness combinator}
+Experimentalmente, se ha comprobado que el \emph{bottleneck} de nuestra aplicación reside en el cómputo del fitness en su totalidad. Si recordamos las especificaciones (ENLACE A QUE TIENE QUE SER PARA MOVIL), el sistema tiene que funcionar en sistemas móviles. Para resolver este requisito, se ha creado una interfaz que nos ayudará a modular el tiempo de ejecución, sacrificando calidad en cuanto a las propiedades calculadas, pero dando menores tiempos de ejecución.
+
+\begin{lstlisting}[caption={Interfaz de selección de movimiento basada en búsqueda con mejora de caché},label={lst:igencache},language=Java,escapechar=|]
+class BestSearchMovementSelector implements IMovementSelector {
+	IFitnessSolver fitnessSolver;
+	|\colorbox{yellow}{IFitnessCache fitnessCache;}|
+	Movimiento ElegirMovimiento( List<Movimiento> movimientos ) {
+		List<Float> fitnesses;
+		for( Movimiento m : movimientos ) {
+			|\colorbox{yellow}{Fitness f = fitnessCache.Get(m);}|
+			|\colorbox{yellow}{if( f != null ) \{}|
+					|\colorbox{yellow}{fitnesses[m.index] = fitnessSolver.FuncionGuia( m );}|
+					|\colorbox{yellow}{fitnessCache.Cachear( m, fitnesses[m.index] );}|
+				|\colorbox{yellow}{\} else \{}|
+					|\colorbox{yellow}{fitnesses[m.index] = f;}|
+			|\colorbox{yellow}{\}}|
+		}
+	}
+}
+\end{lstlisting}
+
+
+En el listado \ref{lst:igencache} vemos las modificaciones realizadas para permitir el empleo de la caché. Ahora, antes de realizar el cómputo del fitness, comprobamos mediante la interfaz si está el cálculo de dicho movimiento está cacheado. En caso positivo, se usa el valor cacheado, y en caso negativo, se calcula el fitness y se guarda en la caché.
+
+Como se ha mencionado antes, esto conlleva a una peor fiabilidad del valor asociado al movimiento, ya que no se tiene en cuenta actualizaciones del mapa, pero podemos crear cachés nuevas que cada cierto número de pasos haga un recómputo de todos los movimientos en caché. Veremos más posibilidades en el capítulo de trabajo futuro (ENLACE A MEJORAS DE FITNESS CACHE).
+
+Así, se han realizado dos implementaciones de la caché:
+
+\begin{itemize}
+	\item \emph{Dummy}. No cachea nada. El sistema se comporta como si no hubiera caché.
+	\item \emph{Always}. Cachea siempre y devuelve el valor cacheado.
+\end{itemize}
+
+Como vemos, las dos opciones son totalmente opuestas, pero en el capítulo de trabajo futuro (ENLACE A MEJORAS DE FITNESS CACHÉ) estableceremos las pautas para crear cachés modulables con una implementación rápida.
 
 
 
