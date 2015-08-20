@@ -57,6 +57,7 @@ Para poder efectuar la metodología de búsqueda en el objetivo de resolver un p
 
 Como vemos, se pueden identificar todos los elementos de un problema de búsqueda en el sistema que se ha elaborado.
 
+
 \section{Multimodalidad}
 
 Normalmente, el elemento multimodal suele añadir una complejidad extra al sistema. En nuestro caso, se ha procurado dejar este elemento lo suficientemente flexible como para poder añadir tanto nuevos objetivos, como para redefinir la forma en la que se relacionan los mismos gracias a la interfaz IFitnessCombinator (ENLACE).
@@ -64,3 +65,22 @@ Normalmente, el elemento multimodal suele añadir una complejidad extra al siste
 Como se comentó anteriormente (ENLACE A 5.2.1), nuestro sistema soporta la adición de diferentes objetivos para la guía en la búsqueda de una solución. Esto añade un componente multiobjetivo al problema que se ha definido de forma flexible para fomentar la afinación de este aspecto, como por ejemplo el cómputo de fitness adaptativo parametrizado.
 
 Además, en nuestro problema, el componente multiobjetivo \emph{no es una restricción fuerte}, sino una guía para como se debe construir la solución de forma que cumpla el enunciado.
+
+\section{Posibilidad de backtracking}
+
+El árbol de búsqueda es otro elemento importante a considerar en este tipo de problemas. Es un grafo de tipo árbol que se irá construyendo de forma implícita, donde el nodo raíz es el estado inicial, las aristas representan las distintas acciones que realizamos sobre dicho estado inicial, desembocando en nodos que representan el estado tal cual se ha dejado después de aplicar dicha acción.
+
+En nuestro caso, el árbol de búsqueda es bastante simple (figura~\ref{fig:searchtree}), ya que no existe backtracking, sino que confiamos en que cada movimiento (acción) elegido será bueno gracias a la función guía. Así, el componente \emph{constructivo} del que hablamos previamente (ENLACE), podemos identificarlo en la búsqueda como que siempre se decide en cada paso y no hay vuelta a posibles estados anteriores.
+
+\begin{figure}[t]
+\centering
+\includegraphics[scale=0.5]{img/arbol-busqueda}
+\caption{Árbol de búsqueda para el método planteado
+\label{fig:searchtree}}
+\end{figure}
+
+Esto es así porque un componente de backtracking podría encarecer el algoritmo en cuanto a tiempo de ejecución, además de que podemos decir que trabajamos en el sistema siempre con el mismo mapa de tiles para poder comprobar las colisiones entre los mapas.
+
+Aún así, como se comentó anteriormente (ENLACE A GUARDADO DE ESTADOS), en cada paso del algoritmo se guarda el movimiento que se realiza. Con ésto, se ha implementado la forma de reconstruir un mapa a partir de una serie de movimientos consecutivos. Con esto, comentaremos en el capítulo de trabajo futuro (ENLACE A CAPITULO), una forma factible de poder realizar backtracking.
+
+Para la elaboración de este proyecto no se vió necesario, ya que los resultados que se obtienen con el sistema tal cual está, son bastante buenos y adecuados al enunciado, además de que añadiría un componente de complejidad extra.
