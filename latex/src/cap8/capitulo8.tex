@@ -1,24 +1,42 @@
 \chapter{Trabajo futuro.}\label{cap:capitulo8}
 
+En este capítulo se comentarán algunas posibles mejoras para el sistema, enfocadas principalmente a una posible versión comerciable del sistema que ofrezca algunas características extra y añadan atractivo para potenciar su posible comercialización.
 
-\section{Soporte para capas.}
 
-Es arte, no interfiere en el sistema, pero viene bien. Dependiente del soporte.
 
+
+\section{Mejora del editor de habitaciones.}
+
+La implementación del editor de habitaciones es bastante rudimentaria. Podría haberse hecho más amigable al usuario, pero para un esbozo del sistema era suficiente. Además, normalmente, en los mapas de tiles se emplean varias capas para añadir detalles. Se podría añadir esta característica para que los usuarios pudieran añadir capas extra en las habitaciones.
 
 \section{Mapa de tamaño autoajustable}
 
+En el enunciado del problema, se supone que el mapa es lo suficientemente grande como para albergar cualquier distribución de habitaciones. Para solventar este requerimiento, se ha empleado un mapa de tiles grande, pero sería más correcto utilizar una implementación que vaya autoaumentando el tamaño de la matriz que representa el mapa conforme se vaya necesitando más espacio para albergar habitaciones.
 
-\section{Otros fitness}
+\section{Fitness extra}
 
+Se ha implementado un sistema lo suficientemente flexible como para añadir otros objetivos de guía en la construcción del mapa. Esto da al usuario la ventaja de poder elaborar sus propios objetivos.
+
+Podría añadirse dos objetivos de \emph{horizontalidad} y \emph{verticalidad}. Estos objetivos darían más puntuación a un movimiento, si este promueve que la disposición final sea horizontal o vertical. El cómputo numérico de este objetivo podría hacerse computando la recta horizontal o vertical media, y calculando la suma de las desviaciones de todas las habitaciones con respecto a dicha recta
+
+Otra medida objetivo a tener encuenta podría ser una medida que estuviera relacionada con la dispersión o condensación de la disposición de las habitaciones. Esto podría realizarse calculando la desviación típica con respecto a la posición media de todas las habitaciones, obteniendo así una medida representativa de esta característica.
+
+\section{Flexibilidad en elección de puertas potenciales}
+
+Otro componente interesante a añadir en el sistema sería uno dedicado a la afinación de la elección de puertas potenciales. Por ejemplo, para un plataformas, podemos querer que las puertas potenciales sean solamente horizontales y no verticales. Quizá para un cierto tipo de juego, solo nos interese cierto subconjunto de puertas potenciales, y no todas, de forma que podríamos añadir un selector de puertas al editor de habitaciones y emplear dicho subconjunto elegido por el usuario en la ejecución del sistema.
 
 \section{Portar a móvil}
 
-Debido a los tiempos de ejecución y a la fitness caché, seguro que se puede.
+Debido a los tiempos de ejecución obtenidos en la experimentación y a los distintos componentes relacionados con la eficiencia del tiempo de ejecución, sería posible portar el sistema a móviles para el uso en juegos en estos dispositivos. Un elemento importante en este aspecto es el denominado \emph{fitness caché} que se comentó en el capítulo (ENLACE A CAPITULO), que nos permite sacrificar calidad de la generación a cambio de mejores tiempo de eficiencia.
 
 \section{Otros fitness caché}
 
+Relacionado con la sección anterior, podríamos elaborar varias implementaciones de la interfaz del fitness caché que controlaran mediante parámetro la eficiencia en cuanto a tiempo de ejecución del sistema.
+
+Una posibilidad sería cachear solamente cada N intentos. Así, podríamos configurar este parámetro N para calibrar la relación calidad/tiempo de ejecución del sistema. Se podría hacer también con una probabilidad de que se cachee o no. Con esto, tendríamos bastante flexibilidad a la hora de ajustar la eficiencia al dispositivo en el que corra el sistema.
+
+Otra posibilidad sería regenerar la caché cada N pasos del algoritmo. De esta forma, podemos controlar la relación calidad/tiempo de ejecución de forma más homogénea para todos los posibles movimientos.
 
 \section{Backtracking con guardado de movimientos}
 
-Guardar no mejores, pero si muy buenos.
+Como se comentó en el capítulo anterior, el sistema no está dotado de backtracking ya que no se vio en necesidad de ello, pero podría implementarse. Esto es gracias a que guardamos la lista de movimientos que construye una solución para poder obtener el mapa de tiles asociado a dicha solución. Así, cada N pasos, podríamos guardar la lista de movimientos generados para poder reanudar la generación en ese punto. También podríamos simplemente tener en cuenta si hay varias soluciones mejores, es decir, soluciones que están dotadas de la misma puntuación, o dando un cierto margen de diferencia. De esta forma, también podríamos reanudar la generación a partir de ellas.
