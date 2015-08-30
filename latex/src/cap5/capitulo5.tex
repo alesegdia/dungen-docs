@@ -164,3 +164,30 @@ Así, se han realizado dos implementaciones de la caché:
 
 En el capítulo de trabajo futuro (ENLACE A MEJORAS DE FITNESS CACHÉ) estableceremos las pautas para crear cachés modulables con una implementación rápida.
 
+\subsection{Prefab Manager}
+
+Como se ha mencionado varias veces, cada habitación a colocar o colocada en el mapa, es una instancia de un modelo de habitación. Por ello, el PrefabManager se encarga de evitar que se comprueben los movimientos teniendo en cuenta todas las instancias, sino los modelos. De esta forma, ahorramos movimientos con una capacidad informativa idéntica.
+
+
+\subsection{Puertas potenciales}
+
+Las puertas potenciales afectan al número de movimientos posibles. Si reducimos este número, podemos agilizar de manera importante el proceso. Por ejemplo, si tenemos habitaciones muy grandes con muchas puertas potenciales, pero solo tomamos 3 de este subconjunto, no habrá que comprobar todos en cada paso del algoritmo.
+
+Para ello, se han planteado tres estrategias de selección de puertas, de las cuales se han implementado dos:
+
+\begin{itemize}
+	\item Generación aleatoria de un subconjunto de puertas
+	\item Generación de 1 de cada N puertas
+	\item Selección de puertas potenciales manual
+\end{itemize}
+
+La selección de puertas manual no se ha implementado, pero sería directo hacerlo indicando las puertas desde el editor de habitaciones.
+
+La generación aleatoria de un subconjunto de puertas acepta un número N que será el número de puertas que se eligirá de forma aleatoria de entre todas las potenciales.
+
+La generación de 1 de cada N puertas, que se ha llamado \emph{divisor}, emplea un factor en el rango $[0,1]$, que indica el porcentaje de puertas que se descartarán. Es decir, si el factor es 0, se elegirán todas las puertas. Si el factor es 1, se eligirá solamente 1 puerta de todas las posibles.
+
+\subsection{Divisor de movimientos}
+
+Parámetro en el rango $[0,1]$ que indica el porcentaje de movimientos que se tendrán en cuenta en cada paso. Debido a que se baraja aleatoriamente la lista de posibles movimientos, este parámetro permite una calidad de las soluciones bastante buena, no afectándola demasiado.
+
