@@ -34,9 +34,34 @@ Recordemos que, aunque no se restringía un tamaño al escenario, se estima como
 
 Como no se ha implementado en móvil, se ha considerado que un tiempo es bueno, cuando es menor de un segundo. Si es menor de dos segundos, también se considerará como aceptable. Aún así, habría que hacer una prueba real, que debido a que Java es la plataforma de elección para el desarrollo a Android, no sería complejo. En un caso real de un juego de móvil además, se presupone menor complejidad debido al sistema donde se ejecuta, y se puede entender que un tiempo aceptable de espera a la generación es hasta 10 segundos, y en esto se fundamenta la aceptación de menor de dos segundos como solución buena.
 
-Las pruebas se han realizado en un portátil dual core a 2ghz, empleando solamente un núcleo.
+Las pruebas se han realizado en un portátil HP Compaq Presario V6000 con las siguientes características:
+
+\begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+Modelo procesador & AMD Athlon 64 X2 \\ 
+Núcleos procesador & 2 (1 en uso) \\
+Velocidad procesador & 1.7 Ghz \\
+Caché procesador & 512 KB L2 \\
+Memoria RAM & 1 GB \\
+\hline
+	\end{tabular}
+\end{center}
+
 
 bs-alwayscache-compare
+\begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & ALL \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 1.0 \\ 
+CacheType & ALWAYS \\ 
+\hline
+	\end{tabular}
+\end{center}
+
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
@@ -59,6 +84,18 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 
 bs-dpediv085f
 \begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & ALL \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 0.85 \\ 
+CacheType & NO CACHE \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+\begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
 Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
@@ -71,6 +108,18 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 \end{center}
 
 bs-dpediv095f
+\begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & ALL \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 0.95 \\ 
+CacheType & NO CACHE \\ 
+\hline
+	\end{tabular}
+\end{center}
+
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
@@ -85,6 +134,18 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 
 bs-dpediv75f
 \begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & ALL \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 0.75 \\ 
+CacheType & NO CACHE \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+\begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
 Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
@@ -97,6 +158,18 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 \end{center}
 
 bs-nocache-compare
+\begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & ALL \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 1.0 \\ 
+CacheType & NO CACHE \\ 
+\hline
+	\end{tabular}
+\end{center}
+
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
@@ -119,6 +192,20 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 
 bs-opt-compare
 \begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & RANDOM \\ 
+Refresher cache divisor & 10 \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 0.9 \\ 
+CacheType & REFRESHER \\ 
+Random doors param & 0.5 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+\begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
 Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
@@ -140,6 +227,20 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 
 bs-opt-medium-sample
 \begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & RANDOM \\ 
+Refresher cache divisor & 10 \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 0.9 \\ 
+CacheType & REFRESHER \\ 
+Random doors param & 0.5 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+\begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
 Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
@@ -157,6 +258,20 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 \end{center}
 
 bs-opt-real-sample
+\begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & RANDOM \\ 
+Refresher cache divisor & 10 \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 0.9 \\ 
+CacheType & REFRESHER \\ 
+Random doors param & 0.5 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
@@ -183,6 +298,20 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 
 bs-opt-variabilty-sample
 \begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & RANDOM \\ 
+Refresher cache divisor & 10 \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 0.9 \\ 
+CacheType & REFRESHER \\ 
+Random doors param & 0.5 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+\begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
 Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
@@ -200,6 +329,19 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 
 bs-opt-variabilty-sample-fixed
 \begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & RANDOM \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 0.5 \\ 
+CacheType & ALWAYS \\ 
+Random doors param & 0.3 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+\begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
 Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
@@ -209,6 +351,19 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 \end{center}
 
 bs-randoors04f
+\begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & RANDOM \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 1.0 \\ 
+CacheType & NO CACHE \\ 
+Random doors param & 0.4 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
@@ -223,6 +378,19 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 
 bs-randoors06f
 \begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & RANDOM \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 1.0 \\ 
+CacheType & NO CACHE \\ 
+Random doors param & 0.6 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+\begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
 Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
@@ -235,6 +403,19 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 \end{center}
 
 bs-randoors08f
+\begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & RANDOM \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 1.0 \\ 
+CacheType & NO CACHE \\ 
+Random doors param & 0.8 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
@@ -249,6 +430,19 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 
 bs-refresher10
 \begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & ALL \\ 
+Refresher cache divisor & 10 \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 1.0 \\ 
+CacheType & REFRESHER \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+\begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
 Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
@@ -262,6 +456,19 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 
 bs-refresher2
 \begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & ALL \\ 
+Refresher cache divisor & 2 \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 1.0 \\ 
+CacheType & REFRESHER \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+\begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
 Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
@@ -274,6 +481,19 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 \end{center}
 
 bs-refresher5
+\begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & ALL \\ 
+Refresher cache divisor & 5 \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 1.0 \\ 
+CacheType & REFRESHER \\ 
+\hline
+	\end{tabular}
+\end{center}
+
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
