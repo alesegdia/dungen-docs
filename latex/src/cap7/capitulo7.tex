@@ -30,39 +30,6 @@ Memoria RAM & 1 GB \\
 \end{center}
 
 
-bs-alwayscache-compare
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & ALL \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 1.0 \\ 
-CacheType & ALWAYS \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-\begin{center}
-	\begin{tabular}{ | c | c | c | c | c | }
-\hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
-8 & 4 & 2 & 8 & 0.0174 \\ 
-8 & 4 & 4 & 16 & 0.0649 \\ 
-8 & 4 & 6 & 24 & 0.1949 \\ 
-8 & 4 & 8 & 32 & 0.4231 \\ 
-8 & 6 & 2 & 12 & 0.0666 \\ 
-8 & 6 & 4 & 24 & 0.2856 \\ 
-8 & 6 & 6 & 36 & 1.0331 \\ 
-8 & 6 & 8 & 48 & 2.7444 \\ 
-8 & 8 & 2 & 16 & 0.2523 \\ 
-8 & 8 & 4 & 32 & 1.1891 \\ 
-8 & 8 & 6 & 48 & 3.6202 \\ 
-8 & 8 & 8 & 64 & 9.6228 \\ 
-\hline
-	\end{tabular}
-\end{center}
-
 bs-dpediv085f
 \begin{center}
 	\begin{tabular}{ | c | c | }
@@ -79,7 +46,7 @@ CacheType & NO CACHE \\
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
 10 & 2 & 20 & 40 & 0.1967 \\ 
 10 & 2 & 30 & 60 & 0.6254 \\ 
 10 & 4 & 20 & 80 & 1.6429 \\ 
@@ -104,7 +71,7 @@ CacheType & NO CACHE \\
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
 10 & 2 & 20 & 40 & 0.3667 \\ 
 10 & 2 & 30 & 60 & 1.4392 \\ 
 10 & 4 & 20 & 80 & 4.0735 \\ 
@@ -129,7 +96,7 @@ CacheType & NO CACHE \\
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
 10 & 2 & 20 & 40 & 0.1763 \\ 
 10 & 2 & 30 & 60 & 0.4945 \\ 
 10 & 4 & 20 & 80 & 1.2336 \\ 
@@ -138,73 +105,6 @@ Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \h
 	\end{tabular}
 \end{center}
 
-bs-nocache-compare
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & ALL \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 1.0 \\ 
-CacheType & NO CACHE \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-\begin{center}
-	\begin{tabular}{ | c | c | c | c | c | }
-\hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
-8 & 4 & 2 & 8 & 0.0333 \\ 
-8 & 4 & 4 & 16 & 0.2818 \\ 
-8 & 4 & 6 & 24 & 1.2533 \\ 
-8 & 4 & 8 & 32 & 3.3727 \\ 
-8 & 6 & 2 & 12 & 0.1696 \\ 
-8 & 6 & 4 & 24 & 1.7436 \\ 
-8 & 6 & 6 & 36 & 8.6428 \\ 
-8 & 6 & 8 & 48 & 19.8587 \\ 
-8 & 8 & 2 & 16 & 0.5825 \\ 
-8 & 8 & 4 & 32 & 7.3917 \\ 
-8 & 8 & 6 & 48 & 33.7262 \\ 
-8 & 8 & 8 & 64 & 107.0144 \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-bs-opt-compare
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & RANDOM \\ 
-Refresher cache divisor & 10 \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 0.9 \\ 
-CacheType & REFRESHER \\ 
-Random doors param & 0.5 \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-\begin{center}
-	\begin{tabular}{ | c | c | c | c | c | }
-\hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
-8 & 4 & 2 & 8 & 0.0030 \\ 
-8 & 4 & 4 & 16 & 0.0123 \\ 
-8 & 4 & 6 & 24 & 0.0354 \\ 
-8 & 4 & 8 & 32 & 0.0780 \\ 
-8 & 6 & 2 & 12 & 0.0107 \\ 
-8 & 6 & 4 & 24 & 0.0481 \\ 
-8 & 6 & 6 & 36 & 0.1302 \\ 
-8 & 6 & 8 & 48 & 0.3155 \\ 
-8 & 8 & 2 & 16 & 0.0210 \\ 
-8 & 8 & 4 & 32 & 0.1030 \\ 
-8 & 8 & 6 & 48 & 0.3438 \\ 
-8 & 8 & 8 & 64 & 0.8999 \\ 
-\hline
-	\end{tabular}
-\end{center}
 
 bs-opt-medium-sample
 \begin{center}
@@ -224,7 +124,7 @@ Random doors param & 0.5 \\
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
 10 & 5 & 1 & 5 & 0.0035 \\ 
 10 & 5 & 2 & 10 & 0.0127 \\ 
 10 & 5 & 3 & 15 & 0.0246 \\ 
@@ -256,7 +156,7 @@ Random doors param & 0.5 \\
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
 6 & 5 & 1 & 5 & 0.0007 \\ 
 6 & 5 & 2 & 10 & 0.0029 \\ 
 6 & 5 & 3 & 15 & 0.0073 \\ 
@@ -295,7 +195,7 @@ Random doors param & 0.5 \\
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
 6 & 20 & 1 & 20 & 0.0395 \\ 
 6 & 20 & 2 & 40 & 0.2505 \\ 
 6 & 30 & 1 & 30 & 0.1479 \\ 
@@ -325,123 +225,132 @@ Random doors param & 0.3 \\
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
 6 & 50 & 2 & 100 & 1.6345 \\ 
 \hline
 	\end{tabular}
 \end{center}
 
-bs-randoors04f
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Comparación ejemplo optimizado}
+
+bs-opt-compare
 \begin{center}
 	\begin{tabular}{ | c | c | }
 \hline
  		Property & Value \\ \hline
 DoorGenType & RANDOM \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 1.0 \\ 
-CacheType & NO CACHE \\ 
-Random doors param & 0.4 \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-\begin{center}
-	\begin{tabular}{ | c | c | c | c | c | }
-\hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
-10 & 4 & 8 & 32 & 1.7974 \\ 
-10 & 4 & 10 & 40 & 4.1857 \\ 
-10 & 6 & 8 & 48 & 15.4530 \\ 
-10 & 6 & 10 & 60 & 34.6857 \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-bs-randoors06f
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & RANDOM \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 1.0 \\ 
-CacheType & NO CACHE \\ 
-Random doors param & 0.6 \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-\begin{center}
-	\begin{tabular}{ | c | c | c | c | c | }
-\hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
-10 & 4 & 8 & 32 & 3.3017 \\ 
-10 & 4 & 10 & 40 & 8.2366 \\ 
-10 & 6 & 8 & 48 & 20.9267 \\ 
-10 & 6 & 10 & 60 & 57.3447 \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-bs-randoors08f
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & RANDOM \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 1.0 \\ 
-CacheType & NO CACHE \\ 
-Random doors param & 0.8 \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-\begin{center}
-	\begin{tabular}{ | c | c | c | c | c | }
-\hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
-10 & 4 & 8 & 32 & 4.6552 \\ 
-10 & 4 & 10 & 40 & 9.8173 \\ 
-10 & 6 & 8 & 48 & 29.2931 \\ 
-10 & 6 & 10 & 60 & 69.2747 \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-bs-refresher10
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & ALL \\ 
 Refresher cache divisor & 10 \\ 
 SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 1.0 \\ 
+BestSearch DPE Divisor & 0.9 \\ 
 CacheType & REFRESHER \\ 
+Random doors param & 0.5 \\ 
 \hline
 	\end{tabular}
 \end{center}
 
-\begin{center}
-	\begin{tabular}{ | c | c | c | c | c | }
-\hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
-6 & 4 & 10 & 40 & 0.7653 \\ 
-6 & 4 & 15 & 60 & 3.4248 \\ 
-6 & 6 & 10 & 60 & 5.5666 \\ 
-6 & 6 & 15 & 90 & 26.3091 \\ 
-\hline
-	\end{tabular}
-\end{center}
 
-bs-refresher2
+bs-nocache-compare
 \begin{center}
 	\begin{tabular}{ | c | c | }
 \hline
  		Property & Value \\ \hline
 DoorGenType & ALL \\ 
-Refresher cache divisor & 2 \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 1.0 \\ 
+CacheType & NO CACHE \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+
+bs-alwayscache-compare
+\begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & ALL \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 1.0 \\ 
+CacheType & ALWAYS \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | c | c | }
+\hline
+Tam. h. & Modelos & Inst./modelo & Total & NoCache & Always & Opt \\ \hline 
+8 & 4 & 2 & 8 & 0.0333 & 0.0174 & 0.0030 \\ 
+8 & 4 & 4 & 16 & 0.2818 & 0.0649 & 0.0123 \\ 
+8 & 4 & 6 & 24 & 1.2533 & 0.1949 & 0.0354 \\ 
+8 & 4 & 8 & 32 & 3.3727 & 0.4231 & 0.0780 \\ 
+8 & 6 & 2 & 12 & 0.1696 & 0.0666 & 0.0107 \\ 
+8 & 6 & 4 & 24 & 1.7436 & 0.2856 & 0.0481 \\ 
+8 & 6 & 6 & 36 & 8.6428 & 1.0331 & 0.1302 \\ 
+8 & 6 & 8 & 48 & 19.8587 & 2.7444 & 0.3155 \\ 
+8 & 8 & 2 & 16 & 0.5825 & 0.2523 & 0.0210 \\ 
+8 & 8 & 4 & 32 & 7.3917 & 1.1891 & 0.1030 \\ 
+8 & 8 & 6 & 48 & 33.7262 & 3.6202 & 0.3438 \\ 
+8 & 8 & 8 & 64 & 107.0144 & 9.6228 & 0.8999 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+
+
+
+\subsection{Impacto de la generación de puertas aleatoria}
+
+\begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & RANDOM \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 1.0 \\ 
+CacheType & NO CACHE \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | c | c | }
+\hline
+Tam. habs. & Modelos & Inst./modelo & Total & 0.8f & 0.6f & 0.4f \\ \hline 
+10 & 4 & 8 & 32 & 4.6552 & 3.3017 & 1.7974 \\ 
+10 & 4 & 10 & 40 & 9.8173 & 8.2366 & 4.1857 \\ 
+10 & 6 & 8 & 48 & 29.2931 & 20.9267 & 15.4530 \\ 
+10 & 6 & 10 & 60 & 69.2747 & 57.3447 & 34.6857 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+
+\subsection{Impacto del Caché Refresher}
+
+\begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & ALL \\ 
 SolverType & BestSearch \\ 
 BestSearch DPE Divisor & 1.0 \\ 
 CacheType & REFRESHER \\ 
@@ -450,39 +359,13 @@ CacheType & REFRESHER \\
 \end{center}
 
 \begin{center}
-	\begin{tabular}{ | c | c | c | c | c | }
+	\begin{tabular}{ | c | c | c | c | c | c | c | c |}
 \hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
-6 & 4 & 10 & 40 & 1.3768 \\ 
-6 & 4 & 15 & 60 & 6.7213 \\ 
-6 & 6 & 10 & 60 & 8.7300 \\ 
-6 & 6 & 15 & 90 & 43.7862 \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-bs-refresher5
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & ALL \\ 
-Refresher cache divisor & 5 \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 1.0 \\ 
-CacheType & REFRESHER \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-\begin{center}
-	\begin{tabular}{ | c | c | c | c | c | }
-\hline
-Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
-6 & 4 & 10 & 40 & 1.0284 \\ 
-6 & 4 & 15 & 60 & 5.5230 \\ 
-6 & 6 & 10 & 60 & 6.7349 \\ 
-6 & 6 & 15 & 90 & 35.1948 \\ 
+Tam. habs. & Modelos & Inst./modelo & Total & N=2 & N=5 & N=10 \\ \hline 
+6 & 4 & 10 & 40 & 1.3768 & 1.0284 & 0.7653 \\ 
+6 & 4 & 15 & 60 & 6.7213 & 5.5230 & 3.4248 \\ 
+6 & 6 & 10 & 60 & 8.7300 & 6.7349 & 5.5666 \\ 
+6 & 6 & 15 & 90 & 43.7862 & 35.1948 & 26.3091 \\ 
 \hline
 	\end{tabular}
 \end{center}
