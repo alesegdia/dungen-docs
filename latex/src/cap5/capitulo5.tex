@@ -2,6 +2,8 @@
 
 En este capítulo se abarcará en cierta profundidad la \emph{interfaz de selección basada en búsqueda}. Se han omitido algunos detalles como la forma de crear y manejar las puertas, ya que se considera trivial y fuera del objetivo de la práctica. Además, algunos concepto como el concepto de \emph{movimiento} no se traduce literalmente en el código, pero la idea esencial se conserva.
 
+En el capítulo siguiente veremos la relación de este acercamiento con el método de búsqueda.
+
 \section{Estrategia basada en búsqueda}
 
 Como se observa en el listado~\ref{lst:igensearch}, la forma de seleccionar el movimiento incluye el cálculo de una puntuación numérica que llamaremos \emph{fitness}. Para obtener el \emph{fitness}, aplicaremos una función que denominaremos como \emph{función guía}, y devolverá un valor numérico indicando la calidad del movimiento.
@@ -100,9 +102,33 @@ Para establecer una estimación de \emph{cuanto} tiene de caminos no-principales
 
 Para la estimación de ambas propiedades, se ha empleado el algoritmo de \emph{FloodFill} que se puede ver en el apéndice (ENLACE A APENDICE FLOODFILL). De esta forma, recorremos todas las habitaciones sin repetir ninguna y realizaremos el conteo de habitaciones que influyen en cada propiedad.
 
-\section{Fitness caché}
 
-Experimentalmente, se ha comprobado que el \emph{bottleneck} de nuestra aplicación reside en el cómputo del fitness en su totalidad. Si recordamos las especificaciones (ENLACE A QUE TIENE QUE SER PARA MOVIL), el sistema tiene que funcionar en sistemas móviles. Para resolver este requisito, se ha creado una interfaz que nos ayudará a modular el tiempo de ejecución, sacrificando calidad en cuanto a las propiedades calculadas, pero dando menores tiempos de ejecución.
+\section{Eficiencia}
+
+Según las pruebas y el profiling, el cuello de botella de nuestra aplicación se encuentra en dos partes principalmente:
+
+\begin{itemize}
+	\item Tiempo de cómputo del algoritmo Floyd-Warshall para el cálculo del tamaño del camino principal por cada movimiento
+	\item Excesiva cantidad de posibles movimientos
+\end{itemize}
+
+
+\subsection*{Coste de Floyd-Warshall.}
+
+El algoritmo Floyd-Warshall se emplea para obtener el camíno mínimo entre todos los pares de nodos de un grafo. Su coste es de $n^3$ donde $n = |V|$ (número de vértices en el grafo). Si pensamos por un momento la cantidad de movimientos que puede darse en un estado intermedio de la generación, impacta de manera desorbitada.
+
+Una primera solución fue usar el algoritmo de Dijkstra, con coste $n^2$ ($n log(n)$ si usamos cola de prioridad). Para ello, no podemos tener en cuenta todos los nodos del grafo, ya que el algoritmo de Dijkstra calcula los caminos mínimos tomando un nodo de salida, y por ello se probó empleando como nodo de salida el que tuviera una distancia euclídea estimada mayor a cualquier otro nodo.
+
+Esto daba resultados pésimos, ya que la puntuación del camino principal no es para nada real si lo comparamos con el cómputo que se hace en Floyd-Warshall. Es por ello que se ha decidido no recortar en este aspecto por la fiabilidad. Aún así, se adjunta una implementación del algoritmo de Dijkstra por si un usuario decidiera que no le importa tanto el fitness calculado para el camino principal.
+
+\subsection*{Gran cantidad de posibles movimientos.}
+
+El segundo aspecto a tener en cuenta es el excesivo número de movimientos al que podemos llegar a enfrentarnos. Para ello, se han tomado varias estrategias que solventan este problema de manera considerable y no afectan prácticamente a la calidad de las soluciones. Aún así, para mejores tiempos, se puede modificar los parámetros.
+
+
+\subsection{Fitness caché}
+
+Experimentalmente, se ha comprobado que el \emph{cuello de botella} de nuestra aplicación reside en el cómputo del fitness en su totalidad. Si recordamos las especificaciones (ENLACE A QUE TIENE QUE SER PARA MOVIL), el sistema tiene que funcionar en sistemas móviles. Para resolver este requisito, se ha creado una interfaz que nos ayudará a modular el tiempo de ejecución, sacrificando calidad en cuanto a las propiedades calculadas, pero dando menores tiempos de ejecución.
 
 \begin{lstlisting}[caption={Interfaz de selección de movimiento basada en búsqueda con mejora de caché},label={lst:igencache},language=Java,escapechar=|]
 class BestSearchMovementSelector implements IMovementSelector {
@@ -133,9 +159,8 @@ Así, se han realizado dos implementaciones de la caché:
 \begin{itemize}
 	\item \emph{Dummy}. No cachea nada. El sistema se comporta como si no hubiera caché.
 	\item \emph{Always}. Cachea siempre y devuelve el valor cacheado.
+	\item \emph{Refresher}. Vacía los movimientos cacheados cada $N$ habitaciones insertadas.
 \end{itemize}
 
-Como vemos, las dos opciones son totalmente opuestas, pero en el capítulo de trabajo futuro (ENLACE A MEJORAS DE FITNESS CACHÉ) estableceremos las pautas para crear cachés modulables con una implementación rápida.
-
-
+En el capítulo de trabajo futuro (ENLACE A MEJORAS DE FITNESS CACHÉ) estableceremos las pautas para crear cachés modulables con una implementación rápida.
 

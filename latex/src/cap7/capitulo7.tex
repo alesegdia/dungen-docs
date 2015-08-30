@@ -9,30 +9,11 @@
 
 \section{Eficiencia}
 
-Según las pruebas y el profiling, el cuello de botella de nuestra aplicación se encuentra en dos partes principalmente:
-
-\begin{itemize}
-	\item Tiempo de cómputo del algoritmo Floyd-Warshall para el cálculo del tamaño del camino principal por cada movimiento
-	\item Excesiva cantidad de posibles movimientos
-\end{itemize}
-
-\subsection{Coste de Floyd-Warshall}
-
-El algoritmo Floyd-Warshall se emplea para obtener el camíno mínimo entre todos los pares de nodos de un grafo. Su coste es de $n^3$ donde $n = |V|$ (número de vértices en el grafo). Si pensamos por un momento la cantidad de movimientos que puede darse en un estado intermedio de la generación, impacta de manera desorbitada.
-
-Una primera solución fue usar el algoritmo de Dijkstra, con coste $n^2$ ($n log(n)$ si usamos cola de prioridad). Para ello, no podemos tener en cuenta todos los nodos del grafo, ya que el algoritmo de Dijkstra calcula los caminos mínimos tomando un nodo de salida, y por ello se probó empleando como nodo de salida el que tuviera una distancia euclídea estimada mayor a cualquier otro nodo.
-
-Esto daba resultados pésimos, ya que la puntuación del camino principal no es para nada real si lo comparamos con el cómputo que se hace en Floyd-Warshall. Es por ello que se ha decidido no recortar en este aspecto por la fiabilidad. Aún así, se adjunta una implementación del algoritmo de Dijkstra por si un usuario decidiera que no le importa tanto el fitness calculado para el camino principal.
-
-\subsection{Gran cantidad de posibles movimientos}
-
-El segundo aspecto a tener en cuenta es el excesivo número de movimientos al que podemos llegar a enfrentarnos. Para ello, se han tomado varias estrategias que solventan este problema de manera considerable y no afectan prácticamente a la calidad de las soluciones. Aún así, para mejores tiempos, se puede modificar los parámetros.
-
-Destacar que las mediciones realizadas para comprobar el impacto de algunos parámetros se han usado sin tener en cuenta los demás. Al final, podremos ver una medición realizada sobre una configuración que se ha conseguido con tiempos muy buenos y calidad notable.
-
 Recordemos que, aunque no se restringía un tamaño al escenario, se estima como tamaño máximo un escenario de 64x64 tiles. Aún así, para estresar el algoritmo, se han elaborado mapas con tamaños mayores. Por ejemplo, en uno de ellos el tamaño de habitación de 20x20, y en el mejor caso, con habitaciones de este tamaño cuadradas, podríamos tener 9 en un mapa de 64x64, pero veremos tiempos bastante buenos con una generación de este tipo hasta para escenarios de 30 habitaciones.
 
 Como no se ha implementado en móvil, se ha considerado que un tiempo es bueno, cuando es menor de un segundo. Si es menor de dos segundos, también se considerará como aceptable. Aún así, habría que hacer una prueba real, que debido a que Java es la plataforma de elección para el desarrollo a Android, no sería complejo. En un caso real de un juego de móvil además, se presupone menor complejidad debido al sistema donde se ejecuta, y se puede entender que un tiempo aceptable de espera a la generación es hasta 10 segundos, y en esto se fundamenta la aceptación de menor de dos segundos como solución buena.
+
+Destacar que las mediciones realizadas para comprobar el impacto de algunos parámetros se han usado sin tener en cuenta los demás. Al final, podremos ver una medición realizada sobre una configuración que se ha conseguido con tiempos muy buenos y calidad notable.
 
 Las pruebas se han realizado en un portátil HP Compaq Presario V6000 con las siguientes características:
 
