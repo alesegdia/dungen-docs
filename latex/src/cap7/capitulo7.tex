@@ -30,81 +30,33 @@ Memoria RAM & 1 GB \\
 \end{center}
 
 
-bs-dpediv085f
+\subsection{Influencia del factor selector de movimientos}
+
 \begin{center}
 	\begin{tabular}{ | c | c | }
 \hline
  		Property & Value \\ \hline
 DoorGenType & ALL \\ 
 SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 0.85 \\ 
 CacheType & NO CACHE \\ 
 \hline
 	\end{tabular}
 \end{center}
 
 \begin{center}
-	\begin{tabular}{ | c | c | c | c | c | }
+	\begin{tabular}{ | c | c | c | c | c | c | c | }
 \hline
-Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
-10 & 2 & 20 & 40 & 0.1967 \\ 
-10 & 2 & 30 & 60 & 0.6254 \\ 
-10 & 4 & 20 & 80 & 1.6429 \\ 
-10 & 4 & 30 & 120 & 6.6694 \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-bs-dpediv095f
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & ALL \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 0.95 \\ 
-CacheType & NO CACHE \\ 
+Tam. habs. & Modelos & Inst./modelo & Total habs. & 0.75f & 0.85f & 0.95f\\ \hline 
+10 & 2 & 20 & 40 & 0.1763 & 0.1967 & 0.3667 \\ 
+10 & 2 & 30 & 60 & 0.4945 & 0.6254 & 1.4392 \\ 
+10 & 4 & 20 & 80 & 1.2336 & 1.6429 & 4.0735 \\ 
+10 & 4 & 30 & 120 & 4.8805 & 6.6694 & 18.1853 \\ 
 \hline
 	\end{tabular}
 \end{center}
 
-\begin{center}
-	\begin{tabular}{ | c | c | c | c | c | }
-\hline
-Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
-10 & 2 & 20 & 40 & 0.3667 \\ 
-10 & 2 & 30 & 60 & 1.4392 \\ 
-10 & 4 & 20 & 80 & 4.0735 \\ 
-10 & 4 & 30 & 120 & 18.1853 \\ 
-\hline
-	\end{tabular}
-\end{center}
 
-bs-dpediv75f
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & ALL \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 0.75 \\ 
-CacheType & NO CACHE \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-\begin{center}
-	\begin{tabular}{ | c | c | c | c | c | }
-\hline
-Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
-10 & 2 & 20 & 40 & 0.1763 \\ 
-10 & 2 & 30 & 60 & 0.4945 \\ 
-10 & 4 & 20 & 80 & 1.2336 \\ 
-10 & 4 & 30 & 120 & 4.8805 \\ 
-\hline
-	\end{tabular}
-\end{center}
-
+\subsection{Ejemplo real}
 
 bs-opt-medium-sample
 \begin{center}
@@ -176,6 +128,9 @@ Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline
 \hline
 	\end{tabular}
 \end{center}
+
+
+\subsection{Muchos tipos de habitación}
 
 bs-opt-variabilty-sample
 \begin{center}
