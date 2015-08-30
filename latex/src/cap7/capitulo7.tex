@@ -30,8 +30,9 @@ Memoria RAM & 1 GB \\
 \end{center}
 
 
-\subsection{Influencia del factor selector de movimientos}
+\subsection{Influencia del factor divisor de movimientos}
 
+\begin{table}
 \begin{center}
 	\begin{tabular}{ | c | c | }
 \hline
@@ -42,7 +43,11 @@ CacheType & NO CACHE \\
 \hline
 	\end{tabular}
 \end{center}
+\caption{Configuración para divisor de movimientos}
+\label{table:cfgdpediv}
+\end{table}
 
+\begin{table}
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | c | c | }
 \hline
@@ -54,11 +59,15 @@ Tam. habs. & Modelos & Inst./modelo & Total habs. & 0.75f & 0.85f & 0.95f\\ \hli
 \hline
 	\end{tabular}
 \end{center}
+\caption{Influencia del divisor de movimientos}
+\label{table:dpediv}
+\end{table}
 
 
-\subsection{Ejemplo real}
+\subsection{Ejemplo optimizado}
 
 bs-opt-medium-sample
+\begin{table}
 \begin{center}
 	\begin{tabular}{ | c | c | }
 \hline
@@ -72,7 +81,11 @@ Random doors param & 0.5 \\
 \hline
 	\end{tabular}
 \end{center}
+\caption{Configuración para test optimizado de tamaño medio}
+\label{table:cfg-bsoptmedsamp}
+\end{table}
 
+\begin{table}
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
@@ -89,8 +102,13 @@ Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline
 \hline
 	\end{tabular}
 \end{center}
+\caption{Test optimizado de tamaño medio}
+\label{table:bsoptmedsamp}
+\end{table}
 
 bs-opt-real-sample
+
+\begin{table}
 \begin{center}
 	\begin{tabular}{ | c | c | }
 \hline
@@ -104,7 +122,12 @@ Random doors param & 0.5 \\
 \hline
 	\end{tabular}
 \end{center}
+\caption{Configuración para test real en dispositivos móviles}
+\label{table:cfg-optreal}
+\end{table}
 
+
+\begin{table}
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
@@ -128,11 +151,15 @@ Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline
 \hline
 	\end{tabular}
 \end{center}
+\caption{Test real en dispositivos móviles}
+\label{table:optreal}
+\end{table}
 
 
 \subsection{Muchos tipos de habitación}
 
 bs-opt-variabilty-sample
+\begin{table}
 \begin{center}
 	\begin{tabular}{ | c | c | }
 \hline
@@ -146,7 +173,12 @@ Random doors param & 0.5 \\
 \hline
 	\end{tabular}
 \end{center}
+\caption{Configuración test con variabilidad en habitaciones}
+\label{table:cfg-optvarsample}
+\end{table}
 
+
+\begin{table}
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
@@ -162,8 +194,13 @@ Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline
 \hline
 	\end{tabular}
 \end{center}
+\caption{Test con variabilidad en habitaciones}
+\label{table:optvarsample}
+\end{table}
 
 bs-opt-variabilty-sample-fixed
+
+\begin{table}
 \begin{center}
 	\begin{tabular}{ | c | c | }
 \hline
@@ -176,7 +213,12 @@ Random doors param & 0.3 \\
 \hline
 	\end{tabular}
 \end{center}
+\caption{Configuración para el arreglo del último caso en test con variabilidad en habitaciones}
+\label{table:cfg-optvarfix}
+\end{table}
 
+
+\begin{table}
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
@@ -185,11 +227,9 @@ Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline
 \hline
 	\end{tabular}
 \end{center}
-
-
-
-
-
+\caption{Arreglo del último caso en test con variabilidad en habitaciones}
+\label{table:optvarfix}
+\end{table}
 
 
 
