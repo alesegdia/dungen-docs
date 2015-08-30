@@ -35,3 +35,255 @@ Recordemos que, aunque no se restringía un tamaño al escenario, se estima como
 Como no se ha implementado en móvil, se ha considerado que un tiempo es bueno, cuando es menor de un segundo. Si es menor de dos segundos, también se considerará como aceptable. Aún así, habría que hacer una prueba real, que debido a que Java es la plataforma de elección para el desarrollo a Android, no sería complejo. En un caso real de un juego de móvil además, se presupone menor complejidad debido al sistema donde se ejecuta, y se puede entender que un tiempo aceptable de espera a la generación es hasta 10 segundos, y en esto se fundamenta la aceptación de menor de dos segundos como solución buena.
 
 Las pruebas se han realizado en un portátil dual core a 2ghz, empleando solamente un núcleo.
+
+bs-alwayscache-compare
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+8 & 4 & 2 & 8 & 0.0174 \\ 
+8 & 4 & 4 & 16 & 0.0649 \\ 
+8 & 4 & 6 & 24 & 0.1949 \\ 
+8 & 4 & 8 & 32 & 0.4231 \\ 
+8 & 6 & 2 & 12 & 0.0666 \\ 
+8 & 6 & 4 & 24 & 0.2856 \\ 
+8 & 6 & 6 & 36 & 1.0331 \\ 
+8 & 6 & 8 & 48 & 2.7444 \\ 
+8 & 8 & 2 & 16 & 0.2523 \\ 
+8 & 8 & 4 & 32 & 1.1891 \\ 
+8 & 8 & 6 & 48 & 3.6202 \\ 
+8 & 8 & 8 & 64 & 9.6228 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+bs-dpediv085f
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+10 & 2 & 20 & 40 & 0.1967 \\ 
+10 & 2 & 30 & 60 & 0.6254 \\ 
+10 & 4 & 20 & 80 & 1.6429 \\ 
+10 & 4 & 30 & 120 & 6.6694 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+bs-dpediv095f
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+10 & 2 & 20 & 40 & 0.3667 \\ 
+10 & 2 & 30 & 60 & 1.4392 \\ 
+10 & 4 & 20 & 80 & 4.0735 \\ 
+10 & 4 & 30 & 120 & 18.1853 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+bs-dpediv75f
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+10 & 2 & 20 & 40 & 0.1763 \\ 
+10 & 2 & 30 & 60 & 0.4945 \\ 
+10 & 4 & 20 & 80 & 1.2336 \\ 
+10 & 4 & 30 & 120 & 4.8805 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+bs-nocache-compare
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+8 & 4 & 2 & 8 & 0.0333 \\ 
+8 & 4 & 4 & 16 & 0.2818 \\ 
+8 & 4 & 6 & 24 & 1.2533 \\ 
+8 & 4 & 8 & 32 & 3.3727 \\ 
+8 & 6 & 2 & 12 & 0.1696 \\ 
+8 & 6 & 4 & 24 & 1.7436 \\ 
+8 & 6 & 6 & 36 & 8.6428 \\ 
+8 & 6 & 8 & 48 & 19.8587 \\ 
+8 & 8 & 2 & 16 & 0.5825 \\ 
+8 & 8 & 4 & 32 & 7.3917 \\ 
+8 & 8 & 6 & 48 & 33.7262 \\ 
+8 & 8 & 8 & 64 & 107.0144 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+bs-opt-compare
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+8 & 4 & 2 & 8 & 0.0030 \\ 
+8 & 4 & 4 & 16 & 0.0123 \\ 
+8 & 4 & 6 & 24 & 0.0354 \\ 
+8 & 4 & 8 & 32 & 0.0780 \\ 
+8 & 6 & 2 & 12 & 0.0107 \\ 
+8 & 6 & 4 & 24 & 0.0481 \\ 
+8 & 6 & 6 & 36 & 0.1302 \\ 
+8 & 6 & 8 & 48 & 0.3155 \\ 
+8 & 8 & 2 & 16 & 0.0210 \\ 
+8 & 8 & 4 & 32 & 0.1030 \\ 
+8 & 8 & 6 & 48 & 0.3438 \\ 
+8 & 8 & 8 & 64 & 0.8999 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+bs-opt-medium-sample
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+10 & 5 & 1 & 5 & 0.0035 \\ 
+10 & 5 & 2 & 10 & 0.0127 \\ 
+10 & 5 & 3 & 15 & 0.0246 \\ 
+10 & 10 & 1 & 10 & 0.0257 \\ 
+10 & 10 & 2 & 20 & 0.1216 \\ 
+10 & 10 & 3 & 30 & 0.1667 \\ 
+10 & 15 & 1 & 15 & 0.1143 \\ 
+10 & 15 & 2 & 30 & 0.3776 \\ 
+10 & 15 & 3 & 45 & 0.8163 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+bs-opt-real-sample
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+6 & 5 & 1 & 5 & 0.0007 \\ 
+6 & 5 & 2 & 10 & 0.0029 \\ 
+6 & 5 & 3 & 15 & 0.0073 \\ 
+6 & 5 & 4 & 20 & 0.0168 \\ 
+6 & 10 & 1 & 10 & 0.0050 \\ 
+6 & 10 & 2 & 20 & 0.0266 \\ 
+6 & 10 & 3 & 30 & 0.0679 \\ 
+6 & 10 & 4 & 40 & 0.1601 \\ 
+6 & 15 & 1 & 15 & 0.0157 \\ 
+6 & 15 & 2 & 30 & 0.0905 \\ 
+6 & 15 & 3 & 45 & 0.3026 \\ 
+6 & 15 & 4 & 60 & 0.6859 \\ 
+6 & 20 & 1 & 20 & 0.0398 \\ 
+6 & 20 & 2 & 40 & 0.2525 \\ 
+6 & 20 & 3 & 60 & 0.7766 \\ 
+6 & 20 & 4 & 80 & 2.0803 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+bs-opt-variabilty-sample
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+6 & 20 & 1 & 20 & 0.0395 \\ 
+6 & 20 & 2 & 40 & 0.2505 \\ 
+6 & 30 & 1 & 30 & 0.1479 \\ 
+6 & 30 & 2 & 60 & 0.9846 \\ 
+6 & 40 & 1 & 40 & 0.4307 \\ 
+6 & 40 & 2 & 80 & 2.9426 \\ 
+6 & 50 & 1 & 50 & 0.9980 \\ 
+6 & 50 & 2 & 100 & 7.6388 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+bs-opt-variabilty-sample-fixed
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+6 & 50 & 2 & 100 & 1.6345 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+bs-randoors04f
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+10 & 4 & 8 & 32 & 1.7974 \\ 
+10 & 4 & 10 & 40 & 4.1857 \\ 
+10 & 6 & 8 & 48 & 15.4530 \\ 
+10 & 6 & 10 & 60 & 34.6857 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+bs-randoors06f
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+10 & 4 & 8 & 32 & 3.3017 \\ 
+10 & 4 & 10 & 40 & 8.2366 \\ 
+10 & 6 & 8 & 48 & 20.9267 \\ 
+10 & 6 & 10 & 60 & 57.3447 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+bs-randoors08f
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+10 & 4 & 8 & 32 & 4.6552 \\ 
+10 & 4 & 10 & 40 & 9.8173 \\ 
+10 & 6 & 8 & 48 & 29.2931 \\ 
+10 & 6 & 10 & 60 & 69.2747 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+bs-refresher10
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+6 & 4 & 10 & 40 & 0.7653 \\ 
+6 & 4 & 15 & 60 & 3.4248 \\ 
+6 & 6 & 10 & 60 & 5.5666 \\ 
+6 & 6 & 15 & 90 & 26.3091 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+bs-refresher2
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+6 & 4 & 10 & 40 & 1.3768 \\ 
+6 & 4 & 15 & 60 & 6.7213 \\ 
+6 & 6 & 10 & 60 & 8.7300 \\ 
+6 & 6 & 15 & 90 & 43.7862 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+bs-refresher5
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Num. modelos & Instancias/modelo & Total habs. & Tiempo ejec. \\ \hline 
+6 & 4 & 10 & 40 & 1.0284 \\ 
+6 & 4 & 15 & 60 & 5.5230 \\ 
+6 & 6 & 10 & 60 & 6.7349 \\ 
+6 & 6 & 15 & 90 & 35.1948 \\ 
+\hline
+	\end{tabular}
+\end{center}
+
+
