@@ -30,9 +30,10 @@ Memoria RAM & 1 GB \\
 \end{center}
 
 
-\subsection{Influencia del factor divisor de movimientos}
+\subsection{Impacto del factor divisor de movimientos}
 
-\begin{table}
+
+\begin{table}[H]
 \begin{center}
 	\begin{tabular}{ | c | c | }
 \hline
@@ -47,7 +48,7 @@ CacheType & NO CACHE \\
 \label{table:cfgdpediv}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | c | c | }
 \hline
@@ -64,10 +65,83 @@ Tam. habs. & Modelos & Inst./modelo & Total habs. & 0.75f & 0.85f & 0.95f\\ \hli
 \end{table}
 
 
+
+\subsection{Impacto de la generación de puertas aleatoria}
+
+\begin{table}[H]
+\begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & RANDOM \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 1.0 \\ 
+CacheType & NO CACHE \\ 
+\hline
+	\end{tabular}
+\end{center}
+\caption{Configuración del test de impacto de generación de puertas aleatorias}
+\label{table:cfg-randoors}
+\end{table}
+
+
+\begin{table}[H]
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | c | c | }
+\hline
+Tam. habs. & Modelos & Inst./modelo & Total & 0.8f & 0.6f & 0.4f \\ \hline 
+10 & 4 & 8 & 32 & 4.6552 & 3.3017 & 1.7974 \\ 
+10 & 4 & 10 & 40 & 9.8173 & 8.2366 & 4.1857 \\ 
+10 & 6 & 8 & 48 & 29.2931 & 20.9267 & 15.4530 \\ 
+10 & 6 & 10 & 60 & 69.2747 & 57.3447 & 34.6857 \\ 
+\hline
+	\end{tabular}
+\end{center}
+\caption{Test de impacto de generación de puertas aleatorias}
+\label{table:randoors}
+\end{table}
+
+
+\subsection{Impacto del Caché Refresher}
+
+\begin{table}[H]
+\begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & ALL \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 1.0 \\ 
+CacheType & REFRESHER \\ 
+\hline
+	\end{tabular}
+\end{center}
+\caption{Configuración de test de impacto de caché refresher}
+\label{table:cfg-refresher}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | c | c | c |}
+\hline
+Tam. habs. & Modelos & Inst./modelo & Total & N=2 & N=5 & N=10 \\ \hline 
+6 & 4 & 10 & 40 & 1.3768 & 1.0284 & 0.7653 \\ 
+6 & 4 & 15 & 60 & 6.7213 & 5.5230 & 3.4248 \\ 
+6 & 6 & 10 & 60 & 8.7300 & 6.7349 & 5.5666 \\ 
+6 & 6 & 15 & 90 & 43.7862 & 35.1948 & 26.3091 \\ 
+\hline
+	\end{tabular}
+\end{center}
+\caption{Test de impacto de caché refresher}
+\label{table:refresher}
+\end{table}
+
+
 \subsection{Ejemplo optimizado}
 
-bs-opt-medium-sample
-\begin{table}
+\begin{table}[H]
 \begin{center}
 	\begin{tabular}{ | c | c | }
 \hline
@@ -85,7 +159,7 @@ Random doors param & 0.5 \\
 \label{table:cfg-bsoptmedsamp}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
@@ -106,9 +180,8 @@ Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline
 \label{table:bsoptmedsamp}
 \end{table}
 
-bs-opt-real-sample
 
-\begin{table}
+\begin{table}[H]
 \begin{center}
 	\begin{tabular}{ | c | c | }
 \hline
@@ -127,7 +200,7 @@ Random doors param & 0.5 \\
 \end{table}
 
 
-\begin{table}
+\begin{table}[H]
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | }
 \hline
@@ -156,139 +229,30 @@ Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline
 \end{table}
 
 
-\subsection{Muchos tipos de habitación}
 
-bs-opt-variabilty-sample
-\begin{table}
+
+\subsection{Comparación ejemplo optimizado}
+
+\begin{table}[H]
 \begin{center}
-	\begin{tabular}{ | c | c | }
+	\begin{tabular}{ | c | c | c | c | }
 \hline
- 		Property & Value \\ \hline
-DoorGenType & RANDOM \\ 
-Refresher cache divisor & 10 \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 0.9 \\ 
-CacheType & REFRESHER \\ 
-Random doors param & 0.5 \\ 
+Property & NoCache & Always & Opt \\ \hline
+DoorGenType & ALL & ALL & RANDOM \\
+Random doors param & - & - & 0.5 \\
+CacheType & - & ALWAYS & REFRESHER \\
+Refresher cache divisor & - & - & 10 \\
+SolverType & BestSearch & BestSearch & BestSearch \\
+BestSearch DPE Divisor & 1.0 & 1.0 & 0.9 \\
 \hline
 	\end{tabular}
 \end{center}
-\caption{Configuración test con variabilidad en habitaciones}
-\label{table:cfg-optvarsample}
+\caption{Configuración para test de comparación}
+\label{table:cfg-comp}
 \end{table}
 
 
-\begin{table}
-\begin{center}
-	\begin{tabular}{ | c | c | c | c | c | }
-\hline
-Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
-6 & 20 & 1 & 20 & 0.0395 \\ 
-6 & 20 & 2 & 40 & 0.2505 \\ 
-6 & 30 & 1 & 30 & 0.1479 \\ 
-6 & 30 & 2 & 60 & 0.9846 \\ 
-6 & 40 & 1 & 40 & 0.4307 \\ 
-6 & 40 & 2 & 80 & 2.9426 \\ 
-6 & 50 & 1 & 50 & 0.9980 \\ 
-6 & 50 & 2 & 100 & 7.6388 \\ 
-\hline
-	\end{tabular}
-\end{center}
-\caption{Test con variabilidad en habitaciones}
-\label{table:optvarsample}
-\end{table}
-
-bs-opt-variabilty-sample-fixed
-
-\begin{table}
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & RANDOM \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 0.5 \\ 
-CacheType & ALWAYS \\ 
-Random doors param & 0.3 \\ 
-\hline
-	\end{tabular}
-\end{center}
-\caption{Configuración para el arreglo del último caso en test con variabilidad en habitaciones}
-\label{table:cfg-optvarfix}
-\end{table}
-
-
-\begin{table}
-\begin{center}
-	\begin{tabular}{ | c | c | c | c | c | }
-\hline
-Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
-6 & 50 & 2 & 100 & 1.6345 \\ 
-\hline
-	\end{tabular}
-\end{center}
-\caption{Arreglo del último caso en test con variabilidad en habitaciones}
-\label{table:optvarfix}
-\end{table}
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Comparación ejemplo optimizado}
-
-bs-opt-compare
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & RANDOM \\ 
-Refresher cache divisor & 10 \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 0.9 \\ 
-CacheType & REFRESHER \\ 
-Random doors param & 0.5 \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-
-bs-nocache-compare
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & ALL \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 1.0 \\ 
-CacheType & NO CACHE \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-
-bs-alwayscache-compare
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & ALL \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 1.0 \\ 
-CacheType & ALWAYS \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-
+\begin{table}[H]
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | c | c | }
 \hline
@@ -308,61 +272,85 @@ Tam. h. & Modelos & Inst./modelo & Total & NoCache & Always & Opt \\ \hline
 \hline
 	\end{tabular}
 \end{center}
+\caption{Test de comparación}
+\label{table:comp}
+\end{table}
 
 
 
 
-\subsection{Impacto de la generación de puertas aleatoria}
+\subsection{Muchos tipos de habitación}
 
+\begin{table}[H]
+\begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & RANDOM \\ 
+Refresher cache divisor & 10 \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 0.9 \\ 
+CacheType & REFRESHER \\ 
+Random doors param & 0.5 \\ 
+\hline
+	\end{tabular}
+\end{center}
+\caption{Configuración test con variabilidad en habitaciones}
+\label{table:cfg-optvarsample}
+\end{table}
+
+
+\begin{table}[H]
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
+6 & 20 & 1 & 20 & 0.0395 \\ 
+6 & 20 & 2 & 40 & 0.2505 \\ 
+6 & 30 & 1 & 30 & 0.1479 \\ 
+6 & 30 & 2 & 60 & 0.9846 \\ 
+6 & 40 & 1 & 40 & 0.4307 \\ 
+6 & 40 & 2 & 80 & 2.9426 \\ 
+6 & 50 & 1 & 50 & 0.9980 \\ 
+6 & 50 & 2 & 100 & 7.6388 \\ 
+\hline
+	\end{tabular}
+\end{center}
+\caption{Test con variabilidad en habitaciones}
+\label{table:optvarsample}
+\end{table}
+
+
+\begin{table}[H]
 \begin{center}
 	\begin{tabular}{ | c | c | }
 \hline
  		Property & Value \\ \hline
 DoorGenType & RANDOM \\ 
 SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 1.0 \\ 
-CacheType & NO CACHE \\ 
+BestSearch DPE Divisor & 0.5 \\ 
+CacheType & ALWAYS \\ 
+Random doors param & 0.3 \\ 
 \hline
 	\end{tabular}
 \end{center}
+\caption{Configuración para el arreglo del último caso en test con variabilidad en habitaciones}
+\label{table:cfg-optvarfix}
+\end{table}
 
+
+\begin{table}[H]
 \begin{center}
-	\begin{tabular}{ | c | c | c | c | c | c | c | }
+	\begin{tabular}{ | c | c | c | c | c | }
 \hline
-Tam. habs. & Modelos & Inst./modelo & Total & 0.8f & 0.6f & 0.4f \\ \hline 
-10 & 4 & 8 & 32 & 4.6552 & 3.3017 & 1.7974 \\ 
-10 & 4 & 10 & 40 & 9.8173 & 8.2366 & 4.1857 \\ 
-10 & 6 & 8 & 48 & 29.2931 & 20.9267 & 15.4530 \\ 
-10 & 6 & 10 & 60 & 69.2747 & 57.3447 & 34.6857 \\ 
+Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
+6 & 50 & 2 & 100 & 1.6345 \\ 
 \hline
 	\end{tabular}
 \end{center}
+\caption{Arreglo del último caso en test con variabilidad en habitaciones}
+\label{table:optvarfix}
+\end{table}
 
-
-\subsection{Impacto del Caché Refresher}
-
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & ALL \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 1.0 \\ 
-CacheType & REFRESHER \\ 
-\hline
-	\end{tabular}
-\end{center}
-
-\begin{center}
-	\begin{tabular}{ | c | c | c | c | c | c | c | c |}
-\hline
-Tam. habs. & Modelos & Inst./modelo & Total & N=2 & N=5 & N=10 \\ \hline 
-6 & 4 & 10 & 40 & 1.3768 & 1.0284 & 0.7653 \\ 
-6 & 4 & 15 & 60 & 6.7213 & 5.5230 & 3.4248 \\ 
-6 & 6 & 10 & 60 & 8.7300 & 6.7349 & 5.5666 \\ 
-6 & 6 & 15 & 90 & 43.7862 & 35.1948 & 26.3091 \\ 
-\hline
-	\end{tabular}
-\end{center}
 
 
