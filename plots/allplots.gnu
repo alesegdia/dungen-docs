@@ -40,13 +40,21 @@ set grid
 
 #set contour base
 #set nosurface
-#set view 0,0
 
 set xlabel "Instancias / modelo"
 set ylabel "Num. modelos"
 set zlabel "Tiempo"
 
 set ztics 150
+
+
+set style line 1 lc rgb '#0000ff' lt 1 lw 1 pt 7 ps 1.5 # --- blue
+set style line 2 lc rgb '#ff0000' lt 1 lw 1 pt 3 ps 1.5 # --- red
+set style line 3 lc rgb '#008800' lt 1 lw 1 pt 5 ps 1.5 # --- green
+
+
+
+
 
 set output 'comp-all.svg'
 splot 'comp.dat' index 2 matrix nonuniform with lines ls 3 title "Opt", \
@@ -63,5 +71,27 @@ splot 'comp.dat' index 2 matrix nonuniform with lines ls 3 title "Opt", \
 '' index 0 matrix nonuniform with lines ls 1 title "NoCache"
 
 set output 'comp-alw-opt.svg'
+splot 'comp.dat' index 2 matrix nonuniform with lines ls 3 title "Opt", \
+'' index 1 matrix nonuniform with lines ls 2 title "Always"
+
+
+
+set dgrid3d 10,10 splines
+
+set output 'comp-all-spl.svg'
+splot 'comp.dat' index 2 matrix nonuniform with lines ls 3 title "Opt", \
+'' index 1 matrix nonuniform with lines ls 2 title "Always", \
+'' index 0 matrix nonuniform with lines ls 1 title "NoCache"
+
+
+set output 'comp-nc-alw-spl.svg'
+splot 'comp.dat' index 1 matrix nonuniform with lines ls 2 title "Always", \
+'' index 0 matrix nonuniform with lines ls 1 title "NoCache"
+
+set output 'comp-nc-opt-spl.svg'
+splot 'comp.dat' index 2 matrix nonuniform with lines ls 3 title "Opt", \
+'' index 0 matrix nonuniform with lines ls 1 title "NoCache"
+
+set output 'comp-alw-opt-spl.svg'
 splot 'comp.dat' index 2 matrix nonuniform with lines ls 3 title "Opt", \
 '' index 1 matrix nonuniform with lines ls 2 title "Always"
