@@ -117,10 +117,10 @@
 	<g transform="translate(126.0,71.3)" style="stroke:none; fill:black; font-family:Verdana, Helvetica, Arial, sans-serif; font-size:10.00pt; text-anchor:end">
 		<text>Opt</text>
 	</g>
-<g style="fill:none; color:white; stroke:black; stroke-width:2.00; stroke-linecap:butt; stroke-linejoin:miter">
+<g style="fill:none; color:white; stroke:black; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
 </g>
-<g style="fill:none; color:red; stroke:currentColor; stroke-width:2.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='rgb(  0, 255,   0)'  d='M133.0,67.6 L168.5,67.6 M237.6,156.1 L280.8,164.1 L324.0,171.8 L367.2,179.1 M212.6,170.2 L255.8,178.3 
+<g style="fill:none; color:red; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+	<path stroke='rgb(  0, 136,   0)'  d='M133.0,67.6 L168.5,67.6 M237.6,156.1 L280.8,164.1 L324.0,171.8 L367.2,179.1 M212.6,170.2 L255.8,178.3 
 		L299.0,186.2 L342.3,193.9 M187.7,184.2 L230.9,192.3 L274.1,200.4 L317.3,208.4 M162.7,198.3 L205.9,206.4 
 		L249.1,214.5 L292.3,222.6 M367.2,179.1 L342.3,193.9 L317.3,208.4 L292.3,222.6 M324.0,171.8 L299.0,186.2 
 		L274.1,200.4 L249.1,214.5 M280.8,164.1 L255.8,178.3 L230.9,192.3 L205.9,206.4 M237.6,156.1 L212.6,170.2 
@@ -130,7 +130,7 @@
 	<g transform="translate(126.0,86.3)" style="stroke:none; fill:black; font-family:Verdana, Helvetica, Arial, sans-serif; font-size:10.00pt; text-anchor:end">
 		<text>Always</text>
 	</g>
-<g style="fill:none; color:red; stroke:currentColor; stroke-width:2.00; stroke-linecap:butt; stroke-linejoin:miter">
+<g style="fill:none; color:red; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
 	<path stroke='rgb(255,   0,   0)'  d='M133.0,82.6 L168.5,82.6 M237.6,155.5 L280.8,162.3 L324.0,165.3 L367.2,162.8 M212.6,170.0 L255.8,177.6 
 		L299.0,184.1 L342.3,188.5 M187.7,184.1 L230.9,192.1 L274.1,199.8 L317.3,206.9 M162.7,198.3 L205.9,206.4 
 		L249.1,214.4 L292.3,222.4 M367.2,162.8 L342.3,188.5 L317.3,206.9 L292.3,222.4 M324.0,165.3 L299.0,184.1 
