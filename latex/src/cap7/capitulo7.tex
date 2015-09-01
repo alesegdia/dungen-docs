@@ -167,46 +167,7 @@ Tam. habs. & Modelos & Inst./modelo & Total & N=2 & N=5 & N=10 \\ \hline
 
 
 
-\subsection{Ejemplo optimizado}
-
-\begin{table}[H]
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & RANDOM \\ 
-Refresher cache divisor & 10 \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 0.9 \\ 
-CacheType & REFRESHER \\ 
-Random doors param & 0.5 \\ 
-\hline
-	\end{tabular}
-\end{center}
-\caption{Configuración para test optimizado de tamaño medio}
-\label{table:cfg-bsoptmedsamp}
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\begin{tabular}{ | c | c | c | c | c | }
-\hline
-Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
-10 & 5 & 1 & 5 & 0.0035 \\ 
-10 & 5 & 2 & 10 & 0.0127 \\ 
-10 & 5 & 3 & 15 & 0.0246 \\ 
-10 & 10 & 1 & 10 & 0.0257 \\ 
-10 & 10 & 2 & 20 & 0.1216 \\ 
-10 & 10 & 3 & 30 & 0.1667 \\ 
-10 & 15 & 1 & 15 & 0.1143 \\ 
-10 & 15 & 2 & 30 & 0.3776 \\ 
-10 & 15 & 3 & 45 & 0.8163 \\ 
-\hline
-	\end{tabular}
-\end{center}
-\caption{Test optimizado de tamaño medio}
-\label{table:bsoptmedsamp}
-\end{table}
+\subsection{Ejemplo real optimizado}
 
 
 \begin{table}[H]
@@ -255,6 +216,69 @@ Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline
 \caption{Test real en dispositivos móviles}
 \label{table:optreal}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/opt-real}
+\includegraphics[scale=0.5]{img/opt-real-spl}
+\caption{Gráfica de ejemplo óptimo real en móviles
+\label{fig:grfoptreal}}
+\end{figure}
+
+
+\subsection{Ejemplo medio optimizado}
+
+\begin{table}[H]
+\begin{center}
+	\begin{tabular}{ | c | c | }
+\hline
+ 		Property & Value \\ \hline
+DoorGenType & RANDOM \\ 
+Refresher cache divisor & 10 \\ 
+SolverType & BestSearch \\ 
+BestSearch DPE Divisor & 0.9 \\ 
+CacheType & REFRESHER \\ 
+Random doors param & 0.5 \\ 
+\hline
+	\end{tabular}
+\end{center}
+\caption{Configuración para test optimizado de tamaño medio}
+\label{table:cfg-bsoptmedsamp}
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | }
+\hline
+Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline 
+10 & 5 & 1 & 5 & 0.0035 \\ 
+10 & 5 & 2 & 10 & 0.0127 \\ 
+10 & 5 & 3 & 15 & 0.0246 \\ 
+10 & 10 & 1 & 10 & 0.0257 \\ 
+10 & 10 & 2 & 20 & 0.1216 \\ 
+10 & 10 & 3 & 30 & 0.1667 \\ 
+10 & 15 & 1 & 15 & 0.1143 \\ 
+10 & 15 & 2 & 30 & 0.3776 \\ 
+10 & 15 & 3 & 45 & 0.8163 \\ 
+\hline
+	\end{tabular}
+\end{center}
+\caption{Test optimizado de tamaño medio}
+\label{table:bsoptmedsamp}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/opt-mid}
+\includegraphics[scale=0.5]{img/opt-mid-spl}
+\caption{Gráfica de ejemplo óptimo de tamaño medio
+\label{fig:grfoptmid}}
+\end{figure}
+
+
+
+
+
 
 
 
@@ -398,6 +422,18 @@ Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline
 \end{table}
 
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/opt-var}
+\includegraphics[scale=0.5]{img/opt-var-spl}
+\caption{Gráfica de ejemplo variable con muchos modelos de habitaciones
+\label{fig:grfoptvar}}
+\end{figure}
+
+
+
+
+
 \begin{table}[H]
 \begin{center}
 	\begin{tabular}{ | c | c | }
@@ -439,3 +475,19 @@ Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline
 
 
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/opt-varfix}
+\includegraphics[scale=0.5]{img/opt-varfix-cmp-spl}
+\caption{Gráfica de comparación entre ejemplo variable y arreglado
+\label{fig:grfvarfixcmp}}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/opt-varfix-spl}
+\caption{Arreglo de ejemplo variable
+\label{fig:grfvarfix}}
+\end{figure}
