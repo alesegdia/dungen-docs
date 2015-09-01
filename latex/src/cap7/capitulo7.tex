@@ -179,6 +179,9 @@ Tam. habs. & Modelos & Inst./modelo & Total & N=2 & N=5 & N=10 \\ \hline
 
 \subsection{Ejemplo real optimizado}
 
+Se ha elaborado una configuración optimizada para ejemplos que consideraremos reales de habitaciones desde 6x6 hasta 10x10, teniendo en cuenta que el tamaño del mapa puede rondar los 64x64 tiles. La configuración puede verse en la tabla \ref{table:cfg-optreal}.
+
+En la figura \ref{grfoptreal} puede verse la evolución de los tiempos conforme aumentamos el número de modelos y de instancias por modelo para un tamaño de habitaciones de 6x6, y en la figura \ref{grfoptmid} para un tamaño de 10x10. Se observa como se obtienen tiempos muy buenos para ambos casos.
 
 \begin{table}[H]
 \begin{center}
@@ -236,25 +239,6 @@ Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline
 \end{figure}
 
 
-\subsection{Ejemplo medio optimizado}
-
-\begin{table}[H]
-\begin{center}
-	\begin{tabular}{ | c | c | }
-\hline
- 		Property & Value \\ \hline
-DoorGenType & RANDOM \\ 
-Refresher cache divisor & 10 \\ 
-SolverType & BestSearch \\ 
-BestSearch DPE Divisor & 0.9 \\ 
-CacheType & REFRESHER \\ 
-Random doors param & 0.5 \\ 
-\hline
-	\end{tabular}
-\end{center}
-\caption{Configuración para test optimizado de tamaño medio}
-\label{table:cfg-bsoptmedsamp}
-\end{table}
 
 \begin{table}[H]
 \begin{center}
@@ -294,6 +278,8 @@ Tam. habs. & Modelos & Instancias/modelo & Total habs. & Tiempo \\ \hline
 
 
 \subsection{Comparación ejemplo optimizado}
+
+Si comparamos la configuración optimizada con ejemplos sin caché y cacheando siempre (pero no modificando el resto de parámetros), podemos ver como mejoramos bastante los tiempos. Además, obtenemos mapas con mejor calidad que si cacheáramos siempre.
 
 \begin{table}[H]
 \begin{center}
@@ -391,6 +377,10 @@ Tam. h. & Modelos & Inst./modelo & Total & NoCache & Always & Opt \\ \hline
 
 
 \subsection{Muchos tipos de habitación}
+
+Por último, hemos querido hacer un ejemplo donde la diversidad de modelos es muy alta. Es decir, se empleará un número alto de modelos y bajo de instancias por modelo.
+
+En la gráfica \ref{fig:optvar}, podemos ver un caso que tarda un tiempo excesivo de 7 segundos. Para ello, se ha realizado una modificación en la configuración, obteniendo un arreglo del mismo que puede observarse en la figura \ref{fig:varfixcmp}.
 
 \begin{table}[H]
 \begin{center}
