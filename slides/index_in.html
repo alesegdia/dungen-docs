@@ -248,7 +248,7 @@
 
 				<section>
 					<section id="fragments">
-						<h2>Movimientos</h2>
+						<h2>Estrategia constructiva</h2>
 					</section>
 
 					<section id="fragments">
@@ -320,14 +320,14 @@
 					</section>
 
 					<section id="fragments">
-						<h3>Interfaz de construcción</h3>
-						{(pf)Emplearemos una interfaz {(c,b)IMapGenSolver} que {(c)elegirá un {(b)movimiento} de entre todos los posibles}
+						<h3>Interfaz de selección de movimiento</h3>
+						{(pf)Emplearemos una interfaz {(c,b)InterfazSeleccion} que {(c)elegirá un {(b)movimiento} de entre todos los posibles}
 						por cada paso del algoritmo}
 						<pre class="fragment"><code data-trim>
-Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMapGenSolver mapSolver ) {
+Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, InterfazSeleccion mapSolver ) {
   Mapa mapa = MapaVacio();
   while( !habitaciones.isEmpty() ) {
-    // generamos el movimiento según el IMapGenSolver
+    // generamos el movimiento según el InterfazSeleccion
     Movimiento movimiento = mapSolver.GenerarMovimiento( mapa, habitaciones );
     // insertamos la habitación en la coordenada indicada por el movimiento generado
     mapa.InsertarHabitacion( prometedor.habitacion, prometedor.posicion );
