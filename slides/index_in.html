@@ -282,24 +282,35 @@
 						<p class="fragment">$$RR = remainingRooms$$</p>
 					</section>
 
+
 					<section id="fragments">
 						<h3>Conexiones entre el mapa y una habitación</h3>
-						{(pf)Las posibles {(c)conexiones entre el {(b)mapa} y una {(b)habitación}} queda definida como}
+						{(pf)Definición de posibles {(c)conexiones entre el {(b)mapa} y una {(b)habitación}}:}
 						<p class="fragment">
-							$possibleConnections(map, room) =$<br />
-							$ \left\{ (r,u,v) : \neg collision(map, r, n, m), n \in map, m \in r \right\}$<br />
-							$\bigcup_{p \in rooms(map)}  \left\{ cx(map,r,p,u) : \neg col(map, r, u), u \in map \right\}$<br />
+							$possibleConnections(map, r) =$<br />
+							$\bigcup_{p \in rooms(map)}  \left\{ cx(map,r,p,u,v,w) : \neg col(map, r, w) \right\}$<br />
 						</p>
-						{(pf)Donde los posibles valores para $u$ según $v$ son}
 						<p class="fragment">
-							$\begin{cases}
-							u = v + (1,0) \\
-							u = v - (1,0) \\
-							u = v + (0,1) \\
-							u = v - (0,1) \\
+							$w = v - u + \begin{cases}
+							(-1,0) \\
+							(+1,0) \\
+							(0,-1) \\
+							(0,+1) \\
 							\end{cases}$<br />
 						</p>
+						<p class="fragment">
+							$potentialDoor(u, r), potentialDoor(v, p)$<br />
+						</p>
 					</section>
+
+					<section id="fragments">
+						<h3>Conexiones entre el mapa y una habitación</h3>
+						<center class="fragment">
+							<p><img width="450" src="./tileconn.png" /></p>
+							<p><small>Ilustración de posible conexión entre habitación restante y mapa</small></p>
+						</center>
+					</section>
+
 
 				</section>
 
