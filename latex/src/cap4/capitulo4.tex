@@ -50,6 +50,14 @@ Consideraremos que el \emph{estado del sistema} depende de, y se ve afectado por
 
 Como se observa en la figura~\ref{fig:posmovs}, dado un estado del sistema $S(map,RR)$, la lista de posibles movimientos se computará a partir de las \emph{posibles conexiones} entre las \emph{puertas potenciales de las habitaciones colocadas en el mapa} y las \emph{puertas potenciales de las habitaciones restantes}. El concepto de \emph{puerta potencial} se discutió en el CAPITLOX (insertar enlace).
 
+El cómputo de las posibles conexiones entre el mapa y una de las habitaciones restantes, se define en la figura~\ref{fig:poscons}. En la figura~\ref{fig:grafhabmap} se puede ver una ilustración de los tiles implicados. Destacar que el desplazamiento para testear la posible conexión entre una habitación de las restantes y una del mapa, solamente se puede realizar sobre la habitación restante, ya que las del mapa ya han sido colocadas y están fijas.
+
+
+El cómputo de todos los posibles movimientos queda como la unión de los conjuntos que dan como resultado calcular las posibles conexiones entre todas las habitaciones restantes y las presentes en el mapa.
+
+Así, el cómputo de todas las posibles conexiones entre una habitación en la lista de habitaciones restantes y una habitación del mapa consiste en calcular el conjunto de todas las posibles colocaciones de la habitación de la lista de restantes contigua a la habitación del mapa.
+
+
 \begin{figure}[h]
 \centering
 {
@@ -61,27 +69,34 @@ Como se observa en la figura~\ref{fig:posmovs}, dado un estado del sistema $S(ma
 }
 \end{figure}
 
-El cómputo de las posibles conexiones entre el mapa y una de las habitaciones restantes, se define en la figura~\ref{fig:poscons}. Destacar que el desplazamiento para testear la posible conexión entre una habitación de las restantes y una del mapa, solamente se puede realizar sobre la habitación restante, ya que las del mapa ya han sido colocadas y están fijas.
 
-\begin{figure}[h]
+
+\begin{figure}[H]
 	$$posiblesConexiones(map, r) = $$
-	$$\bigcup_{p \in rooms(map)}  \left\{ cx(map,r,p,u) : \neg col(map, r, u), u \in map \right\}$$
-	$$u = \begin{cases}
-		u = v + (1,0) \\
-		u = v - (1,0) \\
-		u = v + (0,1) \\
-		u = v - (0,1) \\
+	$$\bigcup_{p \in rooms(map)}  \left\{ cx(map,r,p,u,v,w) : \neg col(map, r, w) \right\}$$
+	$$w = v - u + \begin{cases}
+		(-1,0) \\
+		(+1,0) \\
+		(0,-1) \\
+		(0,+1) \\
 	\end{cases}$$
+	$$u \in r, v \in map, w \in map$$
+	$$puertaPotencial(u, r), puertaPotencial(v, p)$$
 	$$col(map, room, t) : \text{colisión al colocar $room$ en $map$ en el tile $t$}$$
-	$$cx(map,r,p,u) : \text{acción de conectar $r$ con $p$ colocando $r$ en tile $u$ de $map$}$$
+	$$cx(map,r,p,u,v,w) : \text{conectar $u \in r$ y $u \in p$ colocando $r$ en tile $w \in map$}$$
 \caption{Cómputo de las posibles conexiones entre una habitación de las restantes y el mapa
 \label{fig:poscons}
 }
 \end{figure}
 
-El cómputo de todos los posibles movimientos queda como la unión de los conjuntos que dan como resultado calcular las posibles conexiones entre todas las habitaciones restantes y las presentes en el mapa.
 
-Así, el cómputo de todas las posibles conexiones entre una habitación en la lista de habitaciones restantes y una habitación del mapa consiste en calcular el conjunto de todas las posibles colocaciones de la habitación de la lista de restantes contigua a la habitación del mapa.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{img/tileconn}
+\caption{Ilustración de posible conexión entre habitación y mapa
+\label{fig:grafhabmap}}
+\end{figure}
+
 
 
 \section{Interfaz de selección de movimiento}
