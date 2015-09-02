@@ -103,13 +103,13 @@ Así, el cómputo de todas las posibles conexiones entre una habitación en la l
 
 Como se ha comentado anteriormente, la \emph{interfaz de selección de movimiento} es otro elemento importante del sistema, y en ella radica parte de la flexibilidad del sistema. En el listado \ref{lst:igen} se muestra el esqueleto de dicha interfaz, cuyo único método de interés es el relacionado con la elección del movimiento.
 
-\begin{lstlisting}[caption={Interfaz de generación},label={lst:igen},language=Java,escapechar=|]
+\begin{lstlisting}[caption={Interfaz de selección de movimiento},label={lst:igen},language=Java,escapechar=|]
 interface InterfazSeleccion {
 	Movimiento ElegirMovimiento( List<Movimiento> movimientos );
 }
 \end{lstlisting}
 
-Una vez generados todos los movimientos posibles, se delega la decisión de elegir un movimiento a la \emph{interfaz de generación}. En esta interfaz radica uno de los puntos de flexibilidad del sistema. Mediante componentes que implementen esta interfaz, podemos idear otras formas de elegir un movimiento a partir de la lista de movimientos posibles.
+Una vez generados todos los movimientos posibles, se delega la decisión de elegir un movimiento a la \emph{interfaz de selección de movimiento}. En esta interfaz radica uno de los puntos de flexibilidad del sistema. Mediante componentes que implementen esta interfaz, podemos idear otras formas de elegir un movimiento a partir de la lista de movimientos posibles.
 
 En este proyecto se han creado dos interfaces de selección de movimiento:
 
