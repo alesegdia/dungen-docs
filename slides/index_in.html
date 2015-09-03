@@ -324,18 +324,21 @@
 						{(pf)Emplearemos una interfaz {(c,b)InterfazSeleccion} que {(c)elegirá un {(b)movimiento} de entre todos los posibles}
 						por cada paso del algoritmo}
 						<pre class="fragment"><code data-trim>
+
+interface InterfazSeleccion {
+    Movimiento ElegirMovimiento( Mapa mapa, List&lt;Movimiento&gt; movimientos );
+}
+
 Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, InterfazSeleccion mapSolver ) {
   Mapa mapa = MapaVacio();
   while( !habitaciones.isEmpty() ) {
-    // generamos el movimiento según el InterfazSeleccion
-    Movimiento movimiento = mapSolver.GenerarMovimiento( mapa, habitaciones );
-    // insertamos la habitación en la coordenada indicada por el movimiento generado
-    mapa.InsertarHabitacion( prometedor.habitacion, prometedor.posicion );
-    // eliminamos la habitación que se ha insertado de la lista
-    habitaciones.remove( movimiento.habitacion );
-    // guardamos el movimiento elegido para reconstrucción rápida
-    GuardarMovimiento( movimiento );
+    List&lt;Movimiento&gt; movimientos = GenerarMovimientos( mapa, habitaciones );
+    Movimiento elegido = mapSolver.ElegirMovimiento( mapa, movimientos );
+    mapa.InsertarHabitacion( elegido.habitacion, elegido.posicion );
+    habitaciones.remove( elegido.habitacion );
+    GuardarMovimiento( elegido );
   }
+  EstablecerRecorridoPrincipal( mapa );
   return mapa;
 }
 						</code></pre>
@@ -380,14 +383,26 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, InterfazSeleccion mapSolv
 					</section>
 
 					<section id="fragments">
-						<h3>Estrategia</h3>
+						<h3>Estrategia básica</h3>
 						{(pf)Se basa en dar una puntuación a cada movimiento}
 						{(pf)Se elegirá el movimiento que tenga una mejor puntuación}
+						{(pf)Para computar la puntuación, empleamos la interfaz {(c,b)IFitnessSolver} con el fin de abstraer
+						dicho cómputo}
 						<pre class="fragment"><code data-trim>
-Movimiento GenerarMovimiento( Mapa mapa, List&lt;Habitacion&gt; habitaciones ) {
-  Movimiento[] movimientos = GenerarTodosMovimientos( mapa, habitaciones );
-  float[] puntuaciones = ComputarPuntuaciones( movimientos );
-  return MejorMovimiento( movimientos, puntuaciones );
+interface IFitnessSolver {
+    float FuncionGuia( Mapa mapa, Movimiento m );
+}
+
+class BestSearchMovementSelector implements IMovementSelector {
+    IFitnessSolver fitnessSolver;
+    Movimiento ElegirMovimiento( Mapa mapa, List&lt;Movimiento&gt; movimientos ) {
+        List&lt;Float&gt; fitnesses;
+        for( Movimiento m : movimientos ) {
+            fitnesses[m.index] = fitnessSolver.FuncionGuia( mapa, m );
+        }
+        Movimiento elegido = ObtenerMejor( movimientos, fitnesses );
+        return elegido;
+    }
 }
 						</code></pre>
 					</section>
@@ -406,11 +421,88 @@ Movimiento GenerarMovimiento( Mapa mapa, List&lt;Habitacion&gt; habitaciones ) {
 					</section>
 
 					<section id="fragments">
-						<h3>Fitness Caché</h3>
+						<h3>Fitness múltiple</h3>
+						{(pf)Implementaremos la interfaz {(c,b)IFitnessSolver} para conseguir este objetivo}
+						{(pf)Usaremos otra interfaz {(c,b)IFitnessCombinator} para unir todos los posibles fitnesses en uno}
+						<pre class="fragment"><code data-trim>
+interface IFitnessCombinator {
+    float Combinar( float[] fitnesses );
+}
+
+class MultiFitnessSolver implements IFitnessSolver {
+    IFitnessCombinator fitnessCombinator;
+    float FuncionGuia( Mapa mapa, Movimiento m ) {
+        float fitnesses = new float[3];
+        fitnesses[0] = ComputarPropiedad0( mapa, m );
+        fitnesses[1] = ComputarPropiedad1( mapa, m );
+        fitnesses[2] = ComputarPropiedad2( mapa, m );
+        fitnessCombinator.Combinar( fitnesses );
+    }
+}
+						</code></pre>
 					</section>
 
 					<section id="fragments">
-						<h3>Fitness Combinator</h3>
+						<h3>Tipos de Fitness Combinator</h3>
+						<ul>
+							<li class="fragment">{(c,b)Combinador parametrizado}. Calcula el fitness final como una
+							suma ponderada de cada una de los fitnesses.<br />
+							<center>
+							$ \sum_{f \in F} f * k(f)$<br />
+							$F = \text{conjunto de propiedades}$<br />
+							$k(f) = \text{ponderación de la propiedad f}$<br />
+						</center>
+							</li>
+							<li class="fragment">{(c,b)Combinador parametrizado adaptativo}. Funciona igual que el
+							combinador parametrizado, con la diferencia de que el parámetro asociado al mejor fitness
+							se disminuye en un factor, y el resto se aumenta en otro factor.</li>
+						</ul>
+					</section>
+
+					<section id="fragments">
+						<h3>Fitness Caché (I)</h3>
+						{(pf)El cómputo del fitness es uno de los bottlenecks del sistema}
+						{(pf)Por ello se ha ideado una interfaz para evitar computar todos los fitnesses en cada
+						paso del algoritmo}
+						{(pf)Esto sacrifica la calidad del algoritmo, pero es posible controlarlo para que el
+						impacto no sea notable}
+					</section>
+
+					<section id="fragments">
+						<h3>Fitness Caché (II)</h3>
+						<pre class="fragment"><code data-trim>
+interface IFitnessCache {
+    Fitness Get( Movimiento m );
+    void Cachear( Movimiento m, float fitness );
+}
+class BestSearchMovementSelector implements IMovementSelector {
+    IFitnessSolver fitnessSolver;
+    IFitnessCache fitnessCache;
+    Movimiento ElegirMovimiento( Mapa mapa, List&lt;Movimiento&gt; movimientos ) {
+        List&lt;Float&gt; fitnesses;
+        for( Movimiento m : movimientos ) {
+            Fitness f = fitnessCache.Get(m);
+            if( f != null ) {
+                fitnesses[m.index] = fitnessSolver.FuncionGuia( mapa, m );
+                fitnessCache.Cachear( m, fitnesses[m.index] );
+            } else {
+                fitnesses[m.index] = f;
+            }
+        }
+    }
+}
+						</code></pre>
+					</section>
+
+					<section id="fragments">
+						<h3>Tipos de caché</h3>
+						{(pf)Se han creado 3 tipos de caché:}
+						<ul>
+							{(lif){(c,b)NoCaché}. Por defecto. No cachea nunca.}
+							{(lif){(c,b)AlwaysCaché}. Se cachea siempre.}
+							{(lif){(c,b)Refresher}. Se vacía la caché cada N habitaciones colocadas}
+						</ul>
+						{(pf)Además, gracias a que se implementan con una interfaz, es posible idear otros tipos distintos.}
 					</section>
 
 				</section>
