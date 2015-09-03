@@ -11,7 +11,7 @@ Mapa GenerarMapa( List<Habitacion> habitaciones, InterfazSeleccion mapSolver ) {
 	Mapa mapa = MapaVacio();
 	while( !habitaciones.isEmpty() ) {
 		List<Movimiento> movimientos = GenerarMovimientos( mapa, habitaciones ); |\label{line:movgen}|
-		Movimiento elegido = mapSolver.ElegirMovimiento( ); |\label{line:ifaceselect}|
+		Movimiento elegido = mapSolver.ElegirMovimiento( mapa, movimientos ); |\label{line:ifaceselect}|
 		mapa.InsertarHabitacion( elegido.habitacion, elegido.posicion ); |\label{line:addroom}|
 		habitaciones.remove( elegido.habitacion ); |\label{line:rmroom}|
 		GuardarMovimiento( elegido ); |\label{line:savemov}|
@@ -105,7 +105,7 @@ Como se ha comentado anteriormente, la \emph{interfaz de selección de movimient
 
 \begin{lstlisting}[caption={Interfaz de selección de movimiento},label={lst:igen},language=Java,escapechar=|]
 interface InterfazSeleccion {
-	Movimiento ElegirMovimiento( List<Movimiento> movimientos );
+	Movimiento ElegirMovimiento( Mapa mapa, List<Movimiento> movimientos );
 }
 \end{lstlisting}
 
@@ -122,7 +122,7 @@ La interfaz aleatoria es simple y no tiene interés computacional. En el listado
 
 \begin{lstlisting}[caption={Implementación aleatoria de la interfaz de selección de movimiento},label={lst:irandom},language=Java,escapechar=|]
 class RandomMovementSelector implements IMovementSelector {
-	Movimiento ElegirMovimiento( List<Movimiento> movimientos ) {
+	Movimiento ElegirMovimiento( Mapa mapa, List<Movimiento> movimientos ) {
 		int indiceMovimiento = random( 0, movimientos.size() - 1);
 		Movimiento elegido = movimientos.get( indiceMovimiento );
 		return elegido;

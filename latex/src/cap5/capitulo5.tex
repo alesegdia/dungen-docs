@@ -10,7 +10,7 @@ Como se observa en el listado~\ref{lst:igensearch}, la forma de seleccionar el m
 
 \begin{lstlisting}[caption={Interfaz de selección de movimiento basada en búsqueda},label={lst:igensearch},language=Java,escapechar=|]
 class BestSearchMovementSelector implements IMovementSelector {
-	Movimiento ElegirMovimiento( List<Movimiento> movimientos ) {
+	Movimiento ElegirMovimiento( Mapa mapa, List<Movimiento> movimientos ) {
 		List<Float> fitnesses;
 		for( Movimiento m : movimientos ) {
 			fitnesses[m.index] = FuncionGuia( m );
@@ -38,10 +38,10 @@ En el listado~\ref{lst:igsf} se ha sustituido la llamada a la función guía por
 \begin{lstlisting}[caption={Interfaz de selección de movimiento basada en búsqueda},label={lst:igsf},language=Java,escapechar=|]
 class BestSearchMovementSelector implements IMovementSelector {
 	|\colorbox{yellow}{IFitnessSolver fitnessSolver;}||\label{line:l1}|
-	Movimiento ElegirMovimiento( List<Movimiento> movimientos ) {
+	Movimiento ElegirMovimiento( Mapa mapa, List<Movimiento> movimientos ) {
 		List<Float> fitnesses;
 		for( Movimiento m : movimientos ) {
-			fitnesses[m.index] = |\colorbox{yellow}{fitnessSolver.FuncionGuia( m );}||\label{line:l2}|
+			fitnesses[m.index] = |\colorbox{yellow}{fitnessSolver.FuncionGuia( mapa, m );}||\label{line:l2}|
 		}
 		Movimiento elegido = ObtenerMejor( movimientos, fitnesses );
 		return elegido;
@@ -60,11 +60,11 @@ El propósito de esta implementación de la interfaz de cómputo de fitness es p
 \begin{lstlisting}[caption={Interfaz de selección de movimiento basada en búsqueda},label={lst:igsf},language=Java,escapechar=|]
 class MultiFitnessSolver implements IFitnessSolver {
 	IFitnessCombinator fitnessCombinator;
-	float FuncionGuia( Movimiento m ) {
+	float FuncionGuia( Mapa mapa, Movimiento m ) {
 		float fitnesses = new float[3];
-		fitnesses[0] = ComputarPropiedad0( m );
-		fitnesses[1] = ComputarPropiedad1( m );
-		fitnesses[2] = ComputarPropiedad2( m );
+		fitnesses[0] = ComputarPropiedad0( mapa, m );
+		fitnesses[1] = ComputarPropiedad1( mapa, m );
+		fitnesses[2] = ComputarPropiedad2( mapa, m );
 		fitnessCombinator.Combinar( fitnesses );
 	}
 }
@@ -134,12 +134,12 @@ Experimentalmente, se ha comprobado que el \emph{cuello de botella} de nuestra a
 class BestSearchMovementSelector implements IMovementSelector {
 	IFitnessSolver fitnessSolver;
 	|\colorbox{yellow}{IFitnessCache fitnessCache;}|
-	Movimiento ElegirMovimiento( List<Movimiento> movimientos ) {
+	Movimiento ElegirMovimiento( Mapa mapa, List<Movimiento> movimientos ) {
 		List<Float> fitnesses;
 		for( Movimiento m : movimientos ) {
 			|\colorbox{yellow}{Fitness f = fitnessCache.Get(m);}|
 			|\colorbox{yellow}{if( f != null ) \{}|
-					|\colorbox{yellow}{fitnesses[m.index] = fitnessSolver.FuncionGuia( m );}|
+					|\colorbox{yellow}{fitnesses[m.index] = fitnessSolver.FuncionGuia( mapa, m );}|
 					|\colorbox{yellow}{fitnessCache.Cachear( m, fitnesses[m.index] );}|
 				|\colorbox{yellow}{\} else \{}|
 					|\colorbox{yellow}{fitnesses[m.index] = f;}|
