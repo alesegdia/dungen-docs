@@ -509,6 +509,114 @@ class BestSearchMovementSelector implements IMovementSelector {
 
 				<section>
 					<section id="fragments">
+						<h2>Correspondencia con problema de búsqueda</h2>
+					</section>
+
+					<section id="fragments">
+						<h3>Método de búsqueda</h3>
+						{(pf)Método para la {(c,b)resolución de problemas}}
+						{(pf){(c,b)Espacio de soluciones} definido}
+						{(pf)Consiste en encontrar una solución en el espacio de soluciones
+						que satisfaga el enunciado del problema {(c,b)de forma guiada}
+						partiendo de una solución o estado inicial}
+						{(pf)Para explorar el espacio de búsqueda, tenemos que definir las
+						posibles {(c) {(b)acciones} que se podrán realizar sobre los estados} }
+						{(pf)Se analizará el problema de búsqueda desde el punto de vista
+						de un {(c,b)agente}}
+					</section>
+
+					<section id="fragments">
+						<h3>Modelización del problema (I)</h3>
+						{(pf)Ayuda a la abstracción y reducción de complejidad}
+						{(pf)La adecuación del modelo del problema influirá en la calidad
+						de la solución encontrada}
+						{(pf)La solución corresponde al modelo del problema y no al
+						problema real}
+					</section>
+
+					<section id="fragments">
+						<h3>Modelización del problema (II)</h3>
+						{(pf)En nuestro caso:}
+						<ul>
+							{(lif)El problema real, a grandes rasgos, consiste en
+							generar un escenario para un juego en 2D con las
+							restricciones que se comentaron al principio}
+							{(lif)El modelo del problema es la estructura de datos
+							que analizamos anteriormente:}
+							<ul>
+								{(lif)Lista de habitaciones por colocar}
+								{(lif)Lista de habitaciones colocadas}
+								{(lif)Mapa de tiles con las habitaciones colocadas}
+							</ul>
+						</ul>
+					</section>
+
+					<section id="fragments">
+						<h3>Búsqueda informada</h3>
+						{(pf)Consiste en realizar la búsqueda conociendo aspectos del
+						problema para guiarnos hacia la solución}
+						{(pf)En nuestro caso, contamos con búsqueda informada gracias
+						a los fitnesses que usamos para guiar la generación}
+					</section>
+
+					<section id="fragments">
+						<h3>Características de problemas resolubles mediante búsqueda</h3>
+						{(pf)Para que un problema pueda resolverse mediante búsqueda,
+						necesita cumplir distintas propiedades:}
+						<ul>
+							{(lif){(c,b)Discreto.} Espacio de estados bien definido y finito}
+							{(lif){(c,b)Accesible.} El agente debe poder determinar en qué estado
+							se encuentra en cada momento, así como el estado que debe
+							alcanzar}
+							{(lif){(c,b)Estático.} Las variables que influyen en el problema, no
+							deben cambiar en el tiempo}
+							{(lif){(c,b)Observable.} El agente debe conocer las variables que
+							influyen en el modelo del problema}
+							{(lif){(c,b)Determinista.} El estado cambiará sola y exclusivamente
+							a consecuencia de las acciones permitidas que ejecute el agente}
+						</ul>
+					</section>
+
+					<section id="fragments">
+						<h3>Elementos de un problema de búsqueda</h3>
+						{(pf)Los elementos necesarios a definir en un problema de búsqueda junto
+						con su identificación en nuestro problema son:}
+						<ul>
+							{(lif){(c,b)Modelo del problema}}
+							{(lif){(c,b)Espacio de estados.} Todas las posibles combinaciones de
+							habitaciones según la lista inicial.}
+							{(lif){(c,b)Estado inicial.} Todas las habitaciones sin colocar}
+							{(lif){(c,b)Función sucesor.} Colocar una solución de la lista inicial
+							en el mapa (un {(c)movimiento}}
+							{(lif){(c,b)Función objetivo.} En nuestro caso identificamos dos tipos:}
+							<ul>
+								{(lif)Comprobar que todas las habitaciones están colocadas}
+								{(lif)Función de fitness para guiar la búsqueda}
+							</ul>
+						</ul>
+					</section>
+
+					<section id="fragments">
+						<h3>Multimodalidad</h3>
+						{(pf)Consiste en la adición de varios objetivos a la búsqueda}
+						{(pf)En nuestro caso:}
+						<ul>
+							{(lif)Todas las habitaciones están colocadas}
+							{(lif)Guía con cómputo de fitnesses}
+						</ul>
+						{(pf)Normalmente, añade dificultad extra a la resolución del problema}
+						{(pf)Por ello, construimos las interfaces IFitnessSolver e IFitnessCombinator}
+						{(pf)Así, añadimos flexibilidad a la forma de calcular los distintos sub-objetivos}
+					</section>
+
+					<section id="fragments">
+						<h3>Posibilidad de backtracking</h3>
+					</section>
+
+				</section>
+
+				<section>
+					<section id="fragments">
 						<h2>Otros componentes</h2>
 					</section>
 
