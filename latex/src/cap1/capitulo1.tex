@@ -1,10 +1,10 @@
 \chapter{Estado del arte.}\label{cap:capitulo1}
 
-En este capítulo, analizaremos el ámbito de la generación procedimental de contenido para videojuegos. Veremos las distintas subdisciplinas presentes, así como los problemas que resuelven. Se hará hincapié en la generación de escenarios, ya que es el campo que compete al proyecto.
+Analizaremos el ámbito de la generación procedimental de contenido para videojuegos. Veremos las distintas subdisciplinas presentes, así como los problemas que resuelven. Se hará hincapié en la generación de escenarios, ya que es el campo que compete al proyecto.
 
-\section{Generación de contenido procedimental.}
+\section{Generación procedimental de contenido.}
 
-Más conocida por su nombre en inglés (Procedural Content Generation), se refiere a la disciplina de generar contenido partiendo de algoritmos, en lugar de hacerlo manualmente.
+Más conocida por su nombre en inglés (Procedural Content Generation), se refiere a la disciplina de generar contenido audiovisual mediante de algoritmos, en lugar de hacerlo manualmente.
 
 Tuvo sus inicios en la subcultura informática llamada \emph{Demoscene} \cite{dmscn}. Este movimiento tuvo sus inicios a finales de los años 70 y principios de los 80, y continúa a día de hoy. Consiste en crear contenido visual y sonoro de forma programada, ya sea en parte o en su totalidad, y tenía como uno de sus objetivos escudriñar al máximo las limitadas capacidades de los ordenadores de la época.
 
@@ -13,10 +13,10 @@ Los \emph{sceners} de este campo, conseguían generar contenidos que eran impens
 Existen diversas subdisciplinas en las que se aplica el concepto de generación procedimental de contenido:
 
 \begin{itemize}
-	\item \emph{Escenarios}.
 	\item Texturas \cite{texmodproc}. Un ejemplo de ello es la generación de texturas que imitan el mármol o la madera. En algunos casos se emplean autómatas celulares.
 	\item Geometría. Generación de follaje, o árboles empleando L-Systems. \cite{texmodproc}
 	\item Mecánicas. El juego Left4Dead y su secuela, emplean un sistema procedimental para gestionar los momentos de tensión y la dificultad de las situaciones según las acciones que han ido tomando los jugadores.
+	\item \emph{Escenarios}. Este aspecto es en el que nos enfocaremos en el proyecto, concretamente para mapas de tiles 2D.
 \end{itemize}
 
 Otra clasificación de los métodos procedimentales es según el momento de ejecución del procedimiento. Si el procedimiento es ejecutado antes del lanzamiento del juego, o después con la particularidad de que se realiza en servidores ajenos al jugador, lo denominaremos \emph{offline}. Sin embargo, si el procesamiento se realiza en el sistema en que se está ejecutando el juego, lo llamaremos \emph{online}.
