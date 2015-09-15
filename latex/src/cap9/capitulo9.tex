@@ -1,0 +1,32 @@
+\chapter{Conclusiones}\label{cap:capitulo9}
+
+Para terminar, elaboraremos las conclusiones que se han extraído de la elaboración y desarrollo de esta memoria, desde la parte de investigación hasta la implementación de un sistema capaz de generar escenarios de tiles.
+
+\section{Camino recorrido}
+
+\subsection{AnsProlog}
+
+Inicialmente, el proyecto se enfocó a utilizar \emph{AnsProlog} \cite{ansprolog}, un lenguaje declarativo orientado a la resolución de problemas \emph{NP-Hard} \cite{nphard} principalmente. Recientemente, se ha investigado bastante en la generación procedimental de contenido para videojuegos empleando este sistema \cite{pcgbookchap8}.
+
+Se investigó esta línea de forma práctica. Se elaboraron tests de prueba \cite{ghcspalesegdia} para validar la factibilidad del uso de este lenguaje, pero finalmente se decidió despojarse de este acercamiento, ya que para poder utilizar el motor para procesar dicho lenguaje, habría hecho falta portar el propio motor al sistema donde fuera a ser utilizado, en nuestro caso, Java.
+
+Por ello, se optó por tomar una línea más imperativa al acercamiento del problema.
+
+\subsection{Algoritmos genéticos}
+
+Después de elaborar la representación, se pensó en una forma de enfocar el problema usando algoritmos genéticos. Para ello, se procuraba una disposición inicial aleatoria de las habitaciones, para posteriormente computar todas las posibles conexiones entre habitaciones.
+
+Una vez obtenida las posibles conexiones entre habitaciones, como modelo de datos del algoritmo genético se emplearía una ristra de bits, donde cada una de las posibles conexiones se vería representada por un bit que indicaría si esa conexión está activa o no.
+
+El problema es que las posibilidades eran nimias. Era incluso posible computar todas las posibilidades, siendo la resolución directa de esta forma, y además limitando la flexibilidad a solo intervenir en la elección de puertas.
+
+\subsection{Búsqueda}
+
+Finalmente, este fue el acercamiento que más factibilidad tenía, y el que se desarrolló. La adición de elementos extra a la generación y la opción de no seguir religiosamente el método de búsqueda han sido claves para poder obtener flexibilidad a la hora de generar los escenarios.
+
+\section{Conclusiones finales}
+
+El campo de la generación procedimental de contenido es vasto y amplio. En este proyecto solo se ha enfocado uno de las ramas del mismo, concretamente enfocándonos a escenarios 2D de tiles.
+
+La popularidad de este tipo de métodos esta totalmente en auge, ya que gracias a ello ahorramos en recursos y damos un cierto margen de dinamismo a los videojuegos.
+
