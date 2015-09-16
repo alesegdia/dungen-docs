@@ -201,6 +201,7 @@ El modelo empleado para el mapa, empleará un mapa de tiles donde se colocarán 
 
 El mapa de tiles empleado en el mapa, según las especificaciones, se supone lo suficientemente grande como para albergar cualquier distribución de habitaciones. Se ha elegido hacer uso de un mapa de tiles lo suficientemente grande para cumplir este requisito, pero podría haberse elaborado un mapa autoajustable, de forma que, en caso de ser necesario, se expandiría el tamaño.
 
+\phantomsection \label{uppermatsec}
 Resultará práctico mantener las conexiones entre las instancias de habitaciones presentes en el mapa. Para ello, se ha hecho uso de una matriz superior, tal que en cada posición $(R1,R2)$, tendremos una estimación de la distancia entre las habitaciones $R1$ y $R2$. Consideraremos un valor muy alto como la ausencia de conexión. Esta matriz superior nos será de mucha utilidad a la hora de computar propiedades del mapa de forma rápida.
 
 También será útil mantener una lista con el conjunto de todas las puertas potenciales de las habitaciones en el mapa. Se hablará en detalle de ésto en el próximo capítulo.

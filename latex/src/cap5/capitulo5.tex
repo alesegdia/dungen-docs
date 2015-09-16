@@ -51,7 +51,7 @@ class BestSearchMovementSelector implements IMovementSelector {
 
 En las líneas \ref{line:l1} y \ref{line:l2} se observa el cambio sustancial que representa la interfaz de cálculo de fitness.
 
-Se han elaborado dos implementaciones de la interfaz de cómputo de fitness. Una de ellas es sencilla, y define el fitness una puntuación numérica de \emph{una sola propiedad del mapa}, en concreto, la distancia del camino principal (lo analizaremos más adelante (ENLACE A TAMAÑO CAMINO PPAL). Lo importante a destacar de esta implementación es que el fitness se define como un solo valor, mientras que en la segunda implementación veremos como computamos el fitness a partir de múltiples propiedades del mapa.
+Se han elaborado dos implementaciones de la interfaz de cómputo de fitness. Una de ellas es sencilla, y define el fitness una puntuación numérica de \emph{una sola propiedad del mapa}, en concreto, la distancia del camino principal (lo analizaremos más adelante). Lo importante a destacar de esta implementación es que el fitness se define como un solo valor, mientras que en la segunda implementación veremos como computamos el fitness a partir de múltiples propiedades del mapa.
 
 \subsection{Cómputo de fitness múltiple}
 
@@ -79,7 +79,7 @@ Se observa en el listado \ref{lst:mofit} que se emplea otra interfaz para dar fl
 	\item \emph{Combinador adaptativo parametrizado}. Al igual que el anterior, se computa como una suma ponderada de todas las propiedades. La diferencia es que el parámetro de ponderación es variable, de forma que la mejor propiedad del último movimiento elegido baja y el resto aumenta en dos factores que denominamos \emph{attack} y \emph{decay} respectivamente.
 \end{itemize}
 
-Con el combinador adaptativo parametrizado conseguimos una personalización más ajustada de la influencia de cada propiedad en el mapa. En el capítulo de experimentación (ENLACE A CAPI EXP) veremos como afecta a la generación.
+Con el combinador adaptativo parametrizado conseguimos una personalización más ajustada de la influencia de cada propiedad en el mapa. En el capítulo de experimentación~\ref{cap:capitulo7} veremos como afecta a la generación.
 
 \section{Adaptación de las especificaciones del mapa al generador}
 
@@ -87,9 +87,9 @@ En esta sección analizaremos las propiedades del mapa empleadas en el cómputo 
 
 \subsection{Tamaño del camino principal}
 
-Para calcular el tamaño del camino principal dado un estado intermedio del sistema, emplearemos el estado del mapa sin tener en cuenta las habitaciones restantes. Como se comentó en (ENLACE A REPRESENTACION/uppermatrix), se mantiene una matriz de conexiones entre habitaciones con una estimación de la distancia entre las habitaciones conectadas. Actualizaremos la matriz cada vez que se coloque una habitación en el mapa.
+Para calcular el tamaño del camino principal dado un estado intermedio del sistema, emplearemos el estado del mapa sin tener en cuenta las habitaciones restantes. Como se comentó en el \hyperref[uppermatsec]{capítulo 3}, se mantiene una matriz de conexiones entre habitaciones con una estimación de la distancia entre las habitaciones conectadas. Actualizaremos la matriz cada vez que se coloque una habitación en el mapa.
 
-Como se comentó en (ENLACE A FW ANTES), mediante esta matriz, podemos aplicar el algoritmo de \emph{Floyd-Warshall} (apendice FW) para calcular la distancia mínima entre todos los pares de nodos. Elegiremos el par de nodos cuya distancia mínima sea máxima como habitaciones inicial y final, pudiendo computar así, una estimación del tamaño del camino principal.
+Mediante esta matriz, podemos aplicar el algoritmo de \emph{Floyd-Warshall} \cite{floydwarshall}para calcular la distancia mínima entre todos los pares de nodos. Elegiremos el par de nodos cuya distancia mínima sea máxima como habitaciones inicial y final, pudiendo computar así, una estimación del tamaño del camino principal.
 
 \subsection{Caminos no principales y bifurcaciones}
 
@@ -100,7 +100,7 @@ Si una habitación es un callejón sin salida, tendrá un solo enlace a la habit
 
 Para establecer una estimación de \emph{cuanto} tiene de caminos no-principales, se ha hecho un conteo de las habitaciones que no constituyen el camino principal. Debido a que en principio todas las bifurcaciones del mapa que no sean camino principal influirían a la estimación de caminos no-principales, se omite el conteo para la propiedad de \emph{caminos no principales} cuando dicha habitación influye en la propiedad de \emph{bifurcaciones}
 
-Para la estimación de ambas propiedades, se ha empleado el algoritmo de \emph{FloodFill} que se puede ver en el apéndice (ENLACE A APENDICE FLOODFILL). De esta forma, recorremos todas las habitaciones sin repetir ninguna y realizaremos el conteo de habitaciones que influyen en cada propiedad.
+Para la estimación de ambas propiedades, se ha empleado un algoritmo de \emph{FloodFill} \cite{floodfill}. De esta forma, recorremos todas las habitaciones sin repetir ninguna y realizaremos el conteo de habitaciones que influyen en cada propiedad.
 
 
 \section{Eficiencia}
@@ -128,7 +128,7 @@ El segundo aspecto a tener en cuenta es el excesivo número de movimientos al qu
 
 \subsection{Fitness caché}
 
-Experimentalmente, se ha comprobado que el \emph{cuello de botella} de nuestra aplicación reside en el cómputo del fitness en su totalidad. Si recordamos las especificaciones (ENLACE A QUE TIENE QUE SER PARA MOVIL), el sistema tiene que funcionar en sistemas móviles. Para resolver este requisito, se ha creado una interfaz que nos ayudará a modular el tiempo de ejecución, sacrificando calidad en cuanto a las propiedades calculadas, pero dando menores tiempos de ejecución.
+Experimentalmente, se ha comprobado que el \emph{cuello de botella} de nuestra aplicación reside en el cómputo del fitness en su totalidad. Si recordamos las especificaciones, el sistema tiene que funcionar en sistemas móviles. Para resolver este requisito, se ha creado una interfaz que nos ayudará a modular el tiempo de ejecución, sacrificando calidad en cuanto a las propiedades calculadas, pero dando menores tiempos de ejecución.
 
 \begin{lstlisting}[caption={Interfaz de selección de movimiento basada en búsqueda con mejora de caché},label={lst:igencache},language=Java,escapechar=|]
 class BestSearchMovementSelector implements IMovementSelector {
@@ -152,7 +152,7 @@ class BestSearchMovementSelector implements IMovementSelector {
 
 En el listado \ref{lst:igencache} vemos las modificaciones realizadas para permitir el empleo de la caché. Ahora, antes de realizar el cómputo del fitness, comprobamos mediante la interfaz si está el cálculo de dicho movimiento está cacheado. En caso positivo, se usa el valor cacheado, y en caso negativo, se calcula el fitness y se guarda en la caché.
 
-Como se ha mencionado antes, esto conlleva a una peor fiabilidad del valor asociado al movimiento, ya que no se tiene en cuenta actualizaciones del mapa, pero podemos crear cachés nuevas que cada cierto número de pasos haga un recómputo de todos los movimientos en caché. Veremos más posibilidades en el capítulo de trabajo futuro (ENLACE A MEJORAS DE FITNESS CACHE).
+Como se ha mencionado antes, esto conlleva a una peor fiabilidad del valor asociado al movimiento, ya que no se tiene en cuenta actualizaciones del mapa, pero podemos crear cachés nuevas que cada cierto número de pasos haga un recómputo de todos los movimientos en caché. Veremos más posibilidades en el capítulo de trabajo futuro.
 
 Así, se han realizado dos implementaciones de la caché:
 
@@ -162,7 +162,7 @@ Así, se han realizado dos implementaciones de la caché:
 	\item \emph{Refresher}. Vacía los movimientos cacheados cada $N$ habitaciones insertadas.
 \end{itemize}
 
-En el capítulo de trabajo futuro (ENLACE A MEJORAS DE FITNESS CACHÉ) estableceremos las pautas para crear cachés modulables con una implementación rápida.
+En el capítulo de trabajo futuro estableceremos las pautas para crear cachés modulables con una implementación rápida.
 
 \subsection{Prefab Manager}
 
