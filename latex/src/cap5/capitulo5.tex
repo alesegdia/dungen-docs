@@ -54,6 +54,7 @@ En las líneas \ref{line:l1} y \ref{line:l2} se observa el cambio sustancial que
 Se han elaborado dos implementaciones de la interfaz de cómputo de fitness. Una de ellas es sencilla, y define el fitness una puntuación numérica de \emph{una sola propiedad del mapa}, en concreto, la distancia del camino principal (lo analizaremos más adelante). Lo importante a destacar de esta implementación es que el fitness se define como un solo valor, mientras que en la segunda implementación veremos como computamos el fitness a partir de múltiples propiedades del mapa.
 
 \subsection{Cómputo de fitness múltiple}
+\phantomsection \label{fitmultsec}
 
 El propósito de esta implementación de la interfaz de cómputo de fitness es poder utilizar diferentes propiedades del mapa que influyan en la selección del movimiento a través del fitness. En el listado \ref{lst:mofit}, se ha empleado un número constante de 3 propiedades del mapa por utilidad, pero podría elaborarse para generalizar para aceptar un número cualquiera de propiedades.
 
