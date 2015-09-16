@@ -9,36 +9,37 @@ Un videojuego, al igual que una película, puede contar una historia. Aún así,
 \section*{Mapas y escenarios.}
 \addcontentsline{toc}{section}{Mapas y escenarios}
 
-Muchos géneros de videojuegos plantean su argumento en un escenario donde se da rienda suelta a la capacidad perceptiva del jugador, dando lugar en mayor o menor medida a que complete la historia con su imaginación. En este escenario, el jugador desarrollará las acciones que se le ofrezcan según el tipo de juego. Así, podrá completar la historia, permitiendo además en muchos casos que las acciones influyan en el desarrollo argumental del videojuego. Tipos de juegos que requieren mapas son juegos de acción, estrategia o rol entre otros.
+Muchos géneros de videojuegos plantean su argumento en un escenario donde se da rienda suelta a la capacidad perceptiva del jugador, dando lugar en mayor o menor medida a que complete la historia con su imaginación. En este escenario, el jugador desarrollará las acciones que se le ofrezcan según el tipo de juego. Así, podrá completar la historia, permitiendo además en muchos casos que las acciones influyan en el desarrollo argumental del videojuego. Tipos de juegos que requieren mapas son, por ejemplo, juegos de acción, estrategia o rol entre otros.
 
 El tipo de escenario que podemos encontrarnos en un juego es de lo más variopinto. A la hora de plantear la elaboración de un juego, se tiene en cuenta la elección del tipo de escenario. Muchas cuestiones sobre las que se basan estas elecciones radican sobre la complejidad de optimización del mismo:
 
 \begin{itemize}
-	\item Si el escenario es demasiado grande, no nos interesa renderizar el escenario completo, sino solamente la parte visible.
-	\item Lo mismo pasa con las físicas. No nos interesa comprobar colisiones con elementos que es obvio que no van a colisionar.
+	\item Si el escenario es demasiado grande, no nos interesa renderizar el escenario completo, sino solamente la parte visible. Al proceso de optimizar el renderizado del mapa se le llama \emph{culling}\cite{culling}.
+	\item Lo mismo pasa con las físicas. No nos interesa comprobar colisiones con elementos que es obvio que no van a colisionar. Ésto también ha de ser tenido en cuenta a la hora de elaborar el sistema de escenarios.
 	\item El \emph{nivel de detalle} (Level of detail por el inglés \cite{lod}) es otro aspecto a tener en cuenta. Si una geometría está demasiado lejana del jugador, no necesitamos renderizarla exactamente como es. Este aspecto es relevante a los juegos 3D principalmente.
-	\item La división o no del escenario por zonas. Esto puede evitarnos la obligatoria presencia en memoria de un mapa completo, pudiéndolo dividir en partes para ahorrar en el preciado recurso que es la memoria. Es un aspecto a tener en cuenta sobre todo cuando se elaboran juegos para videoconsolas, las cuales suelen contar con una memoria muy limitada.
+	\item La división o no del escenario por zonas. Esto puede evitarnos la necesidad de presencia en memoria de un mapa completo, pudiéndolo dividir en partes para ahorrar en el preciado recurso que es la memoria. Es un aspecto a tener en cuenta sobre todo cuando se elaboran juegos para videoconsolas, las cuales suelen contar con una memoria muy limitada.
 \end{itemize}
 
-Así, se han elegido dos criterios principales como forma de clasificar los tipos de escenario:
+Así, se exponen dos criterios principales como forma de clasificar los tipos de escenario:
 
 \begin{itemize}
 	\item Organización del escenario. Este criterio se refiere a la existencia de cortes en el desarrollo del juego para la carga de las distintas partes del mundo en el que se desarrolla el juego. Algunos tipos son:
 	\begin{itemize}
-		\item Escenarios totalmente continuos continuos representando un mundo totalmente abierto. Ejemplos son GTAV o Minecraft.
-		\item Dividido por zonas donde no existen cortes en la misma zona. Un ejemplo es Borderlands.
-		\item Dividido por zonas donde pueden existir cortes en la misma para interiores. Un ejemplo es Skyrim.
+		\item Escenarios totalmente continuos continuos representando un mundo totalmente abierto sin cortes. Ejemplos son \emph{GTAV} o \emph{Minecraft}.
+		\item Dividido por zonas donde no existen cortes en la misma zona. Un ejemplo es \emph{Borderlands}.
+		\item Dividido por zonas donde pueden existir cortes en la misma para interiores. Un ejemplo es \emph{Skyrim}.
 	\end{itemize}
 	\item Composición del escenario. Nos referimos a si la geometría empleada ayuda de forma implícita al manejo a nivel computacional del escenario. Algunos tipos son:
 	\begin{itemize}
-		\item Escenarios en 2D discretizados en \emph{tiles}. Básicamente, la geometría está representada por una matriz de dos dimensiones, donde cada casilla de la matriz está relacionada con una textura, siendo todas las texturas del mismo tamaño para la misma matriz. Este tipo de escenarios son muy fácilmente optimizables. Ejemplos de este tipo es, por ejemplo, Final Fantasy VI.
-		\item Una extensión a 3D de los escenarios de tiles son los escenarios compuestos por \emph{voxels} \cite{voxel}. Estos han sido recientemente popularizados por el famoso título Minecraft, donde el escenario está gestionado por un \emph{motor de voxels}.
+			\phantomsection \label{maptiles-r}
+		\item Escenarios en 2D discretizados en \emph{tiles}. Básicamente, la geometría está representada por una matriz de dos dimensiones, donde cada casilla de la matriz está relacionada con una textura (o porción de la misma), siendo todas las texturas del mismo tamaño para la misma matriz. A cada casilla, la denominamos \emph{tile}. Este tipo de escenarios son muy fácilmente optimizables. Ejemplos de este tipo es, por ejemplo, \emph{Final Fantasy VI}, así como multitud de juegos de las consolas de 8 y 16 bits como la \emph{NES} o \emph{SNES}.
+		\item Una extensión a 3D de los escenarios de tiles son los escenarios compuestos por \emph{voxels} \cite{voxel}. Estos han sido recientemente popularizados por el famoso título \emph{Minecraft}, donde el escenario está gestionado por un \emph{motor de voxels} que ayuda a optimizar tanto con culling como con físicas.
 		\item Escenarios con geometría deliberada. Es decir, la geometría (ya sea 2D o 3D), no presenta ninguna propensión a ser optimizada. Este tipo de escenarios, suelen optimizarse con el uso de \emph{quadtrees} \cite{quadtree} (para 2D) u \emph{octrees} \cite{octree} (para 3D)
 		\item Escenarios hechos con los denominados \emph{brushes} \cite{brush}. Esta técnica se utiliza para 3D, y consiste en el uso de geometrías convexas para componer un escenario. Ejemplos famosos de este tipo de escenarios es \emph{Quake} \cite{quake}.
 	\end{itemize}
 \end{itemize}
 
-Una vez expuesta los criterios para clasificar los tipos de mapas, remarcar que hay casos en los que los desarrolladores convienen formas nuevas de organizar el mapa debido a necesidades particulares, por lo que los ejemplos expuestos en cada criterio no completan de ninguna manera las múltiples categorías para cada uno.
+Una vez expuestos los criterios para clasificar los tipos de mapas, remarcar que hay casos en los que los desarrolladores convienen formas nuevas de organizar el mapa debido a necesidades particulares, por lo que los ejemplos expuestos en cada criterio no completan de ninguna manera las múltiples categorías para cada uno.
 
 Para el desarrollo de este proyecto y atendiendo a las especificaciones presentadas en el capítulo~\ref{cap:capitulo2}, abarcaremos \emph{mapas de tiles} para el género de juego \emph{roguelike} \cite{rlike}. Este género se caracteriza precisamente por mapas generados de forma procedimental. Cada nivel es entendido como una planta, donde el jugador tiene que llegar desde donde aparece hasta un tile considerado como final para poder continuar hasta la siguiente planta. Así, el jugador va avanzando niveles hasta que llega al último y completa el juego al finalizar el mismo.
 
@@ -60,7 +61,7 @@ Como se ha mencionado previamente, la industria de los videojuegos avanza a paso
 
 En este listado, solo hemos tenido en cuenta algunos de los puestos del aspecto de desarrollo, pero quedaría añadir muchos más como diseñadores gráficos y apartado de marketing.
 
-Destacar que el \emph{level designer}, pese a que no se encarga de la construcción de las herramientas para crear el escenario, debe conocer las bases del tipo de escenario que se empleará en el juego, de forma que adapte sus técnicas de diseño al tipo de escenario.
+Destacar que el \emph{level designer}, pese a que no se encarga de la construcción de las herramientas para crear el escenario, debe conocer las bases del tipo de escenario que se empleará en el juego, de forma que adapte sus técnicas de diseño al tipo de escenario y así poder optimizarlos en la medida de lo posible.
 
 Recientemente, y debido a las cada vez más crecientes facilidades para crear un videojuego, han surgido los llamados \emph{equipos indies} \cite{gdindie}, caracterizados principalmente por tener un bajo presupuesto y personal. Normalmente suelen empezar con un presupuesto nulo, pero en algunos casos llegan a triunfar de manera inesperada incluso por los mismos desarrolladores. Ejemplos son \emph{Hotline Miami}, \emph{Minecraft} o \emph{Risk of Rain}.
 
@@ -94,13 +95,13 @@ Finalmente, se elaborará el sistema reduciendo el problema a una búsqueda, don
 Esta memoria se estructura en varios capítulos, con la siguiente distribución de los temas trabajados:
 
 \begin{itemize}
-	\item Capítulo~\ref{cap:capitulo1}. Mostraremos el origen y estado actual de la generación procedimental de contenido.
-	\item Capítulo~\ref{cap:capitulo2}. Definiremos el problema junto con sus especificaciones y requisitos. Se comentará el tipo de juego al que se ha enfocado.
+	\item Capítulo~\ref{cap:capitulo1}. Mostraremos el origen y estado actual del campo de generación procedimental de contenido.
+	\item Capítulo~\ref{cap:capitulo2}. Definiremos el problema junto con sus especificaciones y requisitos. Se comentará el tipo de juego al que se ha enfocado y el tipo de mapa utilizado.
 	\item Capítulo~\ref{cap:capitulo3}. Analizaremos en profundidad la representación del modelo de datos elegida para el desarrollo del generador propuesto.
-	\item Capítulo~\ref{cap:capitulo4}. Desarrollo de la estrategia empleada para el generador. Como se podrá comprobar, se ha utilizado una estrategia flexible sobre la que posteriormente, adaptaremos el método de búsqueda.
+	\item Capítulo~\ref{cap:capitulo4}. Desarrollo de la estrategia empleada para el generador. Como se podrá comprobar, se ha utilizado una estrategia flexible sobre la que posteriormente, construiremos el método de búsqueda.
 	\item Capítulo~\ref{cap:capitulo5}. Detalle de la implementación basada en búsqueda. Analizaremos cada uno de los elementos empleados tanto para la generación del mapa, como para la adición de diversidad.
 	\item Capítulo~\ref{cap:capitulo6}. Una vez explicada la estrategia, en este capítulo se desarrollará una correspondencia entre el método de búsqueda y la estrategia implementada basada en el mismo.
 	\item Capítulo~\ref{cap:capitulo7}. Comparación y análisis del impacto de diversos componentes que se han empleado para promover tanto la diversidad como la eficiencia.
-	\item Capítulo~\ref{cap:capitulo8}. Posible trabajo futuro pertinente para la elaboración de una aplicación comercial con el método expuesto en este proyecto
+	\item Capítulo~\ref{cap:capitulo8}. Posible trabajo futuro pertinente a la elaboración de una aplicación comercial con el método expuesto en este proyecto
 	\item Bibliografía.
 \end{itemize}
