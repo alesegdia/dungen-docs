@@ -25,7 +25,7 @@ En el listado \ref{lst:mlisting} se introducen dos conceptos nuevos: \emph{movim
 
 A grandes rasgos, se elige un par $(habitacion, posicion)$ y se inserta en el mapa (línea~\ref{line:addroom}). Posteriormente, se elimina la habitación de la lista de habitaciones, ya que se acaba de colocar (línea~\ref{line:rmroom}). Por último, guardamos el movimiento (línea~\ref{line:savemov}). Más adelante veremos la utilidad de ésto.
 
-Antes de devolver el mapa, establecemos el recorrido principal (línea~\ref{line:inifin}), es decir, elegimos la habitacion inicial y final. Para ello, se ha empleado el algoritmo de \emph{Floyd-Warshall}, ayudándonos de la \emph{matriz superior de conexiones entre habitaciones} comentada en el capítuloX (INSERTARENLACE). El objetivo algoritmo \emph{Floyd-Warshall} (APENDICEINSERTARENLACE) es, dado un grafo, establecer los caminos mínimos entre todos los pares de nodos posibles. Así, para establecer el recorrido principal, elegiremos el par de nodos cuya distancia mínima sea mayor.
+Antes de devolver el mapa, establecemos el recorrido principal (línea~\ref{line:inifin}), es decir, elegimos la habitacion inicial y final. Para ello, se ha empleado el algoritmo de \emph{Floyd-Warshall}, ayudándonos de la \emph{matriz superior de conexiones entre habitaciones} comentada en el capítulo~\ref{cap:capitulo3}. El objetivo del algoritmo \emph{Floyd-Warshall} \cite{floydwarshall} es, dado un grafo, establecer los caminos mínimos entre todos los pares de nodos posibles. Así, para establecer el recorrido principal, elegiremos el par de nodos cuya distancia mínima sea mayor.
 
 \section{Movimientos}
 
@@ -48,7 +48,7 @@ Consideraremos que el \emph{estado del sistema} depende de, y se ve afectado por
 	\item Posición de las instancias de habitaciones colocadas
 \end{itemize}
 
-Como se observa en la figura~\ref{fig:posmovs}, dado un estado del sistema $S(map,RR)$, la lista de posibles movimientos se computará a partir de las \emph{posibles conexiones} entre las \emph{puertas potenciales de las habitaciones colocadas en el mapa} y las \emph{puertas potenciales de las habitaciones restantes}. El concepto de \emph{puerta potencial} se discutió en el CAPITLOX (insertar enlace).
+Como se observa en la figura~\ref{fig:posmovs}, dado un estado del sistema $S(map,RR)$, la lista de posibles movimientos se computará a partir de las \emph{posibles conexiones} entre las \emph{puertas potenciales de las habitaciones colocadas en el mapa} y las \emph{puertas potenciales de las habitaciones restantes}. El concepto de \emph{puerta potencial} se discutió en el capítulo\ref{cap:capitulo3}.
 
 El cómputo de las posibles conexiones entre el mapa y una de las habitaciones restantes, se define en la figura~\ref{fig:poscons}. En la figura~\ref{fig:grafhabmap} se puede ver una ilustración de los tiles implicados. Destacar que el desplazamiento para testear la posible conexión entre una habitación de las restantes y una del mapa, solamente se puede realizar sobre la habitación restante, ya que las del mapa ya han sido colocadas y están fijas.
 
