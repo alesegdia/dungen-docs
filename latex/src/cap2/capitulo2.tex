@@ -1,6 +1,6 @@
 \chapter{Especificaciones.}\label{cap:capitulo2}
 
-Definiremos el problema, las especificaciones y directrices tanto del tipo de juego como del sistema de generación. Dichas directrices que delimitarán el sistema a crear, han sido establecidas por la empresa indie de videojuegos \emph{TheGameKitchen}, y el sistema será empleado en un futuro título de la misma.
+Pasaremos a definir el problema, así como las especificaciones y directrices tanto del tipo de juego como del sistema de generación y escenarios. Dichas directrices que delimitarán el sistema a crear, han sido establecidas por la empresa indie de videojuegos \emph{TheGameKitchen}\cite{tgc}.
 
 \section{Género de juego.}
 
@@ -8,24 +8,28 @@ En esta sección abarcaremos el tipo de juego y las directrices establecidas en 
 
 \subsection{Roguelike}
 
-El género de juego en el que nos basaremos será \emph{roguelike} \cite{rlike}, cuyas características principales son:
+El género de juego en el que nos basaremos será \emph{roguelike} \cite{rlike}. El nombre proviene del juego \emph{Rogue} que sirvió de fuente de inspiración para que desarrolladores elaboraran juegos con mecánicas similares.
+
+Las características principales son:
 
 \begin{itemize}
-	\item \emph{Generación de mazmorras}. Cada vez que el jugador inicia una partida, la experiencia será ligeramente distinta.
-	\item \emph{Importancia considerable a la exploración}. El hecho de que las mazmorras no sean siempre iguales, incita al jugador a tener que invertir tiempo en explorar para poder encontrar la salida.
-	\item \emph{Desarrollo del juego por plantas}. El objetivo del jugador suele ser llegar a una habitación considerada como final, donde puede elegir entre tomar las escaleras para pasar a una siguiente planta, o investigar un poco más en la presente.
-	\item \emph{Dificultad progresiva}. Cada planta, tendrá una dificultad ligeramente mayor a la de la anterior hasta llegar a la última.
-	\item \emph{Muerte permanente}. Una vez que el jugador muere, no hay manera de cargar la partida. La unica opción es comenzar de nuevo.
+	\item \emph{Generación de mazmorras}. Los escenarios suelen ser generados automáticamente, así, cada vez que el jugador inicia una partida, la experiencia es ligeramente distinta.
+	\item \emph{Importancia considerable a la exploración}. El hecho de que las mazmorras no sean siempre iguales, incita al jugador a tener que invertir tiempo en explorar para poder encontrar el objetivo.
+	\item \emph{Desarrollo del juego por plantas}. El objetivo del jugador suele ser llegar a una habitación considerada como final, donde puede elegir entre pasar a una siguiente planta, o investigar un poco más en la presente.
+	\item \emph{Dificultad progresiva}. Cada planta tendrá una dificultad ligeramente mayor a la de la anterior hasta llegar a la última.
+	\item \emph{Muerte permanente}. Una vez que el jugador muere no hay manera de cargar la partida. La unica opción es comenzar de nuevo.
 \end{itemize}
 
-Históricamente, el género \emph{roguelike} se identificaba además por otro tipo de características, como la mecánica por turnos o el énfasis en jugabilidad y desinterés en los gráficos, pero con el tiempo, el género se ha ido abriendo paso a una definición más genérica. Debido a ésto, hoy en día existen desde \emph{shooters} considerados \emph{roguelike}, como por ejemplo \emph{Tower of Guns} o \emph{Paranautical Activity}, hasta \emph{plataformas}, como \emph{Risk of Rain} o \emph{Spelunky}.
+Históricamente, el género \emph{roguelike} se identificaba además por otro tipo de características, como la mecánica por turnos o el énfasis en jugabilidad y desinterés en los gráficos, pero con el tiempo, el género se ha ido abriendo paso a una definición más genérica.
+
+Debido a ésto, hoy en día existen desde \emph{shooters} considerados \emph{roguelike}, como por ejemplo \emph{Tower of Guns} o \emph{Paranautical Activity}, hasta \emph{plataformas}, como \emph{Risk of Rain} o \emph{Spelunky}.
 
 \subsection{Especificaciones del mundo}
 
-Así, las únicas especificaciones que se han dado en cuanto a las reglas de juego son las siguientes:
+Las especificaciones impuestas referidas a las reglas de juego son las siguientes:
 
 \begin{itemize}
-	\item Entorno en dos dimensiones
+	\item Entorno en dos dimensiones empleando mapas de tiles
 	\item El jugador comenzará en una habitación y tendrá como objetivo llegar a una habitación final
 	\item Se empleará una vista cenital (figura~\ref{fig:tileclip}).
 \end{itemize}
@@ -37,13 +41,17 @@ Así, las únicas especificaciones que se han dado en cuanto a las reglas de jue
 \label{fig:cenital}}
 \end{figure}
 
-Estas especificaciones son bastante genéricas, por lo que el sistema elaborado podrá servirnos para otro tipo de juegos. Más adelante veremos que se ha procurado dar un enfoque de alta flexibilidad en este aspecto al sistema.
+Estas especificaciones son bastante genéricas, por lo que el sistema elaborado podrá servirnos para otro tipo de juegos. Más adelante veremos que se ha procurado dar un enfoque de alta flexibilidad al sistema para cubrir este aspecto.
 
 \section{Requisitos del escenario.}
 
-La representación de los escenarios elegida será un mapa de tiles. Como se comentó anteriormente, los mapas de tiles están representados por una matriz, donde cada casilla corresponde a un gráfico de un tamaño normalizado para todos los tiles (un gráfico para las paredes, otro para el suelo, etc). Suelen componerse por capas para añadir decorado, pero para nuestra finalidad, hemos obviado esta característica, ya que se hará hincapié principalmente en la distribución de las habitaciones. No obstante, sería muy sencillo añadir capas como mejora futura.
+La representación de los escenarios elegida será un \emph{mapa de tiles}. Como se comentó \hyperref[maptiles-r]{anteriormente}, los mapas de tiles están representados por una matriz, donde cada casilla a la que denominaremos \emph{tile}, corresponde a un gráfico de un tamaño normalizado para todos los tiles (un gráfico para las paredes, otro para el suelo, etc).
 
-La optimización en cuanto a clipping (evitar renderizar zonas no visibles) en un mapa de tiles está muy investigada. Debido a que el propio mapa es una rejilla, se puede recorrer y renderizar exclusivamente la zona que va a verse. En la figura~\ref{fig:tileclip} se representa en rojo el viewport del jugador. Los tiles amarillos están en el borde del viewport, y los verdes están completamente dentro. Así, solo hace falta recorrer y dibujar los tiles verdes y amarillos, ahorrándonos el dibujado de los azules.
+Suelen componerse por capas para añadir decorado, pero para nuestra finalidad, hemos obviado esta característica, ya que se hará hincapié principalmente en la distribución de las habitaciones. No obstante, sería muy sencillo añadir capas como mejora futura.
+
+La optimización en cuanto a \emph{culling}\cite{culling} en un mapa de tiles está muy investigada. Debido a que el propio mapa es una rejilla, se puede recorrer y renderizar exclusivamente la zona que va a verse teniendo en cuenta la cámara.
+
+En la figura~\ref{fig:tileclip} se representa en rojo el viewport del jugador. Los tiles amarillos están en el borde del viewport, y los verdes están completamente dentro. Así, solo hace falta recorrer y dibujar los tiles verdes y amarillos, ahorrándonos el dibujado de los azules.
 
 \begin{figure}[t]
 \centering
@@ -65,9 +73,9 @@ En esta sección explicaremos las directrices impuestas para la generación de l
 
 \subsection{Lista inicial de habitaciones}
 
-El sistema que construiremos deberá cumplir una serie de características que analizaremos en detalle en esta sección. Como se ha mencionado previamente, se ha tomado la libertad de añadir características que no estaban en los requisitos previos de \emph{TheGameKitchen}.
+El sistema que construiremos deberá cumplir una serie de características que analizaremos en detalle en esta sección. Como se ha mencionado previamente, se ha tomado la libertad de añadir características que no estaban en los requisitos previos de \emph{TheGameKitchen}\cite{tgc}.
 
-El sistema debe generar un mapa de tiles partiendo de una \emph{lista inicial de habitaciones} previamente construida. Para construir las habitaciones, se ha elaborado un editor via web usando el canvas que proporciona HTML y JavaScript (se puede ver en la figura~\ref{fig:roomed}). Así, el objetivo será colocar las habitaciones presentes en esta lista inicial.
+El sistema debe generar un mapa de tiles partiendo de una \emph{lista inicial de habitaciones} previamente construida. Para construir las habitaciones, se ha elaborado un editor via web usando el canvas que proporciona HTML y JavaScript (se puede ver en la figura~\ref{fig:roomed}).
 
 \begin{figure}[t]
 \centering
@@ -76,11 +84,11 @@ El sistema debe generar un mapa de tiles partiendo de una \emph{lista inicial de
 \label{fig:roomed}}
 \end{figure}
 
+Así, a grandes rasgos el objetivo será colocar las habitaciones presentes en esta lista inicial en un mapa de tiles vacío.
+
 Las habitaciones \emph{pueden repetirse}, es decir, si hemos creado dos modelos de habitación \emph{A} y \emph{B}, podemos tener 3 instancias del modelo \emph{A} y 2 instancias del modelo \emph{B} en la lista inicial. Hablaremos de este detalle en el próximo capítulo, que nos servirá para conseguir una mejora de optimización tanto de memoria como en procesamiento.
 
-\subsection{Requisitos de distribución}
-
-A continuación, explicaremos los requisitos que ha de cumplir la distribución las habitaciones.
+\subsection{Guía para la distribución de habitaciones}
 
 Se ha de \emph{maximizar el camino} desde la habitación inicial hasta la habitación final. De esta forma conseguimos en parte promover que el jugador tenga que investigar.
 
