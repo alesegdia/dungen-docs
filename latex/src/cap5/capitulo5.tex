@@ -58,7 +58,7 @@ Se han elaborado dos implementaciones de la interfaz de cómputo de fitness. Una
 
 El propósito de esta implementación de la interfaz de cómputo de fitness es poder utilizar diferentes propiedades del mapa que influyan en la selección del movimiento a través del fitness. En el listado \ref{lst:mofit}, se ha empleado un número constante de 3 propiedades del mapa por utilidad, pero podría elaborarse para generalizar para aceptar un número cualquiera de propiedades.
 
-\begin{lstlisting}[caption={Interfaz de selección de movimiento basada en búsqueda},label={lst:igsf},language=Java,escapechar=|]
+\begin{lstlisting}[caption={Interfaz de selección de movimiento basada en búsqueda},label={lst:mofit},language=Java,escapechar=|]
 class MultiFitnessSolver implements IFitnessSolver {
 	IFitnessCombinator fitnessCombinator;
 	float FuncionGuia( Mapa mapa, Movimiento m ) {

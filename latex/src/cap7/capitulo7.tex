@@ -98,7 +98,7 @@ Memoria RAM & 1 GB \\
 
 \subsection{Impacto del factor divisor de movimientos}
 
-Como se comentó anteriormente (ENLACE A ESTO), el factor de divisor de movimientos permite elegir un subconjunto de todos los movimientos posibles para cada paso de la generación.
+Como se comentó anteriormente, el factor de divisor de movimientos permite elegir un subconjunto de todos los movimientos posibles para cada paso de la generación.
 
 Se han realizado pruebas con la configuración para el resto de parámetros como se indica en la tabla~\ref{table:cfgdpediv}, modificando el parámetro de divisor de movimientos para los valores 0.75, 0.85 y 0.95.
 
@@ -247,7 +247,7 @@ Tam. habs. & Modelos & Inst./modelo & Total & N=2 & N=5 & N=10 \\ \hline
 
 Se ha elaborado una configuración optimizada para ejemplos que consideraremos reales de habitaciones desde 6x6 hasta 10x10, teniendo en cuenta que el tamaño del mapa puede rondar los 64x64 tiles. La configuración puede verse en la tabla \ref{table:cfg-optreal}.
 
-En la figura \ref{grfoptreal} puede verse la evolución de los tiempos conforme aumentamos el número de modelos y de instancias por modelo para un tamaño de habitaciones de 6x6, y en la figura \ref{grfoptmid} para un tamaño de 10x10. Se observa como se obtienen tiempos muy buenos para ambos casos.
+En la figura \ref{fig:grfoptreal} puede verse la evolución de los tiempos conforme aumentamos el número de modelos y de instancias por modelo para un tamaño de habitaciones de 6x6, y en la figura \ref{fig:grfoptmid} para un tamaño de 10x10. Se observa como se obtienen tiempos muy buenos para ambos casos.
 
 \begin{table}[H]
 \begin{center}
@@ -446,7 +446,7 @@ Tam. h. & Modelos & Inst./modelo & Total & NoCache & Always & Opt \\ \hline
 
 Por último, hemos querido hacer un ejemplo donde la diversidad de modelos es muy alta. Es decir, se empleará un número alto de modelos y bajo de instancias por modelo.
 
-En la gráfica \ref{fig:optvar}, podemos ver un caso que tarda un tiempo excesivo de 7 segundos. Para ello, se ha realizado una modificación en la configuración, obteniendo un arreglo del mismo que puede observarse en la figura \ref{fig:varfixcmp}.
+En la gráfica \ref{fig:grfoptvar}, podemos ver un caso que tarda un tiempo excesivo de 7 segundos. Para ello, se ha realizado una modificación en la configuración, obteniendo un arreglo del mismo que puede observarse en la figura \ref{fig:grfvarfixcmp}.
 
 \begin{table}[H]
 \begin{center}
