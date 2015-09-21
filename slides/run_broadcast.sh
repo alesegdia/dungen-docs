@@ -28,8 +28,16 @@ sed -i -- "s/%DATURL%/$MAHIP/g" ~/clientslides/index.html
 sed -i -- "s/%DATMASTER%/master/g" ~/masterslides/index.html
 sed -i -- "s/%DATMASTER%/client/g" ~/clientslides/index.html
 
+sed -i -- "s/%DATNOTES%/\{ src: 'plugin\/notes-server\/client.js', async: true \},/g" ~/masterslides/index.html
+sed -i -- "s/%DATNOTES%//g" ~/clientslides/index.html
+
 cd ~/masterslides
 nohup gnome-terminal -e "static" &
 
 cd ~/clientslides
 nohup gnome-terminal -e "python -m SimpleHTTPServer" &
+
+cd ~/masterslides
+nohup gnome-terminal -e "node plugin/notes-server" &
+
+echo "La IP es: $MAHIP"

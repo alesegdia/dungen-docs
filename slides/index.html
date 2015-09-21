@@ -47,6 +47,9 @@
 					<p>
 						<small>Creado por <a href="http://github.com/alesegdia/">Alejandro Seguí Díaz</a></small>
 					</p>
+						<aside class="notes">
+						</aside>
+					</p>
 				</section>
 
 				<section>
@@ -56,19 +59,40 @@
 
 					<section id="fragments">
 						<h3>Videojuegos</h3>
-						<p class="fragment">Los videojuegos son, a día de hoy, un tipo de mercado líder indiscutible a nivel internacional</p>
-						<p class="fragment">Por ello, es bastante conveniente dedicar investigación a este campo</p>
-						<p class="fragment">En muchos casos da lugar a desarrollo en otras áreas ajenas a la de los videojuegos</p>
+						<h4 class="fragment">¿Qué?</h4>
+						<p class="fragment">Aplicaciones software dedicados al <b><span class='concepto'>entretenimiento</span></b></p>
+						<h4 class="fragment">¿Por qué?</h4>
+						<p class="fragment"><b><span class='concepto'>Mercado lider</span></b> indiscutible a <b><span class='concepto'>nivel internacional</span></b></p>
+						<p class="fragment">Abren desarrollo a otras áreas</p>
+						<p class="fragment">Arrebata a las películas, series, etc</p>
+						<aside class="notes">
+							<p>Por ello, es bastante conveniente dedicar investigación a este campo</p>
+							<p>Comentar potencia GPUs, relación con robótica</p>
+						</aside>
 					</section>
 
 					<section id="fragments">
 						<h3>Problema</h3>
-						<p class="fragment"><span class="concepto">Muchos géneros de juegos requieren mapas</span> en los que poder dar rienda suelta al jugador para recorrer,
-						investigar y disfrutar</p>
-						<p class="fragment">La <span class="concepto">elaboración de mapas consume recursos de horas/persona</span></p>
-						<p class="fragment">Empresas grandes dedican un equipo completo a esta tarea</p>
-						<p class="fragment">La aparición de equipos denominados <span class="concepto"><b>indies</b></span>, que se caracterizan por tener <span class="concepto"><i>bajo presupuesto y personal</i></span>,
-						hace emerger necesidades relacionadas con cubrir la falta de recursos</p>
+						<p class="fragment">Muchos géneros de juegos requieren <span class='concepto'><b>mapas</b></span></p> 
+						<p class="fragment"><span class='concepto'><b>Creación de mapas</b> consumen <b>recursos</b> de horas/persona</span></p>
+						<table class="fragment">
+							<tr>
+								<td valign="center">
+									<p><img  style="vertical-align:middle" height="200px" src="./tripleA.jpg" /></p>
+									<p><center><small>Equipo AAA</small></center></p>
+								</td>
+								<td valign="center">
+									<p><img  style="vertical-align:middle" height="200px" src="./indie.jpg" /></p>
+									<p><center><small>Desarrollador indie</small></center></p>
+								</td>
+							</tr>
+						</table>
+						<aside class="notes">
+							<p>Muchos géneros de juegos requieren mapas en los que poder dar rienda suelta al jugador para recorrer,</p>
+							<p>Empresas grandes dedican un equipo completo a esta tarea</p>
+							<p>La aparición de equipos denominados <span class="concepto"><b>indies</b></span>, que se caracterizan por tener <span class="concepto"><i>bajo presupuesto y personal</i></span>,
+							hace emerger necesidades relacionadas con cubrir la falta de recursos</p>
+						</aside>
 					</section>
 
 					<section id="fragments">
@@ -85,7 +109,8 @@
 
 					<section id="fragments">
 						<h3>Coordinación</h3>
-						<p class="fragment">Cada juego tiene sus propias <span class="concepto">reglas del mundo</span>, y por ende, el sistema a construir debe adaptarse a dichas reglas</p>
+						<p class="fragment">Cada juego tiene sus propias <span class="concepto">reglas del mundo</span></p>
+						<p class='fragment'>El sistema a construir debe adaptarse a dichas reglas</p>
 						<p class="fragment">Este trabajo se ha elaborado en función de especificaciones impuestas por la empresa indie de videojuegos</p>
 						<a href="http://thegamekitchen.com/"><img class="fragment" src="./tgk-header-logo.gif" /></a>
 					</section>
@@ -516,7 +541,7 @@ class BestSearchMovementSelector implements IMovementSelector {
 						<h3>Método de búsqueda</h3>
 						<p class='fragment'>Método para la <b><span class='concepto'>resolución de problemas</span></b></p>
 						<p class='fragment'><b><span class='concepto'>Espacio de soluciones</span></b> definido</p>
-						<p class='fragment'>Consiste en encontrar una solución en el espacio de soluciones
+						<p class='fragment'>Encontrar una solución en el espacio de soluciones
 						que satisfaga el enunciado del problema <b><span class='concepto'>de forma guiada</span></b>
 						partiendo de una solución o estado inicial</p>
 						<p class='fragment'>Para explorar el espacio de búsqueda, tenemos que definir las
@@ -689,6 +714,11 @@ class BestSearchMovementSelector implements IMovementSelector {
 						</table>
 					</section>
 
+					<section id="fragments">
+						<h3>BestSearch DPE Divisor</h3>
+						<p class='fragment'>Elige un porcentaje de todos los movimientos posibles</p>
+					</section>
+
 				</section>
 
 				<section>
@@ -701,17 +731,237 @@ class BestSearchMovementSelector implements IMovementSelector {
 						<p class='fragment'>Una vez construido el sistema, es necesario configurar el generador con distintos parámetros</p>
 						<p class='fragment'>De esta forma, el desarrollador podrá adaptar los mapas generados a sus preferencias según el juego
 						que vaya a construir</p>
-						<p class='fragment'>Como comprobaremos a continuación, hay variaciones de la parametrización que da como resultado generaciones
-						muy parecidas</p>
 					</section>
 
-					<section id="fragments">
-						<h3>Herramienta de experimentación</h3>
-						<p class='fragment'>Se ha creado una interfaz gráfica que nos ayudará a configurar fácilmente los distintos parámetros</p>
-						<center>
-							<p><img src="./guibuilder.png" /></p>
-						</center>
-					</section>
+
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-dpediv75f</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>ALL</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>0.75</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>NO CACHE</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>40</td><td height='10' align='center' valign='center'>0.17626785</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>30</td><td height='10' align='center' valign='center'>60</td><td height='10' align='center' valign='center'>0.4944821</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>80</td><td height='10' align='center' valign='center'>1.2335624</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>30</td><td height='10' align='center' valign='center'>120</td><td height='10' align='center' valign='center'>4.880467</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-dpediv085f</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>ALL</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>0.85</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>NO CACHE</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>40</td><td height='10' align='center' valign='center'>0.19672433</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>30</td><td height='10' align='center' valign='center'>60</td><td height='10' align='center' valign='center'>0.6254495</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>80</td><td height='10' align='center' valign='center'>1.6429455</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>30</td><td height='10' align='center' valign='center'>120</td><td height='10' align='center' valign='center'>6.6693983</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-dpediv095f</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>ALL</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>0.95</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>NO CACHE</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>40</td><td height='10' align='center' valign='center'>0.36674872</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>30</td><td height='10' align='center' valign='center'>60</td><td height='10' align='center' valign='center'>1.4391685</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>80</td><td height='10' align='center' valign='center'>4.0735197</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>30</td><td height='10' align='center' valign='center'>120</td><td height='10' align='center' valign='center'>18.18533</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./dpedivs.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-randoors04f</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>RANDOM</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>1.0</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>NO CACHE</td></tr><tr><td height='10' align='center' valign='center'>Random doors param</td><td height='10' align='center' valign='center'>0.4</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>32</td><td height='10' align='center' valign='center'>1.7974037</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>40</td><td height='10' align='center' valign='center'>4.185656</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>48</td><td height='10' align='center' valign='center'>15.452977</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>60</td><td height='10' align='center' valign='center'>34.685677</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-randoors06f</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>RANDOM</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>1.0</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>NO CACHE</td></tr><tr><td height='10' align='center' valign='center'>Random doors param</td><td height='10' align='center' valign='center'>0.6</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>32</td><td height='10' align='center' valign='center'>3.3016956</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>40</td><td height='10' align='center' valign='center'>8.236578</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>48</td><td height='10' align='center' valign='center'>20.92667</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>60</td><td height='10' align='center' valign='center'>57.344734</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-randoors08f</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>RANDOM</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>1.0</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>NO CACHE</td></tr><tr><td height='10' align='center' valign='center'>Random doors param</td><td height='10' align='center' valign='center'>0.8</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>32</td><td height='10' align='center' valign='center'>4.6551504</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>40</td><td height='10' align='center' valign='center'>9.8173485</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>48</td><td height='10' align='center' valign='center'>29.29305</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>60</td><td height='10' align='center' valign='center'>69.27466</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./randoors.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-refresher2</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>ALL</td></tr><tr><td height='10' align='center' valign='center'>Refresher cache divisor</td><td height='10' align='center' valign='center'>2</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>1.0</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>REFRESHER</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>40</td><td height='10' align='center' valign='center'>1.3768291</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>60</td><td height='10' align='center' valign='center'>6.721284</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>60</td><td height='10' align='center' valign='center'>8.7299595</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>90</td><td height='10' align='center' valign='center'>43.786175</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-refresher5</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>ALL</td></tr><tr><td height='10' align='center' valign='center'>Refresher cache divisor</td><td height='10' align='center' valign='center'>5</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>1.0</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>REFRESHER</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>40</td><td height='10' align='center' valign='center'>1.0284445</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>60</td><td height='10' align='center' valign='center'>5.523007</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>60</td><td height='10' align='center' valign='center'>6.734877</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>90</td><td height='10' align='center' valign='center'>35.19481</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-refresher10</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>ALL</td></tr><tr><td height='10' align='center' valign='center'>Refresher cache divisor</td><td height='10' align='center' valign='center'>10</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>1.0</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>REFRESHER</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>40</td><td height='10' align='center' valign='center'>0.7652644</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>60</td><td height='10' align='center' valign='center'>3.424775</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>60</td><td height='10' align='center' valign='center'>5.566566</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>90</td><td height='10' align='center' valign='center'>26.309055</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./refresher.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-alwayscache-compare</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>ALL</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>1.0</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>ALWAYS</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>0.017391974</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>16</td><td height='10' align='center' valign='center'>0.0648915</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>24</td><td height='10' align='center' valign='center'>0.19487195</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>32</td><td height='10' align='center' valign='center'>0.42309886</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>12</td><td height='10' align='center' valign='center'>0.066646844</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>24</td><td height='10' align='center' valign='center'>0.2855634</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>36</td><td height='10' align='center' valign='center'>1.0330642</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>48</td><td height='10' align='center' valign='center'>2.7444139</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>16</td><td height='10' align='center' valign='center'>0.25234425</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>32</td><td height='10' align='center' valign='center'>1.1891409</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>48</td><td height='10' align='center' valign='center'>3.6201694</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>64</td><td height='10' align='center' valign='center'>9.62282</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-nocache-compare</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>ALL</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>1.0</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>NO CACHE</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>0.033308886</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>16</td><td height='10' align='center' valign='center'>0.2818189</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>24</td><td height='10' align='center' valign='center'>1.2533048</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>32</td><td height='10' align='center' valign='center'>3.3726776</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>12</td><td height='10' align='center' valign='center'>0.169646</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>24</td><td height='10' align='center' valign='center'>1.7436212</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>36</td><td height='10' align='center' valign='center'>8.642779</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>48</td><td height='10' align='center' valign='center'>19.858727</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>16</td><td height='10' align='center' valign='center'>0.5825413</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>32</td><td height='10' align='center' valign='center'>7.391669</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>48</td><td height='10' align='center' valign='center'>33.726196</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>64</td><td height='10' align='center' valign='center'>107.014366</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./comp-nc-alw.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./comp-nc-alw-spl.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-opt-compare</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>RANDOM</td></tr><tr><td height='10' align='center' valign='center'>Refresher cache divisor</td><td height='10' align='center' valign='center'>10</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>0.9</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>REFRESHER</td></tr><tr><td height='10' align='center' valign='center'>Random doors param</td><td height='10' align='center' valign='center'>0.5</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>0.0030490612</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>16</td><td height='10' align='center' valign='center'>0.012270667</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>24</td><td height='10' align='center' valign='center'>0.035358563</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>32</td><td height='10' align='center' valign='center'>0.07798052</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>12</td><td height='10' align='center' valign='center'>0.010720903</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>24</td><td height='10' align='center' valign='center'>0.04806864</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>36</td><td height='10' align='center' valign='center'>0.13021517</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>48</td><td height='10' align='center' valign='center'>0.31549332</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>16</td><td height='10' align='center' valign='center'>0.021008326</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>32</td><td height='10' align='center' valign='center'>0.103048444</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>48</td><td height='10' align='center' valign='center'>0.34382266</td></tr><tr><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>8</td><td height='10' align='center' valign='center'>64</td><td height='10' align='center' valign='center'>0.89987457</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./comp-nc-opt.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./comp-nc-opt-spl.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./comp-alw-opt.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./comp-alw-opt-spl.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./comp-all.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./comp-all-spl.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-opt-real-sample</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>RANDOM</td></tr><tr><td height='10' align='center' valign='center'>Refresher cache divisor</td><td height='10' align='center' valign='center'>10</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>0.9</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>REFRESHER</td></tr><tr><td height='10' align='center' valign='center'>Random doors param</td><td height='10' align='center' valign='center'>0.5</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>5</td><td height='10' align='center' valign='center'>1</td><td height='10' align='center' valign='center'>5</td><td height='10' align='center' valign='center'>7.042658E-4</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>5</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>0.002947833</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>5</td><td height='10' align='center' valign='center'>3</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>0.007285158</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>5</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>0.01675741</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>1</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>0.0050347047</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>0.026567694</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>3</td><td height='10' align='center' valign='center'>30</td><td height='10' align='center' valign='center'>0.06789808</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>40</td><td height='10' align='center' valign='center'>0.16013144</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>1</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>0.015660329</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>30</td><td height='10' align='center' valign='center'>0.090537116</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>3</td><td height='10' align='center' valign='center'>45</td><td height='10' align='center' valign='center'>0.30263802</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>60</td><td height='10' align='center' valign='center'>0.6858841</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>1</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>0.03981879</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>40</td><td height='10' align='center' valign='center'>0.2525262</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>3</td><td height='10' align='center' valign='center'>60</td><td height='10' align='center' valign='center'>0.776619</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>4</td><td height='10' align='center' valign='center'>80</td><td height='10' align='center' valign='center'>2.0803473</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./opt-real.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./opt-real-spl.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-opt-medium-sample</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>RANDOM</td></tr><tr><td height='10' align='center' valign='center'>Refresher cache divisor</td><td height='10' align='center' valign='center'>10</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>0.9</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>REFRESHER</td></tr><tr><td height='10' align='center' valign='center'>Random doors param</td><td height='10' align='center' valign='center'>0.5</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>5</td><td height='10' align='center' valign='center'>1</td><td height='10' align='center' valign='center'>5</td><td height='10' align='center' valign='center'>0.0034811827</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>5</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>0.01271821</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>5</td><td height='10' align='center' valign='center'>3</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>0.024551699</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>1</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>0.025740776</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>0.12155639</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>3</td><td height='10' align='center' valign='center'>30</td><td height='10' align='center' valign='center'>0.16670665</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>1</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>0.1143049</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>30</td><td height='10' align='center' valign='center'>0.3775937</td></tr><tr><td height='10' align='center' valign='center'>10</td><td height='10' align='center' valign='center'>15</td><td height='10' align='center' valign='center'>3</td><td height='10' align='center' valign='center'>45</td><td height='10' align='center' valign='center'>0.8163346</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./opt-mid.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./opt-mid-spl.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-opt-variabilty-sample</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>RANDOM</td></tr><tr><td height='10' align='center' valign='center'>Refresher cache divisor</td><td height='10' align='center' valign='center'>10</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>0.9</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>REFRESHER</td></tr><tr><td height='10' align='center' valign='center'>Random doors param</td><td height='10' align='center' valign='center'>0.5</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>1</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>0.039521523</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>20</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>40</td><td height='10' align='center' valign='center'>0.2504682</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>30</td><td height='10' align='center' valign='center'>1</td><td height='10' align='center' valign='center'>30</td><td height='10' align='center' valign='center'>0.14793792</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>30</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>60</td><td height='10' align='center' valign='center'>0.98455393</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>40</td><td height='10' align='center' valign='center'>1</td><td height='10' align='center' valign='center'>40</td><td height='10' align='center' valign='center'>0.4307499</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>40</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>80</td><td height='10' align='center' valign='center'>2.942588</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>50</td><td height='10' align='center' valign='center'>1</td><td height='10' align='center' valign='center'>50</td><td height='10' align='center' valign='center'>0.99797165</td></tr><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>50</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>100</td><td height='10' align='center' valign='center'>7.638813</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./opt-var.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./opt-var-spl.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<h3>Configuración bs-opt-variabilty-sample-fixed</h3>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Propiedad</h4></td><td align='center' valign='center'><h4>Valor</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>DoorGenType</td><td height='10' align='center' valign='center'>RANDOM</td></tr><tr><td height='10' align='center' valign='center'>SolverType</td><td height='10' align='center' valign='center'>BestSearch</td></tr><tr><td height='10' align='center' valign='center'>BestSearch DPE Divisor</td><td height='10' align='center' valign='center'>0.5</td></tr><tr><td height='10' align='center' valign='center'>CacheType</td><td height='10' align='center' valign='center'>ALWAYS</td></tr><tr><td height='10' align='center' valign='center'>Random doors param</td><td height='10' align='center' valign='center'>0.3</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<table class='fragment'><thead><tr><td align='center' valign='center'><h4>Tam. habs.</h4></td><td align='center' valign='center'><h4>Num. modelos</h4></td><td align='center' valign='center'><h4>Instancias/modelo</h4></td><td align='center' valign='center'><h4>Total habs.</h4></td><td align='center' valign='center'><h4>Tiempo ejec.</h4></td></tr></thead><tbody><tr><td height='10' align='center' valign='center'>6</td><td height='10' align='center' valign='center'>50</td><td height='10' align='center' valign='center'>2</td><td height='10' align='center' valign='center'>100</td><td height='10' align='center' valign='center'>1.6345024</td></tr></tbody></table>
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./opt-varfix.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./opt-varfix-spl.png' />
+</section>
+
+<section data-state='no-toc-progress' id='fragments'>
+<img src='./opt-varfix-cmp-spl.png' />
+</section>
+
+
+
+
 				</section>
 
 				<section>
@@ -818,9 +1068,8 @@ class BestSearchMovementSelector implements IMovementSelector {
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true },
+					%DATNOTES%
 					{ src: 'socket.io/socket.io.js', async: true },
-					{ src: 'plugin/notes-server/client.js', async: true },
 					{ src: 'plugin/math/math.js', async: true },
 					{ src: 'plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize(); toc_progress.create(); } }
 				]
