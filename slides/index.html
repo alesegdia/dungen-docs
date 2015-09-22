@@ -45,9 +45,12 @@
 					<h1 class="no-toc-progress">Generación procedimental de mapas 2D</h1>
 					<h3>Análisis e investigación del problema.</h3>
 					<p>
-						<small>Creado por <a href="http://github.com/alesegdia/">Alejandro Seguí Díaz</a></small>
+						<small>Autor: <a href="http://github.com/alesegdia/">Alejandro Seguí Díaz</a></small>
 					</p>
 						<aside class="notes">
+							Buenos días, mi nombre es Alejandro<br />
+							y voy a proceder a defender mi proyecto<br />
+							que trata de generación de mapas 2D
 						</aside>
 					</p>
 				</section>
@@ -63,18 +66,18 @@
 						<p class="fragment">Aplicaciones software dedicados al <b><span class='concepto'>entretenimiento</span></b></p>
 						<h4 class="fragment">¿Por qué?</h4>
 						<p class="fragment"><b><span class='concepto'>Mercado lider</span></b> indiscutible a <b><span class='concepto'>nivel internacional</span></b></p>
-						<p class="fragment">Abren desarrollo a otras áreas</p>
-						<p class="fragment">Arrebata a las películas, series, etc</p>
+						<p class="fragment">La industria cinematográfica deja paso a la industria del videojuego</p>
 						<aside class="notes">
 							<p>Por ello, es bastante conveniente dedicar investigación a este campo</p>
 							<p>Comentar potencia GPUs, relación con robótica</p>
+							<p>La industria cinematográfica abre paso a videojuegos</p>
 						</aside>
 					</section>
 
 					<section id="fragments">
 						<h3>Problema</h3>
-						<p class="fragment">Muchos géneros de juegos requieren <span class='concepto'><b>mapas</b></span></p> 
-						<p class="fragment"><span class='concepto'><b>Creación de mapas</b> consumen <b>recursos</b> de horas/persona</span></p>
+						<p class="fragment">Videojuegos requieren <span class='concepto'><b>mapas</b></span></p> 
+						<p class="fragment"><span class='concepto'><b>Creación de mapas</b> consumen <b>recursos</b> horas/persona</span></p>
 						<table class="fragment">
 							<tr>
 								<td valign="center">
@@ -97,8 +100,8 @@
 
 					<section id="fragments">
 						<h3>Solución</h3>
-						<p class="fragment">Elaborar un sistema que genere los mapas necesarios para el desarrollo de un videojuego</p>
-						<p class="fragment">Conseguimos un <span class="concepto"><b>ahorro de recursos</b></span></p>
+						<p class="fragment">Elaborar un <b><span class='concepto'>generador de mapas</span></b></p>
+						<p class="fragment">$\implies$ <span class="concepto"><b>ahorro de recursos</b></span></p>
 					</section>
 				</section>
 
@@ -110,16 +113,16 @@
 					<section id="fragments">
 						<h3>Coordinación</h3>
 						<p class="fragment">Cada juego tiene sus propias <span class="concepto">reglas del mundo</span></p>
-						<p class='fragment'>El sistema a construir debe adaptarse a dichas reglas</p>
-						<p class="fragment">Este trabajo se ha elaborado en función de especificaciones impuestas por la empresa indie de videojuegos</p>
+						<p class='fragment'>El sistema <span class='concepto'>debe <b>adaptarse</b> a dichas <b>reglas</b></span></p>
+						<p class="fragment">Especificaciones de este proyecto han sido impuestas por</p>
 						<a href="http://thegamekitchen.com/"><img class="fragment" src="./tgk-header-logo.gif" /></a>
 					</section>
 
 					<section id="fragments">
 						<h3>Definición del tipo de juego</h3>
 						<ul>
-							<li class='fragment'>El entorno debe ser en <span class='concepto'>dos dimensiones</span></li>
-							<li class='fragment'>El jugador <span class='concepto'>comienza en una habitación</span> y tiene como <b><span class='concepto'>objetivo</span></b><span class='concepto'> llegar a una habitación considerada final</span> para pasar el nivel</li>
+							<li class='fragment'><span class='concepto'>Dos dimensiones</span></li>
+							<li class='fragment'>El jugador <span class='concepto'>comienza en una habitación</span> y tiene como <b><span class='concepto'>objetivo</span></b><span class='concepto'> llegar a una habitación considerada final</span></li>
 							<li class='fragment'><span class='concepto'>Mapa de <b>tiles</b></span></li>
 							<li class="fragment">Vista cenital</li>
 							<center class="fragment">
@@ -141,17 +144,18 @@
 						<ul>
 							<li class='fragment'>Partir de una <span class='concepto'>lista de <b>habitaciones previamente creadas</b></span></li>
 							<li class='fragment'><span class='concepto'><b>Maximizar</b> el <b>camino</b> desde la habitación <b>de inicio hasta final</b></span></li>
-							<li class='fragment'>Fomentar <b><span class='concepto'>caminos alternativos</span></b> para promover que el jugador tenga que investigar</li>
-							<li class='fragment'>Fomentar la <span class='concepto'><b>variabilidad</b> en la generación de los niveles</span> de forma que cada jugador tendrá una experiencia distinta</li>
+							<li class='fragment'>Fomentar <b><span class='concepto'>caminos alternativos</span></b></li>
+							<li class='fragment'>Fomentar la <span class='concepto'><b>variabilidad</b> en los niveles generados</span></li>
 						</ul>
 					</section>
 
 					<section id="fragments">
 						<h2>Especificaciones para la generación (II)</h2>
 						<ul>
-							<li class="fragment">Cada nivel se generará en el momento que el jugador inicia el mismo</li>
-							<li class="fragment">No importa qué par de habitaciones son la inicial y la final</li>
-							<li class="fragment">Debe funcionar en sistemas móviles, contando con un tiempo de ejecución asequible</li>
+							<li class="fragment">Mapa generado en inicio de partida</li>
+							<li class="fragment">No importa habitaciones inicial y final</li>
+							<li class="fragment">Debe funcionar en sistemas móviles</li>
+							<li class="fragment">No hay restricción fuerte del tamaño del mapa</li>
 						</ul>
 						<p class="fragment">
 						<aside class="notes">
@@ -166,12 +170,13 @@
 
 				<section>
 					<section id="fragments">
-						<h2>State of the art</h2>
+						<h2>Estado del arte</h2>
 					</section>
 
 					<section id="fragments">
-						<h3>Procedural content generation</h3>
-						<p class="fragment">Campo en constante desarrollo con varias subáreas:</p>
+						<h3>Generación procedimental de contenido</h3>
+						<p class='fragment'>Inicios en la <b><span class='concepto'>demoscene</span></b></p>
+						<p class="fragment">Campo emergente en la aplicación a videojuegos:</p>
 						<ul>
 							<li class="fragment">Generación de mapas</li>
 							<li class="fragment">Storytelling procedimental</li>
@@ -188,7 +193,7 @@
 
 					<section id="fragments">
 						<h3>Topología de los elementos</h3>
-						<p class="fragment">La representación física tanto del mapa como de las habitaciones, será una <i><b>matriz de dos dimensiones</b></i></p>
+						<p class="fragment">Representación física de mapas y habitaciones: <i><b>matriz de dos dimensiones</b></i></p>
 						<table class="fragment">
 							<tr>
 								<td valign="center">$\begin{matrix}  0 & 1 & 1 & 1 & 0 \\  0 & 1 & 0 & 1 & 1 \\ 1 & 1 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 & 1 \\ 1 & 1 & 1 & 1 & 1 \end{matrix}$</td>
@@ -202,21 +207,19 @@
 
 					<section id="fragments">
 						<h3>Habitaciones</h3>
-						<p class="fragment">Cada habitación se representará como una matriz de dos dimensiones</p>
-						<p class="fragment">Las habitaciones contendrán puertas que nos servirán para conectar pares de habitaciones</p>
-						<p class="fragment">Debido a que las habitaciones pueden repetirse, se ha optado por una representación dividida en dos componentes:</p>
+						<p class="fragment"><b><span class='concepto'>Lista de puertas</span></b> que servirán para conectar habitaciones</p>
+						<p class="fragment">Representación dividida en:</p>
 						<ul>
-							<li class="fragment"><b>Prefab:</b> clase de una habitación</li>
-							<li class="fragment"><b>Instancia:</b> instancia concreta de una habitación</li>
+							<li class="fragment"><b>Prefab:</b> <b><span class='concepto'>clase</span></b> de una habitación</li>
+							<li class="fragment"><b>Instancia:</b> <b><span class='concepto'>instancia concreta</span></b> de una habitación</li>
 						</ul>
 					</section>
 
 					<section id="fragments">
 						<h3>Prefab de habitación</h3>
 						<p class="fragment">También nos referiremos como <i><b>clase</b></i> o <i><b>modelo</b></i>.</p>
-						<p class="fragment">Contiene la representación física de un modelo de habitación</p>
-						<p class="fragment">Se precomputan y guardan las puertas potenciales de una habitación, ya que el cómputo de las mismas
-						es costoso e innecesario, y de esta forma solo se realiza en la carga</p>
+						<p class="fragment">Contiene la <b><span class='concepto'>matriz 2D</span></b> asociada al modelo de habitación.</p>
+						<p class="fragment"><b><span class='concepto'>Puertas potenciales</span></b> precomputadas</p>
 						<center class="fragment">
 							<p><img src="./ejemplopuertas.png" /></p>
 							<p><small>Puertas potenciales mostradas como tiles azules</small></p>
@@ -248,25 +251,21 @@
 
 					<section id="fragments">
 						<h3>Instancia de habitación</h3>
-						<p class="fragment">Permite elegir un subconjunto de todas las posibles puertas de un modelo de habitación a partir
-						del conjunto de tiles precomputado en el modelo</p>
-						<p class="fragment">Contiene información sobre una instancia de un modelo de habitación:</p>
+						<p class="fragment">Contiene un <span class='concepto'><b>subconjunto</b> de todas las <b>puertas potenciales</b> del modelo asociado</span></p>
+						<p class='fragment'>Referencia al modelo</p>
+						<p class="fragment">Además,</p>
 						<ul>
-							<li class="fragment">Lista de puertas que aún no se han colocadoa</li>
-							<li class="fragment">Lista de puertas que se han colocado</li>
-							<li class="fragment">Posición donde está colocada la habitación en un mapa</li>
+							<li class="fragment">Lista de puertas <b><span class='concepto'>activas</span></b></li>
+							<li class="fragment">Lista de puertas <b><span class='concepto'>no activas</span></b></li>
+							<li class="fragment"><b><span class='concepto'>Posición</span></b> de la instancia en el mapa (si procede)</li>
 						</ul>
 					</section>
 
 					<section id="fragments">
 						<h3>Mapa</h3>
-						<p class='fragment'>La solución está definida por:</p>
-						<ul>
-							<li class='fragment'><b><span class='concepto'>Representación física</span></b> empleando una <b><span class='concepto'>matriz de dos dimensiones</span></b> que contiene las habitaciones que han sido colocadas</li>
-							<li class='fragment'><b><span class='concepto'>Conexiones entre habitaciones</span></b>, empleando una <b><span class='concepto'>matriz superior</span></b> de dos dimensiones</li>
-						</ul>
-						<p class='fragment'>Como se ha mencionado previamente, <span class='concepto'>supondremos que el <b>tamaño de la matriz</b> es <b>suficiente para contener
-						todas las habitaciones</b></span></p>
+						<p class='fragment'><b><span class='concepto'>Matriz 2D</span></b> con habitaciones colocadas</p>
+						<p class='fragment'><b><span class='concepto'>Suficientemente grande</span></b> como para colocar todas las habitaciones</p>
+						<p class='fragment'><b><span class='concepto'>Conexiones entre habitaciones</span></b>, empleando una <b><span class='concepto'>matriz superior</span></b></p>
 					</section>
 
 				</section>
@@ -278,7 +277,6 @@
 
 					<section id="fragments">
 						<h3>Definición</h3>
-						<p class='fragment'>Usaremos un <b><span class='concepto'>método constructivo</span></b> para <span class='concepto'>obtener <b>una solución</b></span></p>
 						<p class='fragment'>Construiremos el mapa a partir de <b><span class='concepto'>movimientos</span></b> <b><span class='concepto'>$M_i(R_i,P_i)$</span></b> compuestos por:</p>
 						<ul>
 							<li class='fragment'><b><span class='concepto'>$R_i$</span></b>: modelo de habitación a colocar</li>
@@ -296,15 +294,15 @@
 
 					<section id="fragments">
 						<h3>Cómputo de posibles movimientos</h3>
-						<p class='fragment'>Dado un estado concreto del proceso</p>
+						<p class='fragment'>Dado un <b><span class='concepto'>estado concreto</span></b> del proceso</p>
 						<ul>
-							<li class='fragment'>Mapa con una serie de habitaciones colocadas</li>
-							<li class='fragment'>Lista con habitaciones restantes por colocar</li>
+							<li class='fragment'>Lista de <b><span class='concepto'>habitaciones colocadas</span></b></li>
+							<li class='fragment'>Lista de <b><span class='concepto'>habitaciones por colocar</span></b></li>
 						</ul>
-						<p class='fragment'>La lista de posibles movimientos se computará a partir de las <b><span class='concepto'>posibles conexiones</span></b> entre
+						<p class='fragment'>La lista de <b><span class='concepto'>posibles movimientos</span></b> se computará a partir de las <b><span class='concepto'>posibles conexiones</span></b> entre
 						las <span class='concepto'>puertas potenciales del <b>mapa</b> y de las <b>habitaciones restantes</b></span></p>
-						<p class="fragment">$$\bigcup_{r \in RR}possibleConnections(map, r)$$</p>
-						<p class="fragment">$$RR = remainingRooms$$</p>
+						<p class="fragment">$$\bigcup_{r \in RR}posiblesConexiones(map, r)$$</p>
+						<p class="fragment">$$RR = habitacionesRestantes$$</p>
 					</section>
 
 
@@ -326,6 +324,10 @@
 						<p class="fragment">
 							$potentialDoor(u, r), potentialDoor(v, p)$<br />
 						</p>
+						<aside class="notes">
+							<p>Tile vacio exterior delante e interior detras (y viceversa)</p>
+							<p>Idem arriba y abajo</p>
+						</aside>
 					</section>
 
 					<section id="fragments">
