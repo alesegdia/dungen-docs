@@ -44,15 +44,12 @@
 				<section data-state="no-toc-progress">
 					<h1 class="no-toc-progress">Generación procedimental de mapas 2D</h1>
 					<h3>Análisis e investigación del problema.</h3>
-					<p>
-						<small>Autor: <a href="http://github.com/alesegdia/">Alejandro Seguí Díaz</a></small>
-					</p>
-						<aside class="notes">
-							Buenos días, mi nombre es Alejandro<br />
-							y voy a proceder a defender mi proyecto<br />
-							que trata de generación de mapas 2D
-						</aside>
-					</p>
+					<p><small>Autor: <a href="http://github.com/alesegdia/">Alejandro Seguí Díaz</a></small></p>
+					<aside class="notes">
+						Buenos días, mi nombre es Alejandro<br />
+						y voy a proceder a defender mi proyecto<br />
+						que trata de generación de mapas 2D
+					</aside>
 				</section>
 
 				<section>
@@ -63,9 +60,9 @@
 					<section id="fragments">
 						<h3>Videojuegos</h3>
 						<h4 class="fragment">¿Qué?</h4>
-						<p class="fragment">Aplicaciones software dedicados al <b><span class='concepto'>entretenimiento</span></b></p>
+						<p class="fragment">Aplicaciones software dedicados al {(c,b)entretenimiento}</p>
 						<h4 class="fragment">¿Por qué?</h4>
-						<p class="fragment"><b><span class='concepto'>Mercado lider</span></b> indiscutible a <b><span class='concepto'>nivel internacional</span></b></p>
+						<p class="fragment">{(c,b)Mercado lider} indiscutible a {(c,b)nivel internacional}</p>
 						<p class="fragment">La industria cinematográfica deja paso a la industria del videojuego</p>
 						<aside class="notes">
 							<p>Por ello, es bastante conveniente dedicar investigación a este campo</p>
@@ -76,8 +73,8 @@
 
 					<section id="fragments">
 						<h3>Problema</h3>
-						<p class="fragment">Videojuegos requieren <span class='concepto'><b>mapas</b></span></p> 
-						<p class="fragment"><span class='concepto'><b>Creación de mapas</b> consumen <b>recursos</b> horas/persona</span></p>
+						<p class="fragment">Videojuegos requieren {(c){(b)mapas}}</p> 
+						<p class="fragment">{(c){(b)Creación de mapas} consumen {(b)recursos} horas/persona}</p>
 						<table class="fragment">
 							<tr>
 								<td valign="center">
@@ -100,7 +97,7 @@
 
 					<section id="fragments">
 						<h3>Solución</h3>
-						<p class="fragment">Elaborar un <b><span class='concepto'>generador de mapas</span></b></p>
+						<p class="fragment">Elaborar un {(c,b)generador de mapas}</p>
 						<p class="fragment">$\implies$ <span class="concepto"><b>ahorro de recursos</b></span></p>
 					</section>
 				</section>
@@ -113,7 +110,7 @@
 					<section id="fragments">
 						<h3>Coordinación</h3>
 						<p class="fragment">Cada juego tiene sus propias <span class="concepto">reglas del mundo</span></p>
-						<p class='fragment'>El sistema <span class='concepto'>debe <b>adaptarse</b> a dichas <b>reglas</b></span></p>
+						{(pf)El sistema {(c)debe {(b)adaptarse} a dichas {(b)reglas}}}
 						<p class="fragment">Especificaciones de este proyecto han sido impuestas por</p>
 						<a href="http://thegamekitchen.com/"><img class="fragment" src="./tgk-header-logo.gif" /></a>
 					</section>
@@ -121,9 +118,9 @@
 					<section id="fragments">
 						<h3>Definición del tipo de juego</h3>
 						<ul>
-							<li class='fragment'><span class='concepto'>Dos dimensiones</span></li>
-							<li class='fragment'>El jugador <span class='concepto'>comienza en una habitación</span> y tiene como <b><span class='concepto'>objetivo</span></b><span class='concepto'> llegar a una habitación considerada final</span></li>
-							<li class='fragment'><span class='concepto'>Mapa de <b>tiles</b></span></li>
+							{(lif){(c)Dos dimensiones}}
+							{(lif)El jugador {(c)comienza en una habitación} y tiene como {(c,b)objetivo}{(c) llegar a una habitación considerada final}}
+							{(lif){(c)Mapa de {(b)tiles}}}
 							<li class="fragment">Vista cenital</li>
 							<center class="fragment">
 								<p><img src="./cenital.png" /></p>
@@ -142,10 +139,10 @@
 					<section id="fragments">
 						<h2>Especificaciones para la generación (I)</h2>
 						<ul>
-							<li class='fragment'>Partir de una <span class='concepto'>lista de <b>habitaciones previamente creadas</b></span></li>
-							<li class='fragment'><span class='concepto'><b>Maximizar</b> el <b>camino</b> desde la habitación <b>de inicio hasta final</b></span></li>
-							<li class='fragment'>Fomentar <b><span class='concepto'>caminos alternativos</span></b></li>
-							<li class='fragment'>Fomentar la <span class='concepto'><b>variabilidad</b> en los niveles generados</span></li>
+							{(lif)Partir de una {(c)lista de {(b)habitaciones previamente creadas}}}
+							{(lif){(c){(b)Maximizar} el {(b)camino} desde la habitación {(b)de inicio hasta final}}}
+							{(lif)Fomentar {(c,b)caminos alternativos}}
+							{(lif)Fomentar la {(c){(b)variabilidad} en los niveles generados}}
 						</ul>
 					</section>
 
@@ -175,7 +172,7 @@
 
 					<section id="fragments">
 						<h3>Generación procedimental de contenido</h3>
-						<p class='fragment'>Inicios en la <b><span class='concepto'>demoscene</span></b></p>
+						{(pf)Inicios en la {(c,b)demoscene}}
 						<p class="fragment">Campo emergente en la aplicación a videojuegos:</p>
 						<ul>
 							<li class="fragment">Generación de mapas</li>
@@ -189,6 +186,9 @@
 				<section>
 					<section id="fragments">
 						<h2>Representación</h2>
+						<aside class="notes">
+							<p>Hablaremos de la modelización del problema</p>
+						</aside>
 					</section>
 
 					<section id="fragments">
@@ -207,19 +207,19 @@
 
 					<section id="fragments">
 						<h3>Habitaciones</h3>
-						<p class="fragment"><b><span class='concepto'>Lista de puertas</span></b> que servirán para conectar habitaciones</p>
+						<p class="fragment">{(c,b)Lista de puertas} que servirán para conectar habitaciones</p>
 						<p class="fragment">Representación dividida en:</p>
 						<ul>
-							<li class="fragment"><b>Prefab:</b> <b><span class='concepto'>clase</span></b> de una habitación</li>
-							<li class="fragment"><b>Instancia:</b> <b><span class='concepto'>instancia concreta</span></b> de una habitación</li>
+							<li class="fragment"><b>Prefab:</b> {(c,b)clase} de una habitación</li>
+							<li class="fragment"><b>Instancia:</b> {(c,b)instancia concreta} de una habitación</li>
 						</ul>
 					</section>
 
 					<section id="fragments">
 						<h3>Prefab de habitación</h3>
 						<p class="fragment">También nos referiremos como <i><b>clase</b></i> o <i><b>modelo</b></i>.</p>
-						<p class="fragment">Contiene la <b><span class='concepto'>matriz 2D</span></b> asociada al modelo de habitación.</p>
-						<p class="fragment"><b><span class='concepto'>Puertas potenciales</span></b> precomputadas</p>
+						<p class="fragment">Contiene la {(c,b)matriz 2D} asociada al modelo de habitación.</p>
+						<p class="fragment">{(c,b)Puertas potenciales} precomputadas</p>
 						<center class="fragment">
 							<p><img src="./ejemplopuertas.png" /></p>
 							<p><small>Puertas potenciales mostradas como tiles azules</small></p>
@@ -231,7 +231,7 @@
 
 					<section id="fragments">
 						<h3>Puertas potenciales</h3>
-						<p class='fragment'>¿Cuándo un tile <b><span class='concepto'>$t(x,y)$</span></b> es una <b><span class='concepto'>puerta potencial</span></b>?</p>
+						{(pf)¿Cuándo un tile {(c,b)$t(x,y)$} es una {(c,b)puerta potencial}?}
 						<p>
 							<center class="fragment">
 								$\begin{cases}
@@ -251,21 +251,21 @@
 
 					<section id="fragments">
 						<h3>Instancia de habitación</h3>
-						<p class="fragment">Contiene un <span class='concepto'><b>subconjunto</b> de todas las <b>puertas potenciales</b> del modelo asociado</span></p>
-						<p class='fragment'>Referencia al modelo</p>
+						<p class="fragment">Contiene un {(c){(b)subconjunto} de todas las {(b)puertas potenciales} del modelo asociado}</p>
+						{(pf)Referencia al modelo}
 						<p class="fragment">Además,</p>
 						<ul>
-							<li class="fragment">Lista de puertas <b><span class='concepto'>activas</span></b></li>
-							<li class="fragment">Lista de puertas <b><span class='concepto'>no activas</span></b></li>
-							<li class="fragment"><b><span class='concepto'>Posición</span></b> de la instancia en el mapa (si procede)</li>
+							<li class="fragment">Lista de puertas {(c,b)activas}</li>
+							<li class="fragment">Lista de puertas {(c,b)no activas}</li>
+							<li class="fragment">{(c,b)Posición} de la instancia en el mapa (si procede)</li>
 						</ul>
 					</section>
 
 					<section id="fragments">
 						<h3>Mapa</h3>
-						<p class='fragment'><b><span class='concepto'>Matriz 2D</span></b> con habitaciones colocadas</p>
-						<p class='fragment'><b><span class='concepto'>Suficientemente grande</span></b> como para colocar todas las habitaciones</p>
-						<p class='fragment'><b><span class='concepto'>Conexiones entre habitaciones</span></b>, empleando una <b><span class='concepto'>matriz superior</span></b></p>
+						{(pf){(c,b)Matriz 2D} con habitaciones colocadas}
+						{(pf){(c,b)Suficientemente grande} como para colocar todas las habitaciones}
+						{(pf){(c,b)Conexiones entre habitaciones}, empleando una {(c,b)matriz superior}}
 					</section>
 
 				</section>
@@ -273,34 +273,32 @@
 				<section>
 					<section id="fragments">
 						<h2>Estrategia constructiva</h2>
+						<aside class="notes">
+							<p>Solución al modelo del problema</p>
+						</aside>
 					</section>
 
 					<section id="fragments">
 						<h3>Definición</h3>
-						<p class='fragment'>Construiremos el mapa a partir de <b><span class='concepto'>movimientos</span></b> <b><span class='concepto'>$M_i(R_i,P_i)$</span></b> compuestos por:</p>
+						{(pf)Construiremos el mapa a partir de {(c,b)movimientos} {(c,b)$M_i(R_i,P_i)$} compuestos por:}
 						<ul>
-							<li class='fragment'><b><span class='concepto'>$R_i$</span></b>: modelo de habitación a colocar</li>
-							<li class='fragment'><b><span class='concepto'>$P_i$</span></b>: posición del mapa donde se coloca</li>
+							{(lif){(c,b)$R_i$}: modelo de habitación a colocar}
+							{(lif){(c,b)$P_i$}: posición del mapa donde se coloca}
 						</ul>
 						<aside class="notes">
-							<h3>Recordatorio del problema</h3>
-							<p>Los mapas debían generarse a partir de un set de habitaciones suministrado</p>
-							<p>Esto tiene su lógica en que, según el nivel, podemos querer que haya unas habitaciones u otras</p>
-							<p>No hay restricción en el tamaño del mapa, por lo que partiremos partiremos de un solar de tamaño suficiente
-							para dar cabida a todas las habitaciones</p>
-							<p class='fragment'>Las habitaciones pueden repetirse, pero en una cantidad concreta</p>
+							Hemos definido la estrategia a seguir basada en movimientos...
 						</aside>
 					</section>
 
 					<section id="fragments">
 						<h3>Cómputo de posibles movimientos</h3>
-						<p class='fragment'>Dado un <b><span class='concepto'>estado concreto</span></b> del proceso</p>
+						{(pf)Dado un {(c,b)estado concreto} del proceso}
 						<ul>
-							<li class='fragment'>Lista de <b><span class='concepto'>habitaciones colocadas</span></b></li>
-							<li class='fragment'>Lista de <b><span class='concepto'>habitaciones por colocar</span></b></li>
+							{(lif)Lista de {(c,b)habitaciones colocadas}}
+							{(lif)Lista de {(c,b)habitaciones por colocar}}
 						</ul>
-						<p class='fragment'>La lista de <b><span class='concepto'>posibles movimientos</span></b> se computará a partir de las <b><span class='concepto'>posibles conexiones</span></b> entre
-						las <span class='concepto'>puertas potenciales del <b>mapa</b> y de las <b>habitaciones restantes</b></span></p>
+						{(pf)La lista de {(c,b)posibles movimientos} se computará a partir de las {(c,b)posibles conexiones} entre
+						las {(c)puertas potenciales del {(b)mapa} y de las {(b)habitaciones restantes}}}
 						<p class="fragment">$$\bigcup_{r \in RR}posiblesConexiones(map, r)$$</p>
 						<p class="fragment">$$RR = habitacionesRestantes$$</p>
 					</section>
@@ -308,7 +306,6 @@
 
 					<section id="fragments">
 						<h3>Conexiones entre el mapa y una habitación</h3>
-						<p class='fragment'>Definición de posibles <span class='concepto'>conexiones entre el <b>mapa</b> y una <b>habitación</b></span>:</p>
 						<p class="fragment">
 							$possibleConnections(map, r) =$<br />
 							$\bigcup_{p \in rooms(map)}  \left\{ cx(map,r,p,u,v,w) : \neg col(map, r, w) \right\}$<br />
@@ -331,32 +328,28 @@
 					</section>
 
 					<section id="fragments">
-						<h3>Conexiones entre el mapa y una habitación</h3>
+						<h3>Ejemplo de conexión entre mapa y habitación</h3>
 						<center class="fragment">
 							<p><img width="450" src="./tileconn.png" /></p>
 							<p><small>Ilustración de posible conexión entre habitación restante y mapa</small></p>
 						</center>
 					</section>
 
-
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Construcción del mapa</h2>
+					<section data-state="no-toc-progress" id="fragments">
+						<h3>Flujo del algoritmo</h3>
+						<img src="./flowalgo.png" />
 					</section>
 
 					<section id="fragments">
 						<h3>Interfaz de selección de movimiento</h3>
-						<p class='fragment'>Emplearemos una interfaz <b><span class='concepto'>InterfazSeleccion</span></b> que <span class='concepto'>elegirá un <b>movimiento</b> de entre todos los posibles</span>
-						por cada paso del algoritmo</p>
+						{(pf)Delegamos la selección de un movimiento entre todos los posibles a una interfaz que implementaremos}
 						<pre class="fragment"><code data-trim>
 
-interface InterfazSeleccion {
+interface IMovementSelector {
     Movimiento ElegirMovimiento( Mapa mapa, List&lt;Movimiento&gt; movimientos );
 }
 
-Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, InterfazSeleccion mapSolver ) {
+Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, IMovementSelector mapSolver ) {
   Mapa mapa = MapaVacio();
   while( !habitaciones.isEmpty() ) {
     List&lt;Movimiento&gt; movimientos = GenerarMovimientos( mapa, habitaciones );
@@ -369,65 +362,85 @@ Mapa GenerarMapa( List&lt;Habitacion&gt; habitaciones, InterfazSeleccion mapSolv
   return mapa;
 }
 						</code></pre>
-						<p class='fragment'>La interfaz influirá en la forma de elegir el movimiento aplicado</p>
+						<aside class="notes">
+							{(pf)La interfaz influirá en la forma de elegir el movimiento aplicado}
+						</aside>
 					</section>
 
 					<section id="fragments">
 						<h3>Guardado de movimientos</h3>
-						<p class='fragment'>Como se puede ver en el pseudocódigo, <span class='concepto'>se <b>guarda</b> la <b>lista de movimientos</b> necesaria para
-						<b>construir el mapa</b></span></p>
-						<p class='fragment'>La función <span class='concepto'><b>IMapSolver::GenerarMovimiento</b> será el <b>bottleneck</b></span> de nuestro sistema</p>
-						<p class='fragment'>Para una futura mejora añadiendo <b><span class='concepto'>backtracking</span></b>, puede servirnos para <span class='concepto'><b>guardar el estado del mapa</b>
-						y <b>reconstruirlo de forma muy rápida</b></span></p>
+						{(pf)La {(c,b)selección de un movimiento} será el {(c,b)cuello de botella}}
+						{(pf)Guardamos la {(c,b)lista de movimientos} necesaria para {(c,b)reconstruir el mapa}}
+						{(pf)Sirve para mejora añadiendo {(c,b)backtracking}, permitiéndonos {(c,b)reconstruir el mapa rápidamente}}
 					</section>
 				</section>
 
 				<section>
 					<section id="fragments">
-						<h2>Interfaz aleatoria</h2>
+						<h2>Implementación de interfaz de selección aleatoria</h2>
 					</section>
 
 					<section id="fragments">
 						<h3>Propiedades</h3>
-						<p class='fragment'><span class='concepto'><b>No</b> tiene <b>interés computacional</b></span></p>
-						<p class='fragment'>Esta interfaz <span class='concepto'>elige un <b>movimiento aleatorio</b> de entre <b>todos los posibles</b></span> en cada paso</p>
-						<p class='fragment'>Da unos <span class='concepto'><b>resultados</b> visiblemente <b>buenos</b></span> pero no proporciona <b><span class='concepto'>ningún tipo de control</span></b></p>
-						<p class='fragment'>Tiene una <span class='concepto'>tiempo de ejecución <b>corto</b></span></p>
+						{(pf){(c){(b)No} tiene {(b)interés computacional}}}
+						{(pf)Elige un {(c,b)movimiento} de forma {(c,b)aleatoria}}
+						{(pf){(c){(b)Resultados} {(b)buenos}} pero no proporciona {(c,b)ningún tipo de control}}
+						{(pf){(c,b)Eficiencia computacional}}
 					</section>
 
 					<section id="fragments">
 						<h3>Ejemplo</h3>
 						<center class="fragment">
 							<p><img width="450" src="./randomsolver.png" /></p>
-							<p><small>Ejemplo de mapa generado por RandomSolver</small></p>
+							<p><small>Ejemplo de mapa generado por RandomSelector</small></p>
 						</center>
 					</section>
 				</section>
 
 				<section>
 					<section id="fragments">
-						<h2>Interfaz basada en búsqueda</h2>
+						<h2>Implementación de interfaz de selección basada en búsqueda</h2>
+					</section>
+
+					<section id="fragments">
+						<h3>Método de búsqueda</h3>
+						{(pf){(c,b)Encontrar una solución} que satisfaga el enunciado del problema}
+						{(pf)Problema debe ser {(c,b)discreto}, {(c,b)accesible}, {(c,b)estático}, {(c,b)observable} y {(c,b)determinista}}
+						{(pf)Definición de {(c,b)acciones posibles} en los estados ({(c,b)movimientos)}}
+						{(pf)Búsqueda {(c,b)no informada}}
+						{(pf)Estado inicial: {(c,b)mapa vacío}}
+						{(pf)Función objetivo: {(c,b)todas las habitaciones colocadas}}
+						{(pf)Función de coste.}
+						<aside class="notes">
+							<small><p>acciones posibles - movimientos</p></small>
+							<small><p>busqueda no informada, porque no tenemos una medida
+							de cuanto nos falta, sino de como vamos</p></small>
+							<small><p>Discreto: espacio de estados bien definido y finito</p></small>
+							<small><p>Accesible: agente puede determinar estado en q se encuentra</p></small>
+							<small><p>Estático: tiempo no influye en el problema</p></small>
+							<small><p>Observable: agente debe conocer variables que influyen</p></small>
+							<small><p>Determinista: estado cambia solo con acciones agente</p></small>
+						</aside>
 					</section>
 
 					<section id="fragments">
 						<h3>Estrategia básica</h3>
-						<p class='fragment'>Se basa en dar una puntuación a cada movimiento</p>
-						<p class='fragment'>Se elegirá el movimiento que tenga una mejor puntuación</p>
-						<p class='fragment'>Para computar la puntuación, empleamos la interfaz <b><span class='concepto'>IFitnessSolver</span></b> con el fin de abstraer
-						dicho cómputo</p>
+						{(pf)Asignar una {(c,b)puntuación} a cada movimiento ({(c,b)fitness})}
+						{(pf)Elegiremos {(c,b)movimiento} con {(c,b)mejor puntuación}}
+						{(pf){(c,b)Delegamos el cómputo del fitness} a una interfaz}
 						<pre class="fragment"><code data-trim>
 interface IFitnessSolver {
-    float FuncionGuia( Mapa mapa, Movimiento m );
+    float ComputarFitness( Mapa mapa, Movimiento m );
 }
 
-class BestSearchMovementSelector implements IMovementSelector {
+class SearchMovementSelector implements IMovementSelector {
     IFitnessSolver fitnessSolver;
     Movimiento ElegirMovimiento( Mapa mapa, List&lt;Movimiento&gt; movimientos ) {
-        List&lt;Float&gt; fitnesses;
+        List&lt;Float&gt; fitness;
         for( Movimiento m : movimientos ) {
-            fitnesses[m.index] = fitnessSolver.FuncionGuia( mapa, m );
+            fitness[m.index] = fitnessSolver.ComputarFitness( mapa, m );
         }
-        Movimiento elegido = ObtenerMejor( movimientos, fitnesses );
+        Movimiento elegido = ObtenerMejor( movimientos, fitness );
         return elegido;
     }
 }
@@ -435,64 +448,96 @@ class BestSearchMovementSelector implements IMovementSelector {
 					</section>
 
 					<section id="fragments">
-						<h3>Función de guía</h3>
-						<p class="fragment">La elección del movimiento entre todos los posibles, se realizará basándonos en una <span class='concepto'><i><b>función de guía</b></i></span></p>
-						<p class='fragment'>Dicha <span class='concepto'><b>función de guía</b>, computará un valor asociado al <b>movimiento</b> basándonos en varios <b>objetivos</b></span> que definiremos
-						más adelante</p>
-						<p class='fragment'>Algunos ejemplos de objetivos son:</p>
-						<ul>
-							<li class='fragment'>Tamaño del camino principal</li>
-							<li class='fragment'>Habitaciones <i>empleadas</i> en caminos no-principales</li>
-							<li class='fragment'>Número de bifurcaciones</li>
-						</ul>
+						<h3>Árbol de búsqueda</h3>
+						{(pf)Generado implícitamente}
+						<center class="fragment">
+							<p><img width="450" src="./arbolbusq.png" /></p>
+						</center>
+						<aside class="notes">
+							<p>Evitar que se puedan quitar habitaciones elimina complejidad
+							tanto {(b)al generador} como {(b)en memoria} y {(b)tiempo de ejec.}</p>
+							<p>Impide backtracking, pero al final veremos posible mejora</p>
+							<p>Siendo prácticos, no merece la pena el backtracking</p>
+						</aside>
 					</section>
 
 					<section id="fragments">
-						<h3>Fitness múltiple</h3>
-						<p class='fragment'>Implementaremos la interfaz <b><span class='concepto'>IFitnessSolver</span></b> para conseguir este objetivo</p>
-						<p class='fragment'>Usaremos otra interfaz <b><span class='concepto'>IFitnessCombinator</span></b> para unir todos los posibles fitnesses en uno</p>
+						<h3>Múltiples objetivos</h3>
+						<ul>
+							{(lif)Tamaño del {(c,b)camino principal}}
+							{(lif)Habitaciones empleadas en {(c,b)caminos no-principales}}
+							{(lif)Cantidad de {(c,b)bifurcaciones}}
+						</ul>
+						<aside class="notes">
+							<p>Tamaño principal con floyd warshall.</p>
+							<p>Seleccionamos par de habitaciones cuyo camino mínimo sea el máximo entre todos los posibles pares de habitaciones</p>
+							<p>Cuello de botella. Intento fallido con dijkstra</p>
+							<p>Resto con floodfill</p>
+						</aside>
+					</section>
+
+					<section id="fragments">
+						<h3>Fitness basado en múltiples objetivos</h3>
+						{(pf)Implementamos la interfaz {(c,b)IFitnessSolver}}
+						{(pf)Adición de interfaz para {(c,b)combinar} todos los {(c,b)objetivos}}
 						<pre class="fragment"><code data-trim>
 interface IFitnessCombinator {
     float Combinar( float[] fitnesses );
 }
 
-class MultiFitnessSolver implements IFitnessSolver {
+class MultiObjectiveFitnessSolver implements IFitnessSolver {
     IFitnessCombinator fitnessCombinator;
-    float FuncionGuia( Mapa mapa, Movimiento m ) {
-        float fitnesses = new float[3];
-        fitnesses[0] = ComputarPropiedad0( mapa, m );
-        fitnesses[1] = ComputarPropiedad1( mapa, m );
-        fitnesses[2] = ComputarPropiedad2( mapa, m );
-        fitnessCombinator.Combinar( fitnesses );
+    float ComputarFitness( Mapa mapa, Movimiento m ) {
+        float fitness = new float[3];
+        fitness[0] = ComputarObjetivo0( mapa, m );
+        fitness[1] = ComputarObjetivo1( mapa, m );
+        fitness[2] = ComputarObjetivo2( mapa, m );
+        fitnessCombinator.Combinar( fitness );
     }
 }
 						</code></pre>
+						<aside class="notes">
+							Como adaptamos multiples objetivos al sistema? así
+						</aside>
 					</section>
 
 					<section id="fragments">
-						<h3>Tipos de Fitness Combinator</h3>
-						<ul>
-							<li class="fragment"><b><span class='concepto'>Combinador parametrizado</span></b>. Calcula el fitness final como una
-							suma ponderada de cada una de los fitnesses.<br />
-							<center>
-							$ \sum_{f \in F} f * k(f)$<br />
-							$F = \text{conjunto de propiedades}$<br />
-							$k(f) = \text{ponderación de la propiedad f}$<br />
+						<h3>Tipos de combinadores de fitness</h3>
+						<p>
+						<h4 class="fragment">{(c)Combinador parametrizado}</h4>
+							<center class="fragment">
+								$ \sum_{f \in F} f \cdot k_f$<br />
+								$F = \text{conjunto de objetivos}$<br />
+								$k_f = \text{ponderación de objetivo f}$<br />
+							</center>
+							</p>
+							<p><h4 class="fragment">{(c)Combinador parametrizado adaptativo}</h4>
+						<center class="fragment">
+								Notificamos con último movimiento elegido<br />
+								$O_b$ = objetivo con mejor puntuación<br />
+								$O_r = F - {O_b}$<br />
+								$O_b = O_b \cdot decay, 0 \lt decay \lt 1$<br />
+								$\forall o \in O_b, o = o \cdot attack, 1 \lt attack \lt \infty$
+							</center>
+							</p>
+					</section>
+
+					<section id="fragments">
+						<h3>Fitness Caché</h3>
+						{(pf){(c,b)Cómputo de fitness} es el {(c,b)cuello de botella} del sistema}
+						{(pf)Se ha ideado una {(c,b)caché} que {(c,b)evita computar todos los fitness} en cada paso}
+						{(pf){(c,b)Sacrifica calidad} del algoritmo pero {(c,b)es posible controlar} el impacto}
+						<center class="fragment">
+							<p><img src="./fallocache.png" /></p>
+							<p><small>Ejemplo de fallo de caché con objetivo de bifurcaciones</small></p>
 						</center>
-							</li>
-							<li class="fragment"><b><span class='concepto'>Combinador parametrizado adaptativo</span></b>. Funciona igual que el
-							combinador parametrizado, con la diferencia de que el parámetro asociado al mejor fitness
-							se disminuye en un factor, y el resto se aumenta en otro factor.</li>
-						</ul>
 					</section>
 
 					<section id="fragments">
-						<h3>Fitness Caché (I)</h3>
-						<p class='fragment'>El cómputo del fitness es uno de los bottlenecks del sistema</p>
-						<p class='fragment'>Por ello se ha ideado una interfaz para evitar computar todos los fitnesses en cada
-						paso del algoritmo</p>
-						<p class='fragment'>Esto sacrifica la calidad del algoritmo, pero es posible controlarlo para que el
-						impacto no sea notable</p>
+						<h3>Flujo con caché</h3>
+						<center class="fragment">
+							<p><img height="500" src="./fitnesscacheflow.png" /></p>
+						</center>
 					</section>
 
 					<section id="fragments">
@@ -502,20 +547,22 @@ interface IFitnessCache {
     Fitness Get( Movimiento m );
     void Cachear( Movimiento m, float fitness );
 }
-class BestSearchMovementSelector implements IMovementSelector {
+class SearchMovementSelector implements IMovementSelector {
     IFitnessSolver fitnessSolver;
     IFitnessCache fitnessCache;
     Movimiento ElegirMovimiento( Mapa mapa, List&lt;Movimiento&gt; movimientos ) {
-        List&lt;Float&gt; fitnesses;
+        List&lt;Float&gt; fitness;
         for( Movimiento m : movimientos ) {
             Fitness f = fitnessCache.Get(m);
             if( f != null ) {
-                fitnesses[m.index] = fitnessSolver.FuncionGuia( mapa, m );
-                fitnessCache.Cachear( m, fitnesses[m.index] );
+                fitness[m.index] = fitnessSolver.ComputarFitness( mapa, m );
+                fitnessCache.Cachear( m, fitness[m.index] );
             } else {
-                fitnesses[m.index] = f;
+                fitness[m.index] = f;
             }
         }
+        Movimiento elegido = ObtenerMejor( movimientos, fitness );
+        return elegido;
     }
 }
 						</code></pre>
@@ -523,133 +570,18 @@ class BestSearchMovementSelector implements IMovementSelector {
 
 					<section id="fragments">
 						<h3>Tipos de caché</h3>
-						<p class='fragment'>Se han creado 3 tipos de caché:</p>
+						{(pf)Se han creado 3 tipos de caché:}
 						<ul>
-							<li class='fragment'><b><span class='concepto'>NoCaché</span></b>. Por defecto. No cachea nunca.</li>
-							<li class='fragment'><b><span class='concepto'>AlwaysCaché</span></b>. Se cachea siempre.</li>
-							<li class='fragment'><b><span class='concepto'>Refresher</span></b>. Se vacía la caché cada N habitaciones colocadas</li>
+							{(lif){(c,b)NoCaché}. Por defecto. No cachea nunca.}
+							{(lif){(c,b)AlwaysCaché}. Se cachea siempre.}
+							{(lif){(c,b)Refresher}. Se vacía la caché cada N habitaciones colocadas}
 						</ul>
-						<p class='fragment'>Además, gracias a que se implementan con una interfaz, es posible idear otros tipos distintos.</p>
-					</section>
-
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Correspondencia con problema de búsqueda</h2>
+						{(pf)Además, gracias a que se implementan con una interfaz, es posible idear otros tipos distintos.}
 					</section>
 
 					<section id="fragments">
-						<h3>Método de búsqueda</h3>
-						<p class='fragment'>Método para la <b><span class='concepto'>resolución de problemas</span></b></p>
-						<p class='fragment'><b><span class='concepto'>Espacio de soluciones</span></b> definido</p>
-						<p class='fragment'>Encontrar una solución en el espacio de soluciones
-						que satisfaga el enunciado del problema <b><span class='concepto'>de forma guiada</span></b>
-						partiendo de una solución o estado inicial</p>
-						<p class='fragment'>Para explorar el espacio de búsqueda, tenemos que definir las
-						posibles <span class='concepto'> <b>acciones</b> que se podrán realizar sobre los estados</span> </p>
-						<p class='fragment'>Se analizará el problema de búsqueda desde el punto de vista
-						de un <b><span class='concepto'>agente</span></b></p>
-					</section>
-
-					<section id="fragments">
-						<h3>Modelización del problema (I)</h3>
-						<p class='fragment'>Ayuda a la abstracción y reducción de complejidad</p>
-						<p class='fragment'>La adecuación del modelo del problema influirá en la calidad
-						de la solución encontrada</p>
-						<p class='fragment'>La solución corresponde al modelo del problema y no al
-						problema real</p>
-					</section>
-
-					<section id="fragments">
-						<h3>Modelización del problema (II)</h3>
-						<p class='fragment'>En nuestro caso:</p>
-						<ul>
-							<li class='fragment'>El problema real, a grandes rasgos, consiste en
-							generar un escenario para un juego en 2D con las
-							restricciones que se comentaron al principio</li>
-							<li class='fragment'>El modelo del problema es la estructura de datos
-							que analizamos anteriormente:</li>
-							<ul>
-								<li class='fragment'>Lista de habitaciones por colocar</li>
-								<li class='fragment'>Lista de habitaciones colocadas</li>
-								<li class='fragment'>Mapa de tiles con las habitaciones colocadas</li>
-							</ul>
-						</ul>
-					</section>
-
-					<section id="fragments">
-						<h3>Búsqueda informada</h3>
-						<p class='fragment'>Consiste en realizar la búsqueda conociendo aspectos del
-						problema para guiarnos hacia la solución</p>
-						<p class='fragment'>En nuestro caso, contamos con búsqueda informada gracias
-						a los fitnesses que usamos para guiar la generación</p>
-					</section>
-
-					<section id="fragments">
-						<h3>Características de problemas resolubles mediante búsqueda</h3>
-						<p class='fragment'>Para que un problema pueda resolverse mediante búsqueda,
-						necesita cumplir distintas propiedades:</p>
-						<ul>
-							<li class='fragment'><b><span class='concepto'>Discreto.</span></b> Espacio de estados bien definido y finito</li>
-							<li class='fragment'><b><span class='concepto'>Accesible.</span></b> El agente debe poder determinar en qué estado
-							se encuentra en cada momento, así como el estado que debe
-							alcanzar</li>
-							<li class='fragment'><b><span class='concepto'>Estático.</span></b> Las variables que influyen en el problema, no
-							deben cambiar en el tiempo</li>
-							<li class='fragment'><b><span class='concepto'>Observable.</span></b> El agente debe conocer las variables que
-							influyen en el modelo del problema</li>
-							<li class='fragment'><b><span class='concepto'>Determinista.</span></b> El estado cambiará sola y exclusivamente
-							a consecuencia de las acciones permitidas que ejecute el agente</li>
-						</ul>
-					</section>
-
-					<section id="fragments">
-						<h3>Elementos de un problema de búsqueda</h3>
-						<p class='fragment'>Los elementos necesarios a definir en un problema de búsqueda junto
-						con su identificación en nuestro problema son:</p>
-						<ul>
-							<li class='fragment'><b><span class='concepto'>Modelo del problema</span></b></li>
-							<li class='fragment'><b><span class='concepto'>Espacio de estados.</span></b> Todas las posibles combinaciones de
-							habitaciones según la lista inicial.</li>
-							<li class='fragment'><b><span class='concepto'>Estado inicial.</span></b> Todas las habitaciones sin colocar</li>
-							<li class='fragment'><b><span class='concepto'>Función sucesor.</span></b> Colocar una solución de la lista inicial
-							en el mapa (un <span class='concepto'>movimiento</span></li>
-							<li class='fragment'><b><span class='concepto'>Función objetivo.</span></b> En nuestro caso identificamos dos tipos:</li>
-							<ul>
-								<li class='fragment'>Comprobar que todas las habitaciones están colocadas</li>
-								<li class='fragment'>Función de fitness para guiar la búsqueda</li>
-							</ul>
-						</ul>
-					</section>
-
-					<section id="fragments">
-						<h3>Multimodalidad</h3>
-						<p class='fragment'>Consiste en la adición de varios objetivos a la búsqueda</p>
-						<p class='fragment'>En nuestro caso:</p>
-						<ul>
-							<li class='fragment'>Todas las habitaciones están colocadas</li>
-							<li class='fragment'>Guía con cómputo de fitnesses</li>
-						</ul>
-						<p class='fragment'>Normalmente, añade dificultad extra a la resolución del problema</p>
-						<p class='fragment'>Por ello, construimos las interfaces IFitnessSolver e IFitnessCombinator</p>
-						<p class='fragment'>Así, añadimos flexibilidad a la forma de calcular los distintos sub-objetivos</p>
-					</section>
-
-					<section id="fragments">
-						<h3>Árbol de búsqueda</h3>
-						<p class='fragment'>Generado implícitamente cuando se realiza la búsqueda</p>
-						<center class="fragment">
-							<p><img width="450" src="./arbolbusq.png" /></p>
-						</center>
-					</section>
-
-					<section id="fragments">
-						<h3>Posibilidad de backtracking</h3>
-						<p class='fragment'>Según nuestro modelo actual, <b><span class='concepto'>no se permite backtracking</span></b></p>
-						<p class='fragment'>Está diseñado de forma que no se pueden quitar habitaciones</p>
-						<p class='fragment'>De todas formas, gracias al <b><span class='concepto'>guardado de movimientos</span></b>, sería posible
-						implementar backtracking</p>
+						<h3>Resumen de diseño</h3>
+						<img width="1400" src='./classdiagram.png' />
 					</section>
 
 				</section>
@@ -660,65 +592,44 @@ class BestSearchMovementSelector implements IMovementSelector {
 					</section>
 
 					<section id="fragments">
-						<h3>Motivación</h3>
-						<p class='fragment'>A continuación, se presentarán una serie de interfaces extra que nos permitirán:</p>
-						<ul>
-							<li class='fragment'>Agilizar el tiempo de ejecución</li>
-							<li class='fragment'>Fomentar la variabilidad</li>
-							<li class='fragment'>Controlar la selección de habitaciones</li>
-						</ul>
-						<p class='fragment'>Al ser interfaces, se pueden añadir variaciones en un futuro</p>
-					</section>
-
-					<section id="fragments">
 						<h3>Gestor de instancias por prefab</h3>
-						<p class='fragment'>Sabemos que de cada prefab puede haber varias instancias</p>
-						<p class='fragment'>Podemos tener en cuenta los prefabs en lugar de las instancias a la hora
-						de computar los movimientos</p>
-						<p class='fragment'>El número de habitaciones a tener en cuenta a la hora de computar los movimientos pasará
-						a ser el del numero de prefabs, en lugar del número de instancias, que será menor</p>
-						<p class='fragment'>Con esto, conseguimos agilizar el cómputo de movimientos</p>
+						{(pf){(c,b)1 prefab - N instancias}}
+						{(pf)En {(c,b)cómputo de posibles movimientos}, comprobamos {(c,b)1 instancia por modelo}}
+						{(pf){(c,b)Instancias a comprobar = número de prefabs}}
+						{(pf)Conseguimos {(c,b)agilizar el sistema}}
 					</section>
 
 					<section id="fragments">
 						<h3>Selector de prefabs</h3>
-						<p class='fragment'>Tener un <span class='concepto'><b>control</b> sobre el <b>tipo de habitaciones que se elige en cada paso</b> de ejecución del sistema</span></p>
-						<p class='fragment'>Se ha creado una interfaz que interviene en este procedimiento</p>
-						<p class='fragment'>De esta forma, podemos inventar formas de elegir los prefabs</p>
-					</section>
-					<section id="fragments">
-						<h3>Tipos de selectores de prefab</h3>
-						<p class='fragment'>Se han implementado los siguientes tipos:</p>
+						{(pf)Tener {(c,b)control} sobre {(c,b)tipo de habitacion elegida} en cada paso}
 						<table class="fragment">
 							<thead>
 								<tr>
-									<td align="center" valign="center"><h4><b><span class='concepto'>Nombre</span></b></h4></td>
-									<td align="center" valign="center"><h4><b><span class='concepto'>Descripción</span></b></h4></td>
+									<td align="center" valign="center"><h4>{(c,b)Nombre}</h4></td>
+									<td align="center" valign="center"><h4>{(c,b)Descripción}</h4></td>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
 									<td align="center" valign="center">Dummy</td>
-									<td align="center" valign="center">No interviene en la selección de prefab, por lo que será el que se usará
-										por defecto</td>
+									<td align="center" valign="center">No interviene en la selección de prefab</td>
 								</tr>
 								<tr>
-									<td align="center" valign="center">Probability</td>
-									<td align="center" valign="center">Proveemos una probabilidad a cada prefab de que se elija una instancia del mismo,
-										dándonos la habilidad de favorecer a algunos con respecto a otros</td>
+									<td align="center" valign="center">Probabilidad</td>
+									<td align="center" valign="center">Probabilidad de que se elija cada prefab</td>
 								</tr>
 								<tr>
-									<td align="center" valign="center">Cycle</td>
-									<td align="center" valign="center">Alterna entre instancias de todos los prefabs existentes, eligiendo
-										una en cada paso del sistema</td>
+									<td align="center" valign="center">Ciclo</td>
+									<td align="center" valign="center">Alterna entre prefabs</td>
 								</tr>
 							</tbody>
 						</table>
 					</section>
 
 					<section id="fragments">
-						<h3>BestSearch DPE Divisor</h3>
-						<p class='fragment'>Elige un porcentaje de todos los movimientos posibles</p>
+						<h3>Divisor de movimientos</h3>
+						{(pf)Elige un {(c,b)subconjunto} entre todos los movimientos posibles}
+						{(pf)Basado en {(c,b)porcentaje}}
 					</section>
 
 				</section>
@@ -730,9 +641,9 @@ class BestSearchMovementSelector implements IMovementSelector {
 
 					<section id="fragments">
 						<h3>Parametrización</h3>
-						<p class='fragment'>Una vez construido el sistema, es necesario configurar el generador con distintos parámetros</p>
-						<p class='fragment'>De esta forma, el desarrollador podrá adaptar los mapas generados a sus preferencias según el juego
-						que vaya a construir</p>
+						{(pf)Una vez construido el sistema, es necesario configurar el generador con distintos parámetros}
+						{(pf)De esta forma, el desarrollador podrá adaptar los mapas generados a sus preferencias según el juego
+						que vaya a construir}
 					</section>
 
 
@@ -973,28 +884,23 @@ class BestSearchMovementSelector implements IMovementSelector {
 					</section>
 
 					<section id="fragments">
-						<h3>Selección de puertas</h3>
-					</section>
-
-					<section id="fragments">
-						<h3>Fitness caché</h3>
-						<p class='fragment'>Configurable con parámetro fijo</p>
-						<p class='fragment'>Configurable con parámetro variable</p>
-						<p class='fragment'>Configurable con intervalo</p>
+						<h3>Más tipos de caché</h3>
+						{(pf)Cachear {(c,b)cada N movimientos}
+						{(pf)Cachear con {(c,b)probabilidad}}
 					</section>
 
 					<section id="fragments">
 						<h3>Selección de puertas</h3>
-						<p class='fragment'>Permitir al desarrollador elegir qué puertas se pueden elegir</p>
+						{(pf){(c,b)Permitir} al desarrollador {(c,b)elegir un subconjunto de puertas} entre todas las posibles}
 					</section>
 
 					<section id="fragments">
 						<h3>Backtracking (I)</h3>
-						<p class='fragment'>El diseño actual del sistema no contempla backtracking, pero guarda la información necesaria para reconstruir un mapa</p>
-						<p class='fragment'>Guardando el estado del mapa generado en cualquier momento de la ejecución del sistema, podemos
-						reanudarlo posteriormente a conveniencia</p>
-						<p class='fragment'>Para fomentar que la generación es distinta y que efectivamente se realice un camino distinto, se podría forzar
-						a elegir una posición con una distancia mínima a la elegida en la versión anterior</p>
+						{(pf)Según nuestro modelo actual, {(c,b)no se permite backtracking}}
+						{(pf){(c,b)Guardamos} la {(c,b)lista de movimientos}, el cual {(c,b)representa un estado concreto} del sistema}
+						{(pf)Esto permite {(c,b)reanudar la búsqueda} cuando sea conveniente}
+						{(pf)Para fomentar que el camino sea distinto, se puede {(c,b)forzar a elegir una posición} con una {(c,b)distancia mínima}
+						a la elegida anteriormente}
 					</section>
 
 					<section id="fragments">
@@ -1004,31 +910,6 @@ class BestSearchMovementSelector implements IMovementSelector {
 						</center>
 					</section>
 
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Intento con CSP</h2>
-					</section>
-
-					<section id="fragments">
-						<h3>Answer Set Programming</h3>
-						<p class="fragment">Forma de programación declarativa que pretende resolver problemas de búsqueda (principalmente NP-hard)</p>
-						<p class="fragment">Guarda similitud con programación lógica</p>
-						<p class="fragment">Intentamos modelar nuestro problema a partir de restricciones</p>
-						<aside class="notes">
-							<p>NP = no-determinista, tiempo polinomial</p>
-							<p>NP-hard = at least as hard as the hardest problems in NP</p>
-						</aside>
-					</section>
-
-					<section id="fragments">
-						<h3>Problemas de este acercamiento</h3>
-						<ul>
-							<li class="fragment">Complejo traslado al ámbito móvil</li>
-							<li class="fragment">Tiempo de ejecución demasiado largo</li>
-						</ul>
-					</section>
 				</section>
 
 			</div>
