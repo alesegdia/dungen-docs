@@ -60,9 +60,7 @@
 
 					<section id="fragments">
 						<h3>Videojuegos</h3>
-						<h4 class="fragment">¿Qué?</h4>
-						<p class="fragment">Aplicaciones software dedicados al <b><span class='concepto'>entretenimiento</span></b></p>
-						<h4 class="fragment">¿Por qué?</h4>
+						<p class="fragment"><b><span class='concepto'>Software</span></b> de <b><span class='concepto'>entretenimiento</span></b></p>
 						<p class="fragment"><b><span class='concepto'>Mercado lider</span></b> indiscutible a <b><span class='concepto'>nivel internacional</span></b></p>
 						<p class="fragment">La industria cinematográfica deja paso a la industria del videojuego</p>
 						<aside class="notes">
@@ -75,7 +73,7 @@
 					<section id="fragments">
 						<h3>Problema</h3>
 						<p class="fragment">Videojuegos requieren <span class='concepto'><b>mapas</b></span></p> 
-						<p class="fragment"><span class='concepto'><b>Creación de mapas</b> consumen <b>recursos</b> horas/persona</span></p>
+						<p class="fragment"><b><span class='concepto'>Consumo de recursos</span></b> (horas/persona)</p>
 						<table class="fragment">
 							<tr>
 								<td valign="center">
@@ -110,8 +108,8 @@
 
 					<section id="fragments">
 						<h3>Coordinación</h3>
-						<p class="fragment">Cada juego tiene sus propias <span class="concepto">reglas del mundo</span></p>
-						<p class='fragment'>El sistema <b><span class='concepto'>debe adaptarse</span></b> a dichas <b><span class='concepto'>reglas</span></b></p>
+						<p class="fragment">Cada juego tiene sus <b><span class='concepto'>reglas</span></b> y <b><span class='concepto'>mecánicas</span></b></p>
+						<p class='fragment'>El sistema <b><span class='concepto'>generador</span></b> debe estar <b><span class='concepto'>adaptado</span></b></p>
 						<p class="fragment">Especificaciones de este proyecto han sido impuestas por</p>
 						<a href="http://thegamekitchen.com/"><img class="fragment" src="./tgk-header-logo.gif" /></a>
 					</section>
@@ -119,10 +117,10 @@
 					<section id="fragments">
 						<h3>Definición del tipo de juego</h3>
 						<ul>
-							<li class='fragment'><span class='concepto'>Dos dimensiones</span></li>
-							<li class='fragment'>El jugador <span class='concepto'>comienza en una habitación</span> y tiene como <b><span class='concepto'>objetivo</span></b><span class='concepto'> llegar a una habitación considerada final</span></li>
-							<li class='fragment'><span class='concepto'>Mapa de <b>tiles</b></span></li>
-							<li class="fragment">Vista cenital</li>
+							<li class='fragment'>Mapas de <b><span class='concepto'>tiles</span></b> en <b><span class='concepto'>2D</span></b></li>
+							<li class='fragment'>El jugador <b><span class='concepto'>comienza en una habitación</span></b></li>
+							<li class='fragment'>Objetivo: <b><span class='concepto'>llegar</span></b> a una <b><span class='concepto'>habitación</span></b> considerada como <b><span class='concepto'>final</span></b></li>
+							<li class="fragment">Vista <b><span class='concepto'>cenital</span></b></li>
 							<center class="fragment">
 								<p><img src="./cenital.png" /></p>
 								<p><small>Captura de Action Hollywood, publicado por TCH en 1995 para recreativas</small></p>
@@ -140,23 +138,31 @@
 					<section id="fragments">
 						<h2>Especificaciones para la generación (I)</h2>
 						<ul>
-							<li class='fragment'>Partir de una <span class='concepto'>lista de <b>habitaciones previamente creadas</b></span></li>
-							<li class='fragment'><span class='concepto'><b>Maximizar</b> el <b>camino</b> desde la habitación <b>de inicio hasta final</b></span></li>
+							<li class='fragment'>Partir de una <b><span class='concepto'>lista de habitaciones previamente creadas</span></b></li>
+							<li class='fragment'><b><span class='concepto'>Maximizar</span></b> el <b><span class='concepto'>camino</span></b> desde la habitación de <b><span class='concepto'>inicio</span></b> hasta la <b><span class='concepto'>final</span></b></li>
 							<li class='fragment'>Fomentar <b><span class='concepto'>caminos alternativos</span></b></li>
-							<li class='fragment'>Fomentar la <span class='concepto'><b>variabilidad</b> en los niveles generados</span></li>
+							<li class='fragment'>Fomentar la <span class='concepto'><b>variabilidad</b></span> en los niveles generados</li>
 						</ul>
+						<aside class="notes">
+							variabilidad: cada partida es una experiencia distinta
+						</aside>
 					</section>
 
 					<section id="fragments">
 						<h2>Especificaciones para la generación (II)</h2>
 						<ul>
-							<li class="fragment">Mapa generado en inicio de partida</li>
-							<li class="fragment">No importa habitaciones inicial y final</li>
-							<li class="fragment">Debe funcionar en sistemas móviles</li>
+							<li class="fragment">Mapa <b><span class='concepto'>generado al inicio</span></b> de la partida</li>
+							<li class="fragment"><b><span class='concepto'>No importa habitaciones inicial y final</span></b></li>
+							<li class="fragment">Debe funcionar en <b><span class='concepto'>sistemas móviles modernos</span></b></li>
 							<li class="fragment">No hay restricción fuerte del tamaño del mapa</li>
 						</ul>
 						<p class="fragment">
 						<aside class="notes">
+							<p>
+								No implementado la versión móvil, considerado que tiempos de menos de un segundo
+								en mi PC que es un viejo dual core, suficiente como para esperar que tarde un tiempo prudente un teléfono
+								moderno. Aún así, se han considerado tiempos buenos hasta 2 segundos.
+							</p>
 							<p>
 								En la versión final, nos hemos tomado la libertad de añadir nuevas especificaciones, dejando un
 								sistema flexible para adición de especificaciones extra.
@@ -466,8 +472,8 @@ class SearchMovementSelector implements IMovementSelector {
 						<h3>Múltiples objetivos</h3>
 						<ul>
 							<li class='fragment'>Tamaño del <b><span class='concepto'>camino principal</span></b></li>
-							<li class='fragment'>Habitaciones empleadas en <b><span class='concepto'>caminos no-principales</span></b></li>
-							<li class='fragment'>Cantidad de <b><span class='concepto'>bifurcaciones</span></b></li>
+							<li class='fragment'><b><span class='concepto'>Caminos no-principales</span></b></li>
+							<li class='fragment'>Cantidad de <b><span class='concepto'>bifurcaciones</span></b> (extra)</li>
 						</ul>
 						<aside class="notes">
 							<p>Tamaño principal con floyd warshall.</p>
@@ -517,10 +523,13 @@ class MultiObjectiveFitnessSolver implements IFitnessSolver {
 								Notificamos con último movimiento elegido<br />
 								$O_b$ = objetivo con mejor puntuación<br />
 								$O_r = F - {O_b}$<br />
-								$O_b = O_b \cdot decay, 0 \lt decay \lt 1$<br />
-								$\forall o \in O_b, o = o \cdot attack, 1 \lt attack \lt \infty$
+								$k_b = k_b \cdot decay, 0 \lt decay \lt 1$<br />
+								$\forall O_i \in O_r, k_i = k_i \cdot attack, 1 \lt attack \lt \infty$
 							</center>
 							</p>
+							<aside class="notes">
+								adaptativo parametrizado da resultados buenos experimentalmente
+							</aside>
 					</section>
 
 					<section id="fragments">

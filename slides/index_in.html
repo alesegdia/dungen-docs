@@ -60,9 +60,7 @@
 
 					<section id="fragments">
 						<h3>Videojuegos</h3>
-						<h4 class="fragment">¿Qué?</h4>
-						<p class="fragment">Aplicaciones software dedicados al {(c,b)entretenimiento}</p>
-						<h4 class="fragment">¿Por qué?</h4>
+						<p class="fragment">{(c,b)Software} de {(c,b)entretenimiento}</p>
 						<p class="fragment">{(c,b)Mercado lider} indiscutible a {(c,b)nivel internacional}</p>
 						<p class="fragment">La industria cinematográfica deja paso a la industria del videojuego</p>
 						<aside class="notes">
@@ -75,7 +73,7 @@
 					<section id="fragments">
 						<h3>Problema</h3>
 						<p class="fragment">Videojuegos requieren {(c){(b)mapas}}</p> 
-						<p class="fragment">{(c){(b)Creación de mapas} consumen {(b)recursos} horas/persona}</p>
+						<p class="fragment">{(c,b)Consumo de recursos} (horas/persona)</p>
 						<table class="fragment">
 							<tr>
 								<td valign="center">
@@ -110,8 +108,8 @@
 
 					<section id="fragments">
 						<h3>Coordinación</h3>
-						<p class="fragment">Cada juego tiene sus propias <span class="concepto">reglas del mundo</span></p>
-						{(pf)El sistema {(c,b)debe adaptarse} a dichas {(c,b)reglas}}
+						<p class="fragment">Cada juego tiene sus {(c,b)reglas} y {(c,b)mecánicas}</p>
+						{(pf)El sistema {(c,b)generador} debe estar {(c,b)adaptado}}
 						<p class="fragment">Especificaciones de este proyecto han sido impuestas por</p>
 						<a href="http://thegamekitchen.com/"><img class="fragment" src="./tgk-header-logo.gif" /></a>
 					</section>
@@ -119,10 +117,10 @@
 					<section id="fragments">
 						<h3>Definición del tipo de juego</h3>
 						<ul>
-							{(lif){(c)Dos dimensiones}}
-							{(lif)El jugador {(c)comienza en una habitación} y tiene como {(c,b)objetivo}{(c) llegar a una habitación considerada final}}
-							{(lif){(c)Mapa de {(b)tiles}}}
-							<li class="fragment">Vista cenital</li>
+							{(lif)Mapas de {(c,b)tiles} en {(c,b)2D}}
+							{(lif)El jugador {(c,b)comienza en una habitación}}
+							{(lif)Objetivo: {(c,b)llegar} a una {(c,b)habitación} considerada como {(c,b)final}}
+							<li class="fragment">Vista {(c,b)cenital}</li>
 							<center class="fragment">
 								<p><img src="./cenital.png" /></p>
 								<p><small>Captura de Action Hollywood, publicado por TCH en 1995 para recreativas</small></p>
@@ -140,23 +138,31 @@
 					<section id="fragments">
 						<h2>Especificaciones para la generación (I)</h2>
 						<ul>
-							{(lif)Partir de una {(c)lista de {(b)habitaciones previamente creadas}}}
-							{(lif){(c){(b)Maximizar} el {(b)camino} desde la habitación {(b)de inicio hasta final}}}
+							{(lif)Partir de una {(c,b)lista de habitaciones previamente creadas}}
+							{(lif){(c,b)Maximizar} el {(c,b)camino} desde la habitación de {(c,b)inicio} hasta la {(c,b)final}}
 							{(lif)Fomentar {(c,b)caminos alternativos}}
-							{(lif)Fomentar la {(c){(b)variabilidad} en los niveles generados}}
+							{(lif)Fomentar la {(c){(b)variabilidad}} en los niveles generados}
 						</ul>
+						<aside class="notes">
+							variabilidad: cada partida es una experiencia distinta
+						</aside>
 					</section>
 
 					<section id="fragments">
 						<h2>Especificaciones para la generación (II)</h2>
 						<ul>
-							<li class="fragment">Mapa generado en inicio de partida</li>
-							<li class="fragment">No importa habitaciones inicial y final</li>
-							<li class="fragment">Debe funcionar en sistemas móviles</li>
+							<li class="fragment">Mapa {(c,b)generado al inicio} de la partida</li>
+							<li class="fragment">{(c,b)No importa habitaciones inicial y final}</li>
+							<li class="fragment">Debe funcionar en {(c,b)sistemas móviles modernos}</li>
 							<li class="fragment">No hay restricción fuerte del tamaño del mapa</li>
 						</ul>
 						<p class="fragment">
 						<aside class="notes">
+							<p>
+								No implementado la versión móvil, considerado que tiempos de menos de un segundo
+								en mi PC que es un viejo dual core, suficiente como para esperar que tarde un tiempo prudente un teléfono
+								moderno. Aún así, se han considerado tiempos buenos hasta 2 segundos.
+							</p>
 							<p>
 								En la versión final, nos hemos tomado la libertad de añadir nuevas especificaciones, dejando un
 								sistema flexible para adición de especificaciones extra.
@@ -466,8 +472,8 @@ class SearchMovementSelector implements IMovementSelector {
 						<h3>Múltiples objetivos</h3>
 						<ul>
 							{(lif)Tamaño del {(c,b)camino principal}}
-							{(lif)Habitaciones empleadas en {(c,b)caminos no-principales}}
-							{(lif)Cantidad de {(c,b)bifurcaciones}}
+							{(lif){(c,b)Caminos no-principales}}
+							{(lif)Cantidad de {(c,b)bifurcaciones} (extra)}
 						</ul>
 						<aside class="notes">
 							<p>Tamaño principal con floyd warshall.</p>
@@ -517,10 +523,13 @@ class MultiObjectiveFitnessSolver implements IFitnessSolver {
 								Notificamos con último movimiento elegido<br />
 								$O_b$ = objetivo con mejor puntuación<br />
 								$O_r = F - {O_b}$<br />
-								$O_b = O_b \cdot decay, 0 \lt decay \lt 1$<br />
-								$\forall o \in O_b, o = o \cdot attack, 1 \lt attack \lt \infty$
+								$k_b = k_b \cdot decay, 0 \lt decay \lt 1$<br />
+								$\forall O_i \in O_r, k_i = k_i \cdot attack, 1 \lt attack \lt \infty$
 							</center>
 							</p>
+							<aside class="notes">
+								adaptativo parametrizado da resultados buenos experimentalmente
+							</aside>
 					</section>
 
 					<section id="fragments">
